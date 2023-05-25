@@ -1,8 +1,7 @@
-export default function linearSearch(haystack: number[], needle: number): boolean {
-    for (var i = 0; i < haystack.length; i++) {
-        if (haystack[i] === needle)
+export default function linearSearch(arr: number[], value: number): boolean {
+    for (var i = 0; i < arr.length; i++)
+        if (arr[i] === value)
             return true;
-    }
     
     return false;
 }
