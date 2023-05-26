@@ -13,8 +13,7 @@ export default class Queue<T> {
         const node: QNode<T> = { value: item };
 
         if (!this.tail) {
-            this.head = node;
-            this.tail = node;
+            this.head = this.tail = node;
             return this.head.value;
         }
 

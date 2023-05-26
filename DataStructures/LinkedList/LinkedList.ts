@@ -5,15 +5,9 @@ type Node<T> = {
 }
 
 export default class LinkedList<T> {
-    public head?: Node<T>;
-    public tail?: Node<T>;
-    public length: number;
-
-    constructor() {
-        this.length = 0;
-        this.head = undefined;
-        this.tail = undefined;
-    }
+    public length: number = 0;
+    public head?: Node<T> = undefined;
+    public tail?: Node<T> = undefined;
 
     append(item: T): void {
         this.length++;
@@ -35,8 +29,7 @@ export default class LinkedList<T> {
         const node: Node<T> = { value: item };
 
         if (!this.head) {
-            this.head = node;
-            this.tail = node;
+            this.head = this.tail = node;
             return;
         }
 
@@ -46,16 +39,12 @@ export default class LinkedList<T> {
     }
 
     insertAt(index: number, item: T): void {
-        if (index > this.length) {
+        if (index > this.length)
             throw new Error("index is larger than list length");
-
-        } else if (index === this.length) {
-            this.append(item);
-            return;
-        } else if (index === 0) {
-            this.prepend(item);
-            return;
-        }
+        else if (index === this.length)
+            return this.append(item);
+        else if (index === 0)
+            return this.prepend(item);
 
         this.length++;
 
@@ -93,16 +82,13 @@ export default class LinkedList<T> {
         return this.removeNode(node);
     }
 
-    get(index: number): T | undefined {
-        return this.getAt(index)?.value;
-    }
+    get = (index: number): T | undefined => this.getAt(index)?.value;
 
     private removeNode(node: Node<T>): T | undefined {
         this.length--;
         if (this.length === 0) {
             const out = this.head?.value;
-            this.head = undefined;
-            this.tail = undefined;
+            this.head = this.tail = undefined;
             return out;
         }
 
