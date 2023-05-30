@@ -1,4 +1,4 @@
-import BinaryNode from "../../DataStructures/BinaryTree/BinaryTreeOrder";
+import BinaryNode from "../../DataStructures/BinaryTree/BinaryTree";
 import Queue from "../../DataStructures/Queue/Queue";
 
 export default function bfs<T>(tree: BinaryNode<T>, value: T): boolean {
@@ -8,7 +8,7 @@ export default function bfs<T>(tree: BinaryNode<T>, value: T): boolean {
 
     while (queue.length) {
         const node = queue.deque() as BinaryNode<T>;
-        
+
         if (!node)
             continue;
 

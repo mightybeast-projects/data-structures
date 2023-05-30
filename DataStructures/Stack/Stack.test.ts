@@ -1,6 +1,6 @@
 import Stack from "./Stack";
 
-test("test stack", () => {
+test("test", () => {
     const list = new Stack<number>();
 
     list.push(5);

@@ -1,6 +1,6 @@
 import LinkedList from "./LinkedList";
 
-test("linked list test", () => {
+test("linked list", () => {
     let list: LinkedList<number> = new LinkedList<number>();
 
     list.append(5);

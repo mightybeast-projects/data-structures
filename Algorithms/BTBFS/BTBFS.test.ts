@@ -1,5 +1,5 @@
 import bfs from "./BTBFS";
-import BinaryNode from "../../DataStructures/BinaryTree/BinaryTreeOrder";
+import BinaryNode from "../../DataStructures/BinaryTree/BinaryTree";
 
 const tree: BinaryNode<number> = {
     value: 20,

@@ -1,8 +1,8 @@
-import BinaryNode from "./BinaryTreeOrder";
+import BinaryNode from "./BinaryTree";
 
-import { BTPreOrder } from "./BinaryTreeOrder";
-import { BTInOrder } from "./BinaryTreeOrder";
-import { BTPostOrder } from "./BinaryTreeOrder";
+import { btPreOrderTraversal } from "./BinaryTree";
+import { btInOrderTraversal } from "./BinaryTree";
+import { btPostOrderTraversal } from "./BinaryTree";
 
 const tree: BinaryNode<number> = {
     value: 20,
@@ -46,8 +46,8 @@ const tree: BinaryNode<number> = {
     }
 };
 
-test("pre order test", function () {
-    expect(BTPreOrder(tree)).toEqual([
+test("pre order traversal", function () {
+    expect(btPreOrderTraversal(tree)).toEqual([
         20,
         10,
         5,
@@ -61,8 +61,8 @@ test("pre order test", function () {
     ]);
 });
 
-test("in order test", function () {
-    expect(BTInOrder(tree)).toEqual([
+test("in order traversal", function () {
+    expect(btInOrderTraversal(tree)).toEqual([
         5,
         7,
         10,
@@ -76,8 +76,8 @@ test("in order test", function () {
     ]);
 });
 
-test("post order test", function () {
-    expect(BTPostOrder(tree)).toEqual([
+test("post order traversal", function () {
+    expect(btPostOrderTraversal(tree)).toEqual([
         7,
         5,
         15,

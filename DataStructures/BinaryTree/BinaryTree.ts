@@ -4,13 +4,13 @@ export type BinaryNode<T> = {
     right: BinaryNode<T> | null;
 }
 
-export const BTPreOrder = <T>(tree: BinaryNode<T>): T[] =>
+export const btPreOrderTraversal = <T>(tree: BinaryNode<T>): T[] =>
     preOrderRecurse(tree, []);
 
-export const BTInOrder = <T>(tree: BinaryNode<T>): T[] =>
+export const btInOrderTraversal = <T>(tree: BinaryNode<T>): T[] =>
     inOrderRecurse(tree, []);
 
-export const BTPostOrder = <T>(tree: BinaryNode<T>): T[] =>
+export const btPostOrderTraversal = <T>(tree: BinaryNode<T>): T[] =>
     postOrderRecurse(tree, []);
 
 function preOrderRecurse<T>(node: BinaryNode<T> | null, result: T[]): T[] {

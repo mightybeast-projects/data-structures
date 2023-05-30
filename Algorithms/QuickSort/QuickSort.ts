@@ -1,14 +1,14 @@
 export default function quickSort(arr: number[]): void {
-    qs(arr, 0, arr.length - 1);
+    quickSortRecurse(arr, 0, arr.length - 1);
 }
 
-function qs(arr: number[], low: number, high: number): void {
+function quickSortRecurse(arr: number[], low: number, high: number): void {
     if (low >= high)
         return;
 
     const pivotIdx = partition(arr, low, high);
-    qs(arr, low, pivotIdx - 1);
-    qs(arr, pivotIdx + 1, high);
+    quickSortRecurse(arr, low, pivotIdx - 1);
+    quickSortRecurse(arr, pivotIdx + 1, high);
 }
 
 function partition(arr: number[], low: number, high: number): number {

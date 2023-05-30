@@ -26,7 +26,7 @@ export default class Queue<T> {
     deque(): T | undefined {
         if (!this.head)
             return undefined;
-        
+
         this.length--;
 
         const currHead = this.head;

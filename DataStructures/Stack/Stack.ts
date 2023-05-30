@@ -25,7 +25,7 @@ export default class Stack<T> {
             return undefined;
 
         this.length--;
-        
+
         const prevHead = this.head;
         this.head = this.head.prev;
         prevHead.prev = undefined;

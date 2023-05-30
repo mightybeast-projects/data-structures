@@ -27,7 +27,7 @@ function walk(maze: string[], wall: string, curr: Point, end: Point, seen: boole
         currIsAWall(maze, curr, wall) ||
         seen[curr.y][curr.x])
         return false;
-    
+
     if (curr.x === end.x && curr.y === end.y) {
         path.push(end);
         return true;
