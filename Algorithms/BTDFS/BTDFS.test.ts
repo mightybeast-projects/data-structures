@@ -1,5 +1,5 @@
 import dfs from "./BTDFS";
-import tree from "../../DataStructures/BinaryTree/Tree";
+import { tree } from "../../DataStructures/BinaryTree/Tree";
 
 test("dfs", () => {
     expect(dfs(tree, 45)).toEqual(true);

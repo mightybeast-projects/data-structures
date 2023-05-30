@@ -1,7 +1,7 @@
 import { btPreOrderTraversal } from "./BinaryTree";
 import { btInOrderTraversal } from "./BinaryTree";
 import { btPostOrderTraversal } from "./BinaryTree";
-import tree from "./Tree";
+import { tree } from "./Tree";
 
 test("pre order traversal", function () {
     expect(btPreOrderTraversal(tree)).toEqual([

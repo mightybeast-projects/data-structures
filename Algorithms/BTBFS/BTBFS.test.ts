@@ -1,4 +1,4 @@
-import tree from "../../DataStructures/BinaryTree/Tree";
+import { tree } from "../../DataStructures/BinaryTree/Tree";
 import bfs from "./BTBFS";
 
 test("bt bfs test", () => {
