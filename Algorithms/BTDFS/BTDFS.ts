@@ -10,7 +10,10 @@ function dfsRecurse<T>(node: BinaryNode<T> | null, value: T): boolean {
     if (node.value === value)
         return true;
     
-    return dfsRecurse(node.left, value) || dfsRecurse(node.right, value);
+    if (node.value < value)
+        return dfsRecurse(node.right, value);
+
+    return dfsRecurse(node.left, value);
 }
 
 export default dfs;
