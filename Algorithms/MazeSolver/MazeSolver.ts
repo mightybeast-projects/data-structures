@@ -10,7 +10,12 @@ const dir = [
     [0, 1]
 ]
 
-export default function solve(maze: string[], wall: string, start: Point, end: Point): Point[] {
+export default function solve(
+    maze: string[],
+    wall: string,
+    start: Point,
+    end: Point): Point[] {
+
     const seen: boolean[][] = [];
     const path: Point[] = [];
 
@@ -22,7 +27,14 @@ export default function solve(maze: string[], wall: string, start: Point, end: P
     return path;
 }
 
-function walk(maze: string[], wall: string, curr: Point, end: Point, seen: boolean[][], path: Point[]): boolean {
+function walk(
+    maze: string[],
+    wall: string,
+    curr: Point,
+    end: Point,
+    seen: boolean[][],
+    path: Point[]): boolean {
+        
     if (currIsOffTheMap(maze, curr) ||
         currIsAWall(maze, curr, wall) ||
         seen[curr.y][curr.x])

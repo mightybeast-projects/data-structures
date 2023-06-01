@@ -7,6 +7,7 @@ export const compare = <T>(
 function compareRecurse<T>(
     a: BinaryNode<T> | null,
     b: BinaryNode<T> | null): boolean {
+        
     if (a === b)
         return true;
     
