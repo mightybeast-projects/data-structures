@@ -1,7 +1,7 @@
 import { graphList } from "../../DataStructures/Graph/Graph";
 import dfs from "./GraphDFS";
 
-test("graph dfs", function () {
+test("graph dfs", () => {
     expect(dfs(graphList, 0, 6)).toEqual([
         0,
         1,

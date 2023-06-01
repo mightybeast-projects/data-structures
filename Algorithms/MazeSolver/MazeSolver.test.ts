@@ -1,7 +1,7 @@
 import { Point } from "./MazeSolver";
 import mazeSolver from "./MazeSolver";
 
-test("maze solver", function () {
+test("maze solver", () => {
     const maze = [
         "xxxxxxxxxx x",
         "x        x x",

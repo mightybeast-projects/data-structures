@@ -1,7 +1,7 @@
 import { graphMatrix } from "../../DataStructures/Graph/Graph";
 import bfs from "./GraphBFS";
 
-test("graph bfs", function () {
+test("graph bfs", () => {
     expect(bfs(graphMatrix, 0, 6)).toEqual([
         0,
         1,
