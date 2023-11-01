@@ -10,9 +10,9 @@ include_directories(googletest/include) # this is so we can #include <gtest/gtes
 
 add_executable(
     mytests
-    mytests.cpp
-    moretests.cpp
-    myfunctions.cpp
+    src/mytests.cpp
+    src/moretests.cpp
+    src/myfunctions.cpp
 )
 
 target_link_libraries(
