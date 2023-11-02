@@ -10,9 +10,6 @@ include_directories(googletest/include) # this is so we can #include <gtest/gtes
 
 add_executable(
     mytests
-    src/mytests.cpp
-    src/moretests.cpp
-    src/myfunctions.cpp
 
     src/algorithms/bubble_sort/bubble_sort.cpp
     src/algorithms/bubble_sort/bubble_sort.tests.cpp

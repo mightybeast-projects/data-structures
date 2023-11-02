@@ -8,7 +8,7 @@ TEST(BubbleSortTests, BubbleSort_IsCorrect)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    bubble_sort(arr);
+    bubble_sort(arr, arrSize);
 
     for (int i = 0; i < arrSize; i++)
         std::cout << arr[i] << " ";
