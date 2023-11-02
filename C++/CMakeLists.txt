@@ -13,6 +13,9 @@ add_executable(
     src/mytests.cpp
     src/moretests.cpp
     src/myfunctions.cpp
+
+    src/algorithms/bubble_sort/bubble_sort.cpp
+    src/algorithms/bubble_sort/bubble_sort.tests.cpp
 )
 
 target_link_libraries(
