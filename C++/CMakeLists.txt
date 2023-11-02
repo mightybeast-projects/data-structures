@@ -19,6 +19,8 @@ add_executable(
 
     src/algorithms/bubble-sort/bubble-sort.cpp
     src/algorithms/bubble-sort/bubble-sort.tests.cpp
+
+    src/data-structures/stack/stack.tests.cpp
 )
 
 target_link_libraries(
