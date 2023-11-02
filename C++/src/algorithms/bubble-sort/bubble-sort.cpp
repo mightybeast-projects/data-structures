@@ -2,7 +2,7 @@
 
 namespace BubbleSort
 {
-    void bubbleSort(int (&arr)[], int size)
+    void bubbleSort(int *arr, int size)
     {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size - 1 - i; j++)
@@ -12,7 +12,7 @@ namespace BubbleSort
 
 namespace
 {
-    void bubbleSwap(int (&arr)[], int i)
+    void bubbleSwap(int *arr, int i)
     {
         if (arr[i] < arr[i + 1])
             return;

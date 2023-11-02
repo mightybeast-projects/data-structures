@@ -1,9 +1,9 @@
 namespace BubbleSort
 {
-    void bubbleSort(int (&arr)[], int size);
+    void bubbleSort(int *arr, int size);
 }
 
 namespace
 {
-    void bubbleSwap(int (&arr)[], int i);
+    void bubbleSwap(int *arr, int i);
 }

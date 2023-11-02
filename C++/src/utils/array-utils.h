@@ -1,4 +1,4 @@
 namespace ArrayUtils
 {
-    void printArray(int (&arr)[], int arrSize);
+    void printArray(int *arr, int arrSize);
 }

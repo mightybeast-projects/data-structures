@@ -2,9 +2,9 @@
 
 namespace TestingUtils
 {
-    void assertArraysAreEqual(int (&arr)[], int (&expected)[], int arrSize)
+    void assertArraysAreEqual(int *arr, int *expected, int arrSize)
     {
         for (int i = 0; i < arrSize; i++)
-            EXPECT_EQ(arr[i], expected[i]);
+            ASSERT_EQ(arr[i], expected[i]);
     }
 }
