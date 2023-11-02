@@ -1,22 +1,18 @@
 #include <gtest/gtest.h>
 #include "bubble-sort.h"
+#include "testing-utils.h"
 
-namespace BubbleSort
+using namespace BubbleSort;
+using namespace TestingUtils;
+
+TEST(BubbleSortTests, BubbleSort_IsCorrect)
 {
-    TEST(BubbleSortTests, BubbleSort_IsCorrect)
-    {
-        int arr[] = {9, 3, 799, 4, 420};
-        int expected[] = {3, 4, 9, 420, 799};
+    int arr[] = {9, 3, 799, 4, 420};
+    int expected[] = {3, 4, 9, 420, 799};
 
-        int arrSize = sizeof(arr) / sizeof(int);
+    int arrSize = sizeof(arr) / sizeof(int);
 
-        bubbleSort(arr, arrSize);
+    bubbleSort(arr, arrSize);
 
-        for (int i = 0; i < arrSize; i++)
-            std::cout << arr[i] << " ";
-        std::cout << std::endl;
-
-        for (int i = 0; i < arrSize; i++)
-            EXPECT_EQ(arr[i], expected[i]);
-    }
+    assertArraysAreEqual(arr, expected, arrSize);
 }

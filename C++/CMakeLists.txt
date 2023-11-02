@@ -6,10 +6,16 @@ enable_testing() #to  discover tests in test explorer
 
 add_subdirectory(googletest) # add googletest subdirectory
 
-include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
+include_directories(
+    googletest/include
+    src/utils
+) # this is so we can #include <gtest/gtest.h>
 
 add_executable(
     mytests
+
+    src/utils/array-utils.cpp
+    src/utils/testing-utils.cpp
 
     src/algorithms/bubble-sort/bubble-sort.cpp
     src/algorithms/bubble-sort/bubble-sort.tests.cpp
