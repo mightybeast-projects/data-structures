@@ -1,18 +1,18 @@
-#include "bubble_sort.h"
+#include "bubble-sort.h"
 
 namespace BubbleSort
 {
-    void bubble_sort(int (&arr)[], int size)
+    void bubbleSort(int (&arr)[], int size)
     {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size - 1 - i; j++)
-                bubble_swap(arr, j);
+                bubbleSwap(arr, j);
     }
 }
 
 namespace
 {
-    void bubble_swap(int (&arr)[], int i)
+    void bubbleSwap(int (&arr)[], int i)
     {
         if (arr[i] < arr[i + 1])
             return;

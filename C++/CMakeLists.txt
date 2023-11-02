@@ -11,8 +11,8 @@ include_directories(googletest/include) # this is so we can #include <gtest/gtes
 add_executable(
     mytests
 
-    src/algorithms/bubble_sort/bubble_sort.cpp
-    src/algorithms/bubble_sort/bubble_sort.tests.cpp
+    src/algorithms/bubble-sort/bubble-sort.cpp
+    src/algorithms/bubble-sort/bubble-sort.tests.cpp
 )
 
 target_link_libraries(

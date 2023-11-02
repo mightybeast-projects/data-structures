@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "bubble_sort.h"
+#include "bubble-sort.h"
 
-namespace BubbleSortTests
+namespace BubbleSort
 {
     TEST(BubbleSortTests, BubbleSort_IsCorrect)
     {
@@ -10,7 +10,7 @@ namespace BubbleSortTests
 
         int arrSize = sizeof(arr) / sizeof(int);
 
-        BubbleSort::bubble_sort(arr, arrSize);
+        bubbleSort(arr, arrSize);
 
         for (int i = 0; i < arrSize; i++)
             std::cout << arr[i] << " ";
