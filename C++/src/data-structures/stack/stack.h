@@ -18,16 +18,16 @@ public:
     {
         length++;
 
-        Node<T> node;
-        node.value = value;
+        Node<T> *node = new Node<T>;
+        node->value = value;
 
         if (head == nullptr)
         {
-            head = &node;
+            head = node;
             return;
         }
 
-        node.prev = head;
-        head = &node;
+        node->prev = head;
+        head = node;
     }
 };
