@@ -17,6 +17,10 @@ add_executable(
     src/utils/array-utils.cpp
     src/utils/testing-utils.cpp
 
+    src/algorithms/linear-search/linear-search.cpp
+    src/algorithms/linear-search/linear-search.h
+    src/algorithms/linear-search/linear-search.tests.cpp
+
     src/algorithms/bubble-sort/bubble-sort.cpp
     src/algorithms/bubble-sort/bubble-sort.tests.cpp
 
