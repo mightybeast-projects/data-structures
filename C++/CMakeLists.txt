@@ -28,6 +28,10 @@ add_executable(
     src/algorithms/insertion-sort/insertion-sort.h
     src/algorithms/insertion-sort/insertion-sort.tests.cpp
 
+    src/algorithms/selection-sort/selection-sort.cpp
+    src/algorithms/selection-sort/selection-sort.h
+    src/algorithms/selection-sort/selection-sort.tests.cpp
+
     src/data-structures/stack/stack.tests.cpp
 )
 
