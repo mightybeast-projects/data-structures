@@ -24,6 +24,10 @@ add_executable(
     src/algorithms/bubble-sort/bubble-sort.cpp
     src/algorithms/bubble-sort/bubble-sort.tests.cpp
 
+    src/algorithms/insertion-sort/insertion-sort.cpp
+    src/algorithms/insertion-sort/insertion-sort.h
+    src/algorithms/insertion-sort/insertion-sort.tests.cpp
+
     src/data-structures/stack/stack.tests.cpp
 )
 
