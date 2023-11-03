@@ -47,6 +47,9 @@ public:
 
     T peek()
     {
+        if (head == nullptr)
+            return (T)NULL;
+
         return head->value;
     }
 };

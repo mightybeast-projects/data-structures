@@ -50,5 +50,6 @@ void expectNullStack(Stack<int> stack)
 {
     EXPECT_EQ(stack.length, 0);
     EXPECT_EQ(stack.head, nullptr);
+    EXPECT_EQ(stack.peek(), NULL);
     EXPECT_EQ(stack.pop(), NULL);
 }
