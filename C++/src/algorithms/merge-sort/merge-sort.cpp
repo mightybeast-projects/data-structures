@@ -28,8 +28,8 @@ namespace
         int ln = q - p + 1;
         int rn = r - q;
 
-        int *L = new int[ln];
-        int *R = new int[rn];
+        int L[ln];
+        int R[rn];
 
         for (int i = 0; i < ln; i++)
             L[i] = arr[p + i];
