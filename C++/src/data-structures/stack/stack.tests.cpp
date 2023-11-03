@@ -4,6 +4,8 @@
 
 using namespace TestingUtils;
 
+void expectNullStack(Stack<int> stack);
+
 TEST(StackTests, Node_Referencing_IsCorrect)
 {
     Node<int> *ptr = nullptr, node1, node2;
@@ -22,8 +24,7 @@ TEST(StackTests, Stack_IsCorrect)
 {
     Stack<int> stack;
 
-    EXPECT_EQ(stack.length, 0);
-    EXPECT_EQ(stack.head, nullptr);
+    expectNullStack(stack);
 
     stack.push(5);
     stack.push(7);
@@ -34,4 +35,20 @@ TEST(StackTests, Stack_IsCorrect)
     EXPECT_EQ(stack.head->prev->value, 7);
 
     EXPECT_EQ(stack.peek(), 9);
+
+    EXPECT_EQ(stack.pop(), 9);
+    EXPECT_EQ(stack.length, 2);
+    EXPECT_EQ(stack.peek(), 7);
+
+    stack.pop();
+    stack.pop();
+
+    expectNullStack(stack);
+}
+
+void expectNullStack(Stack<int> stack)
+{
+    EXPECT_EQ(stack.length, 0);
+    EXPECT_EQ(stack.head, nullptr);
+    EXPECT_EQ(stack.pop(), NULL);
 }

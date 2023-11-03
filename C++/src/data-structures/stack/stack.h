@@ -31,6 +31,20 @@ public:
         head = node;
     }
 
+    T pop()
+    {
+        if (head == nullptr)
+            return (T)NULL;
+
+        length--;
+
+        Node<T> *head = this->head;
+        this->head = head->prev;
+        delete head->prev;
+
+        return head->value;
+    }
+
     T peek()
     {
         return head->value;
