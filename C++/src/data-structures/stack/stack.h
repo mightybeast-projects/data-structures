@@ -30,4 +30,9 @@ public:
         node->prev = head;
         head = node;
     }
+
+    T peek()
+    {
+        return head->value;
+    }
 };

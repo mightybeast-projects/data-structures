@@ -26,7 +26,12 @@ TEST(StackTests, Stack_IsCorrect)
     EXPECT_EQ(stack.head, nullptr);
 
     stack.push(5);
+    stack.push(7);
+    stack.push(9);
 
-    EXPECT_EQ(stack.length, 1);
-    EXPECT_EQ(stack.head->value, 5);
+    EXPECT_EQ(stack.length, 3);
+    EXPECT_EQ(stack.head->value, 9);
+    EXPECT_EQ(stack.head->prev->value, 7);
+
+    EXPECT_EQ(stack.peek(), 9);
 }
