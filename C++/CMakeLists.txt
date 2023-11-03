@@ -32,6 +32,10 @@ add_executable(
     src/algorithms/selection-sort/selection-sort.h
     src/algorithms/selection-sort/selection-sort.tests.cpp
 
+    src/algorithms/merge-sort/merge-sort.cpp
+    src/algorithms/merge-sort/merge-sort.h
+    src/algorithms/merge-sort/merge-sort.tests.cpp
+
     src/data-structures/stack/stack.tests.cpp
 )
 
