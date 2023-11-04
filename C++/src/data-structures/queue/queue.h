@@ -45,4 +45,12 @@ public:
 
         return headNode->value;
     }
+
+    T peek()
+    {
+        if (head == nullptr)
+            return (T)NULL;
+
+        return head->value;
+    }
 };
