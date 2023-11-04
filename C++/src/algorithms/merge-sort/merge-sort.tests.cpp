@@ -14,5 +14,5 @@ TEST(MergeSortTests, MergeSort_IsCorrect)
 
     mergeSort(arr, arrSize - 1);
 
-    expectArraysAreEqual(arr, expected, arrSize);
+    EXPECT_EQ_ARR(arr, expected, arrSize);
 }

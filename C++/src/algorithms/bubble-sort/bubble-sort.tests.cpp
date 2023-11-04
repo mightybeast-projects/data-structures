@@ -14,5 +14,5 @@ TEST(BubbleSortTests, BubbleSort_IsCorrect)
 
     bubbleSort(arr, arrSize);
 
-    expectArraysAreEqual(arr, expected, arrSize);
+    EXPECT_EQ_ARR(arr, expected, arrSize);
 }

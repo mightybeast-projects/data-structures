@@ -14,9 +14,6 @@ include_directories(
 add_executable(
     mytests
 
-    src/utils/array-utils.cpp
-    src/utils/testing-utils.cpp
-
     src/algorithms/linear-search/linear-search.cpp
     src/algorithms/linear-search/linear-search.h
     src/algorithms/linear-search/linear-search.tests.cpp

@@ -14,5 +14,5 @@ TEST(SelectionSort, SelectionSort_IsCorrect)
 
     selectionSort(arr, arrSize);
 
-    expectArraysAreEqual(arr, expected, arrSize);
+    EXPECT_EQ_ARR(arr, expected, arrSize);
 }

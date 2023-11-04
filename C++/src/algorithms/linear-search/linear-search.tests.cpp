@@ -1,11 +1,13 @@
+#include <gtest/gtest.h>
 #include "linear-search.h"
 
-namespace LinearSearch
+using namespace LinearSearch;
+
+TEST(LinearSearchTests, LinearSearch_IsCorrect)
 {
-    bool linearSearch(int *arr, int key, int arrSize)
-    {
-        for (int i = 0; i < arrSize; i++)
-            if (arr[i] == key)
-                return true;
-    }
+    int arr[] = {9, 3, 799, 4, 420};
+
+    int arrSize = sizeof(arr) / sizeof(int);
+
+    EXPECT_EQ(linearSearch(arr, 4, arrSize), true);
 }

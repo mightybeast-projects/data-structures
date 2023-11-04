@@ -49,7 +49,7 @@ TEST(StackTests, Stack_IsCorrect)
 void expectEmptyStack(Stack<int> stack)
 {
     EXPECT_EQ(stack.length, 0);
-    EXPECT_EQ(stack.head, nullptr);
-    EXPECT_EQ(stack.peek(), NULL);
-    EXPECT_EQ(stack.pop(), NULL);
+    EXPECT_NULLPTR(stack.head);
+    EXPECT_NULL(stack.peek());
+    EXPECT_NULL(stack.pop());
 }
