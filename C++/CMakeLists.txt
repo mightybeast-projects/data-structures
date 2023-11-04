@@ -37,6 +37,8 @@ add_executable(
     src/algorithms/merge-sort/merge-sort.tests.cpp
 
     src/data-structures/stack/stack.tests.cpp
+
+    src/data-structures/queue/queue.tests.cpp
 )
 
 target_link_libraries(
