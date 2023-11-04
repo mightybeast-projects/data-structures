@@ -11,6 +11,7 @@ TEST(QueueTests, Queue_IsCorrect)
     EXPECT_EQ(queue.length, 0);
     EXPECT_EQ(queue.head, nullptr);
     EXPECT_EQ(queue.tail, nullptr);
+    EXPECT_EQ(queue.dequeue(), NULL);
 
     queue.enqueue(3);
 
@@ -26,4 +27,16 @@ TEST(QueueTests, Queue_IsCorrect)
     EXPECT_EQ(queue.head->next->value, 5);
     EXPECT_EQ(queue.tail->value, 7);
     EXPECT_EQ(queue.tail->next, nullptr);
+
+    EXPECT_EQ(queue.dequeue(), 3);
+    EXPECT_EQ(queue.length, 2);
+    EXPECT_EQ(queue.head->value, 5);
+
+    queue.dequeue();
+    queue.dequeue();
+
+    EXPECT_EQ(queue.length, 0);
+    EXPECT_EQ(queue.head, nullptr);
+    EXPECT_EQ(queue.tail, nullptr);
+    EXPECT_EQ(queue.dequeue(), NULL);
 }

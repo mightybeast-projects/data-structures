@@ -28,4 +28,21 @@ public:
 
         tail = node;
     }
+
+    T dequeue()
+    {
+        if (head == nullptr)
+            return (T)NULL;
+
+        length--;
+
+        Node<T> *headNode = head;
+        head = headNode->next;
+        headNode->next = nullptr;
+
+        if (length == 0)
+            tail = nullptr;
+
+        return headNode->value;
+    }
 };
