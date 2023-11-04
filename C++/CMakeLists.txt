@@ -36,6 +36,10 @@ add_executable(
     src/algorithms/merge-sort/merge-sort.h
     src/algorithms/merge-sort/merge-sort.tests.cpp
 
+    src/algorithms/binary-search/binary-search.cpp
+    src/algorithms/binary-search/binary-search.h
+    src/algorithms/binary-search/binary-search.tests.cpp
+
     src/data-structures/stack/stack.tests.cpp
 
     src/data-structures/queue/queue.tests.cpp
