@@ -4,7 +4,7 @@
 
 using namespace TestingUtils;
 
-void expectNullStack(Stack<int> stack);
+void expectEmptyStack(Stack<int> stack);
 
 TEST(StackTests, Node_Referencing_IsCorrect)
 {
@@ -24,7 +24,7 @@ TEST(StackTests, Stack_IsCorrect)
 {
     Stack<int> stack;
 
-    expectNullStack(stack);
+    expectEmptyStack(stack);
 
     stack.push(5);
     stack.push(7);
@@ -43,10 +43,10 @@ TEST(StackTests, Stack_IsCorrect)
     stack.pop();
     stack.pop();
 
-    expectNullStack(stack);
+    expectEmptyStack(stack);
 }
 
-void expectNullStack(Stack<int> stack)
+void expectEmptyStack(Stack<int> stack)
 {
     EXPECT_EQ(stack.length, 0);
     EXPECT_EQ(stack.head, nullptr);
