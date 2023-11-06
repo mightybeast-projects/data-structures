@@ -4,13 +4,14 @@
 
 using namespace TestingUtils;
 
-void expectEmptyQueue(Queue<int> queue);
+template <typename T>
+void EXPECT_NULL_QUEUE(Queue<T> queue);
 
 TEST(QueueTests, Queue_IsCorrect)
 {
     Queue<int> queue;
 
-    expectEmptyQueue(queue);
+    EXPECT_NULL_QUEUE(queue);
 
     queue.enqueue(3);
 
@@ -35,10 +36,11 @@ TEST(QueueTests, Queue_IsCorrect)
     queue.dequeue();
     queue.dequeue();
 
-    expectEmptyQueue(queue);
+    EXPECT_NULL_QUEUE(queue);
 }
 
-void expectEmptyQueue(Queue<int> queue)
+template <typename T>
+void EXPECT_NULL_QUEUE(Queue<T> queue)
 {
     EXPECT_EQ(queue.length, 0);
     EXPECT_NULLPTR(queue.head);
