@@ -46,9 +46,44 @@ public:
         if (index < 0 || index >= length)
             return (T)NULL;
 
+        return removeNode(getAt(index));
+    }
+
+    T remove(T value)
+    {
+        Node<T> *node = head;
+
+        while (node != nullptr && node->value != value)
+            node = node->next;
+
+        if (node == nullptr)
+            return (T)NULL;
+
+        return removeNode(node);
+    }
+
+private:
+    Node<T> *getAt(int index)
+    {
+        Node<T> *node = head;
+
+        for (int i = 0; i < index; i++)
+            node = node->next;
+
+        return node;
+    }
+
+    T removeNode(Node<T> *node)
+    {
         length--;
 
-        Node<T> *node = getAt(index);
+        if (length == 0)
+        {
+            head = nullptr;
+            tail = nullptr;
+            return node->value;
+        }
+
         Node<T> *prevNode = node->prev;
         Node<T> *nextNode = node->next;
 
@@ -65,16 +100,5 @@ public:
             tail = prevNode;
 
         return node->value;
-    }
-
-private:
-    Node<T> *getAt(int index)
-    {
-        Node<T> *node = head;
-
-        for (int i = 0; i < index; i++)
-            node = node->next;
-
-        return node;
     }
 };
