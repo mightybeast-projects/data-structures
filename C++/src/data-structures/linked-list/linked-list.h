@@ -32,4 +32,17 @@ public:
         tail->next = node;
         tail = node;
     }
+
+    T get(int index)
+    {
+        if (index < 0 || index >= length)
+            return (T)NULL;
+
+        Node<T> *node = head;
+
+        for (int i = 0; i < index; i++)
+            node = node->next;
+
+        return node->value;
+    }
 };
