@@ -33,4 +33,19 @@ TEST(LinkedListTests, LinkedList_IsCorrect)
     EXPECT_NULL(list.get(3));
     EXPECT_EQ(list.get(1), 5);
     EXPECT_EQ(list.get(2), 7);
+
+    EXPECT_NULL(list.removeAt(-1));
+    EXPECT_NULL(list.removeAt(3));
+
+    EXPECT_EQ(list.removeAt(1), 5);
+    EXPECT_EQ(list.length, 2);
+    EXPECT_EQ(list.head->value, 3);
+    EXPECT_EQ(list.tail->value, 7);
+    EXPECT_EQ(list.head->next->value, 7);
+    EXPECT_EQ(list.tail->prev->value, 3);
+
+    EXPECT_EQ(list.removeAt(1), 7);
+    EXPECT_EQ(list.length, 1);
+    EXPECT_EQ(list.head->value, 3);
+    EXPECT_EQ(list.tail->value, 3);
 }

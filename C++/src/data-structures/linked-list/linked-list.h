@@ -38,11 +38,43 @@ public:
         if (index < 0 || index >= length)
             return (T)NULL;
 
+        return getAt(index)->value;
+    }
+
+    T removeAt(int index)
+    {
+        if (index < 0 || index >= length)
+            return (T)NULL;
+
+        length--;
+
+        Node<T> *node = getAt(index);
+        Node<T> *prevNode = node->prev;
+        Node<T> *nextNode = node->next;
+
+        if (nextNode != nullptr)
+            nextNode->prev = prevNode;
+
+        if (prevNode != nullptr)
+            prevNode->next = nextNode;
+
+        if (head == node)
+            head = nextNode;
+
+        if (tail == node)
+            tail = prevNode;
+
+        return node->value;
+    }
+
+private:
+    Node<T> *getAt(int index)
+    {
         Node<T> *node = head;
 
         for (int i = 0; i < index; i++)
             node = node->next;
 
-        return node->value;
+        return node;
     }
 };
