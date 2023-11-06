@@ -44,6 +44,8 @@ add_executable(
     src/data-structures/queue/queue.tests.cpp
 
     src/data-structures/linked-list/linked-list.tests.cpp
+
+    src/data-structures/binary-tree/binary-tree.tests.cpp
 )
 
 target_link_libraries(
