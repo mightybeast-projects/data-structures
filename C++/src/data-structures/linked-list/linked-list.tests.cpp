@@ -61,6 +61,14 @@ TEST(LinkedListTests, LinkedList_IsCorrect)
     EXPECT_EQ(list.tail->value, 7);
     EXPECT_EQ(list.head->next->value, 7);
     EXPECT_EQ(list.tail->prev->value, 3);
+
+    list.prepend(0);
+    list.prepend(-1);
+
+    EXPECT_EQ(list.length, 4);
+    EXPECT_EQ(list.head->value, -1);
+    EXPECT_EQ(list.tail->value, 7);
+    EXPECT_EQ(list.head->next->value, 0);
 }
 
 void EXPECT_NULL_LIST(LinkedList<int> list)

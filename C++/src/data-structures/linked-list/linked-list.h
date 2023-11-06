@@ -33,6 +33,25 @@ public:
         tail = node;
     }
 
+    void prepend(T value)
+    {
+        length++;
+
+        Node<T> *node = new Node<T>();
+        node->value = value;
+
+        if (head == nullptr)
+        {
+            head = node;
+            tail = node;
+            return;
+        }
+
+        node->next = head;
+        head->prev = node;
+        head = node;
+    }
+
     T get(int index)
     {
         if (index < 0 || index >= length)
