@@ -8,9 +8,9 @@ using namespace TestingUtils;
 class BinaryTreeTests : public testing::Test
 {
 public:
+protected:
     BinaryTree<int> tree;
 
-protected:
     void SetUp() override
     {
         tree.root = new Node<int>{
@@ -40,5 +40,15 @@ protected:
 
 TEST_F(BinaryTreeTests, PreOrderTraversal_IsCorrect)
 {
-    EXPECT_EQ_VEC(tree.preOrderTraversal(), vector<int>{1, 2, 4, 5, 3, 6, 7});
+    EXPECT_EQ_VEC(tree.btPreOrderTraversal(), vector<int>{1, 2, 4, 5, 3, 6, 7});
+}
+
+TEST_F(BinaryTreeTests, InOrderTraversal_IsCorrect)
+{
+    EXPECT_EQ_VEC(tree.btInOrderTraversal(), vector<int>{4, 2, 5, 1, 6, 3, 7});
+}
+
+TEST_F(BinaryTreeTests, PostOrderTraversal_IsCorrect)
+{
+    EXPECT_EQ_VEC(tree.btPostOrderTraversal(), vector<int>{4, 5, 2, 6, 7, 3, 1});
 }
