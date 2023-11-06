@@ -55,6 +55,8 @@ TEST(LinkedListTests, LinkedList_IsCorrect)
     list.append(5);
     list.append(7);
 
+    // 3 5 7
+
     EXPECT_EQ(list.remove(5), 5);
     EXPECT_EQ(list.length, 2);
     EXPECT_EQ(list.head->value, 3);
@@ -62,13 +64,34 @@ TEST(LinkedListTests, LinkedList_IsCorrect)
     EXPECT_EQ(list.head->next->value, 7);
     EXPECT_EQ(list.tail->prev->value, 3);
 
+    // 3 7
+
     list.prepend(0);
     list.prepend(-1);
+
+    //-1 0 3 7
 
     EXPECT_EQ(list.length, 4);
     EXPECT_EQ(list.head->value, -1);
     EXPECT_EQ(list.tail->value, 7);
     EXPECT_EQ(list.head->next->value, 0);
+
+    list.insertAt(-1, -1);
+
+    EXPECT_EQ(list.length, 4);
+
+    list.insertAt(2, 1);
+
+    //-1 0 1 3 7
+
+    EXPECT_EQ(list.length, 5);
+    EXPECT_EQ(list.head->next->next->value, 1);
+
+    list.insertAt(0, -2);
+    list.insertAt(5, 9);
+
+    EXPECT_EQ(list.head->value, -2);
+    EXPECT_EQ(list.tail->value, 9);
 }
 
 void EXPECT_NULL_LIST(LinkedList<int> list)
