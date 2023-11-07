@@ -3,17 +3,15 @@
 
 namespace BTBFS
 {
-    using namespace BinaryTreeNode;
-
     template <typename T>
     bool btBFS(BinaryTree::BinaryTree<T> tree, T value)
     {
-        Queue::Queue<Node<T>> q;
+        Queue::Queue<BinaryTreeNode::Node<T>> q;
         q.enqueue(*tree.root);
 
         while (q.length > 0)
         {
-            Node<T> node = q.dequeue();
+            BinaryTreeNode::Node<T> node = q.dequeue();
 
             if (node.value == value)
                 return true;

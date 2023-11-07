@@ -14,25 +14,25 @@ namespace BTBFS
 
         void SetUp() override
         {
-            tree.root = new Node<int>{
+            tree.root = new BinaryTreeNode::Node<int>{
                 1,
-                new Node<int>{
+                new BinaryTreeNode::Node<int>{
                     2,
-                    new Node<int>{
+                    new BinaryTreeNode::Node<int>{
                         4,
                         nullptr,
                         nullptr},
-                    new Node<int>{
+                    new BinaryTreeNode::Node<int>{
                         5,
                         nullptr,
                         nullptr}},
-                new Node<int>{
+                new BinaryTreeNode::Node<int>{
                     3,
-                    new Node<int>{
+                    new BinaryTreeNode::Node<int>{
                         6,
                         nullptr,
                         nullptr},
-                    new Node<int>{
+                    new BinaryTreeNode::Node<int>{
                         7,
                         nullptr,
                         nullptr}}};
