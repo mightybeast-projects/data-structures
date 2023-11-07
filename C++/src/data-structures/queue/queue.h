@@ -1,56 +1,64 @@
-template <typename T>
-struct Node
+namespace QueueNode
 {
-    T value;
-    Node<T> *next = nullptr;
+    template <typename T>
+    struct Node
+    {
+        T value;
+        Node<T> *next = nullptr;
+    };
 };
 
-template <typename T>
-class Queue
+namespace Queue
 {
-public:
-    int length = 0;
-    Node<T> *head = nullptr;
-    Node<T> *tail = nullptr;
+    using namespace QueueNode;
 
-    void enqueue(T value)
+    template <typename T>
+    class Queue
     {
-        length++;
+    public:
+        int length = 0;
+        Node<T> *head = nullptr;
+        Node<T> *tail = nullptr;
 
-        Node<T> *node = new Node<T>;
-        node->value = value;
+        void enqueue(T value)
+        {
+            length++;
 
-        if (head == nullptr)
-            head = node;
+            Node<T> *node = new Node<T>;
+            node->value = value;
 
-        if (tail != nullptr)
-            tail->next = node;
+            if (head == nullptr)
+                head = node;
 
-        tail = node;
-    }
+            if (tail != nullptr)
+                tail->next = node;
 
-    T dequeue()
-    {
-        if (head == nullptr)
-            return (T)NULL;
+            tail = node;
+        }
 
-        length--;
+        T dequeue()
+        {
+            if (head == nullptr)
+                return (T)NULL;
 
-        Node<T> *headNode = head;
-        head = headNode->next;
-        headNode->next = nullptr;
+            length--;
 
-        if (length == 0)
-            tail = nullptr;
+            Node<T> *headNode = head;
+            head = headNode->next;
+            headNode->next = nullptr;
 
-        return headNode->value;
-    }
+            if (length == 0)
+                tail = nullptr;
 
-    T peek()
-    {
-        if (head == nullptr)
-            return (T)NULL;
+            return headNode->value;
+        }
 
-        return head->value;
-    }
+        T peek()
+        {
+            if (head == nullptr)
+                return (T)NULL;
+
+            return head->value;
+        }
+    };
 };
