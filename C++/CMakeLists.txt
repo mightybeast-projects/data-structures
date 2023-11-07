@@ -9,6 +9,8 @@ add_subdirectory(googletest) # add googletest subdirectory
 include_directories(
     googletest/include
     src/utils
+    src/data-structures/binary-tree
+    src/data-structures/queue
 ) # this is so we can #include <gtest/gtest.h>
 
 add_executable(
@@ -39,8 +41,12 @@ add_executable(
     src/algorithms/binary-search/binary-search.h
     src/algorithms/binary-search/binary-search.tests.cpp
 
+    src/algorithms/bt-bfs/bt-bfs.tests.cpp
+    src/algorithms/bt-bfs/bt-bfs.h
+
     src/data-structures/stack/stack.tests.cpp
 
+    src/data-structures/queue/queue.h
     src/data-structures/queue/queue.tests.cpp
 
     src/data-structures/linked-list/linked-list.tests.cpp
