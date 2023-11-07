@@ -4,51 +4,61 @@
 
 using namespace std;
 using namespace TestingUtils;
+using namespace BinaryTreeNode;
 
-class BinaryTreeTests : public testing::Test
+namespace BinaryTree
 {
-public:
-protected:
-    BinaryTree<int> tree;
-
-    void SetUp() override
+    class BinaryTreeTests : public testing::Test
     {
-        tree.root = new Node<int>{
-            1,
-            new Node<int>{
-                2,
+    public:
+    protected:
+        BinaryTree<int> tree;
+
+        void SetUp() override
+        {
+            tree.root = new Node<int>{
+                1,
                 new Node<int>{
-                    4,
-                    nullptr,
-                    nullptr},
+                    2,
+                    new Node<int>{
+                        4,
+                        nullptr,
+                        nullptr},
+                    new Node<int>{
+                        5,
+                        nullptr,
+                        nullptr}},
                 new Node<int>{
-                    5,
-                    nullptr,
-                    nullptr}},
-            new Node<int>{
-                3,
-                new Node<int>{
-                    6,
-                    nullptr,
-                    nullptr},
-                new Node<int>{
-                    7,
-                    nullptr,
-                    nullptr}}};
+                    3,
+                    new Node<int>{
+                        6,
+                        nullptr,
+                        nullptr},
+                    new Node<int>{
+                        7,
+                        nullptr,
+                        nullptr}}};
+        }
+    };
+
+    TEST_F(BinaryTreeTests, PreOrderTraversal_IsCorrect)
+    {
+        EXPECT_EQ_VEC(
+            tree.btPreOrderTraversal(),
+            vector<int>{1, 2, 4, 5, 3, 6, 7});
     }
-};
 
-TEST_F(BinaryTreeTests, PreOrderTraversal_IsCorrect)
-{
-    EXPECT_EQ_VEC(tree.btPreOrderTraversal(), vector<int>{1, 2, 4, 5, 3, 6, 7});
-}
+    TEST_F(BinaryTreeTests, InOrderTraversal_IsCorrect)
+    {
+        EXPECT_EQ_VEC(
+            tree.btInOrderTraversal(),
+            vector<int>{4, 2, 5, 1, 6, 3, 7});
+    }
 
-TEST_F(BinaryTreeTests, InOrderTraversal_IsCorrect)
-{
-    EXPECT_EQ_VEC(tree.btInOrderTraversal(), vector<int>{4, 2, 5, 1, 6, 3, 7});
-}
-
-TEST_F(BinaryTreeTests, PostOrderTraversal_IsCorrect)
-{
-    EXPECT_EQ_VEC(tree.btPostOrderTraversal(), vector<int>{4, 5, 2, 6, 7, 3, 1});
+    TEST_F(BinaryTreeTests, PostOrderTraversal_IsCorrect)
+    {
+        EXPECT_EQ_VEC(
+            tree.btPostOrderTraversal(),
+            vector<int>{4, 5, 2, 6, 7, 3, 1});
+    }
 }

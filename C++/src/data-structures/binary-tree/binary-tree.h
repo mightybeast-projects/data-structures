@@ -1,69 +1,77 @@
 using namespace std;
 
-template <typename T>
-struct Node
+namespace BinaryTreeNode
 {
-    T value;
-    Node<T> *left = nullptr;
-    Node<T> *right = nullptr;
-};
+    template <typename T>
+    struct Node
+    {
+        T value;
+        Node<T> *left = nullptr;
+        Node<T> *right = nullptr;
+    };
+}
 
-template <typename T>
-class BinaryTree
+namespace BinaryTree
 {
-public:
-    Node<T> *root;
+    using namespace BinaryTreeNode;
 
-    vector<T> btPreOrderTraversal()
+    template <typename T>
+    class BinaryTree
     {
-        return preOrderRecurse(root, vector<T>{});
-    }
+    public:
+        Node<T> *root;
 
-    vector<T> btInOrderTraversal()
-    {
-        return inOrderRecurse(root, vector<T>{});
-    }
+        vector<T> btPreOrderTraversal()
+        {
+            return preOrderRecurse(root, vector<T>{});
+        }
 
-    vector<T> btPostOrderTraversal()
-    {
-        return postOrderRecurse(root, vector<T>{});
-    }
+        vector<T> btInOrderTraversal()
+        {
+            return inOrderRecurse(root, vector<T>{});
+        }
 
-private:
-    vector<T> preOrderRecurse(Node<T> *node, vector<T> arr)
-    {
-        arr.push_back(node->value);
+        vector<T> btPostOrderTraversal()
+        {
+            return postOrderRecurse(root, vector<T>{});
+        }
 
-        if (node->left != nullptr)
-            arr = preOrderRecurse(node->left, arr);
-        if (node->right != nullptr)
-            arr = preOrderRecurse(node->right, arr);
+    private:
+        vector<T> preOrderRecurse(Node<T> *node, vector<T> arr)
+        {
+            arr.push_back(node->value);
 
-        return arr;
-    }
+            if (node->left != nullptr)
+                arr = preOrderRecurse(node->left, arr);
+            if (node->right != nullptr)
+                arr = preOrderRecurse(node->right, arr);
 
-    vector<T> inOrderRecurse(Node<T> *node, vector<T> arr)
-    {
-        if (node->left != nullptr)
-            arr = inOrderRecurse(node->left, arr);
+            return arr;
+        }
 
-        arr.push_back(node->value);
+        vector<T> inOrderRecurse(Node<T> *node, vector<T> arr)
+        {
+            if (node->left != nullptr)
+                arr = inOrderRecurse(node->left, arr);
 
-        if (node->right != nullptr)
-            arr = inOrderRecurse(node->right, arr);
+            arr.push_back(node->value);
 
-        return arr;
-    }
+            if (node->right != nullptr)
+                arr = inOrderRecurse(node->right, arr);
 
-    vector<T> postOrderRecurse(Node<T> *node, vector<T> arr)
-    {
-        if (node->left != nullptr)
-            arr = postOrderRecurse(node->left, arr);
-        if (node->right != nullptr)
-            arr = postOrderRecurse(node->right, arr);
+            return arr;
+        }
 
-        arr.push_back(node->value);
+        vector<T> postOrderRecurse(Node<T> *node, vector<T> arr)
+        {
+            if (node->left != nullptr)
+                arr = postOrderRecurse(node->left, arr);
+            if (node->right != nullptr)
+                arr = postOrderRecurse(node->right, arr);
 
-        return arr;
-    }
-};
+            arr.push_back(node->value);
+
+            return arr;
+        }
+    };
+}
