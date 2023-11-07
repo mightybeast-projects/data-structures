@@ -4,54 +4,57 @@
 
 using namespace TestingUtils;
 
-template <typename T>
-void EXPECT_NULL_STACK(Stack<T> stack);
-
-TEST(StackTests, Node_Referencing_IsCorrect)
+namespace Stack
 {
-    Node<int> *ptr = nullptr, node1, node2;
+    template <typename T>
+    void EXPECT_NULL_STACK(Stack<T> stack);
 
-    node1.value = 123;
+    TEST(StackTests, Node_Referencing_IsCorrect)
+    {
+        Node<int> *ptr = nullptr, node1, node2;
 
-    node2.value = 345;
-    node2.prev = &node1;
+        node1.value = 123;
 
-    ptr = &node2;
+        node2.value = 345;
+        node2.prev = &node1;
 
-    EXPECT_EQ(ptr->prev->value, 123);
-}
+        ptr = &node2;
 
-TEST(StackTests, Stack_IsCorrect)
-{
-    Stack<int> stack;
+        EXPECT_EQ(ptr->prev->value, 123);
+    }
 
-    EXPECT_NULL_STACK(stack);
+    TEST(StackTests, Stack_IsCorrect)
+    {
+        Stack<int> stack;
 
-    stack.push(5);
-    stack.push(7);
-    stack.push(9);
+        EXPECT_NULL_STACK(stack);
 
-    EXPECT_EQ(stack.length, 3);
-    EXPECT_EQ(stack.head->value, 9);
-    EXPECT_EQ(stack.head->prev->value, 7);
+        stack.push(5);
+        stack.push(7);
+        stack.push(9);
 
-    EXPECT_EQ(stack.peek(), 9);
+        EXPECT_EQ(stack.length, 3);
+        EXPECT_EQ(stack.head->value, 9);
+        EXPECT_EQ(stack.head->prev->value, 7);
 
-    EXPECT_EQ(stack.pop(), 9);
-    EXPECT_EQ(stack.length, 2);
-    EXPECT_EQ(stack.peek(), 7);
+        EXPECT_EQ(stack.peek(), 9);
 
-    stack.pop();
-    stack.pop();
+        EXPECT_EQ(stack.pop(), 9);
+        EXPECT_EQ(stack.length, 2);
+        EXPECT_EQ(stack.peek(), 7);
 
-    EXPECT_NULL_STACK(stack);
-}
+        stack.pop();
+        stack.pop();
 
-template <typename T>
-void EXPECT_NULL_STACK(Stack<T> stack)
-{
-    EXPECT_EQ(stack.length, 0);
-    EXPECT_NULLPTR(stack.head);
-    EXPECT_NULL(stack.peek());
-    EXPECT_NULL(stack.pop());
+        EXPECT_NULL_STACK(stack);
+    }
+
+    template <typename T>
+    void EXPECT_NULL_STACK(Stack<T> stack)
+    {
+        EXPECT_EQ(stack.length, 0);
+        EXPECT_NULLPTR(stack.head);
+        EXPECT_NULL(stack.peek());
+        EXPECT_NULL(stack.pop());
+    }
 }
