@@ -56,7 +56,7 @@ namespace Queue
         T peek()
         {
             if (head == nullptr)
-                return (T)NULL;
+                return T();
 
             return head->value;
         }

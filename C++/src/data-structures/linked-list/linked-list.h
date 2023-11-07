@@ -80,7 +80,7 @@ public:
     T get(int index)
     {
         if (indexOutOfBounds(index))
-            return (T)NULL;
+            return T();
 
         return getAt(index)->value;
     }
@@ -88,7 +88,7 @@ public:
     T removeAt(int index)
     {
         if (indexOutOfBounds(index))
-            return (T)NULL;
+            return T();
 
         return removeNode(getAt(index));
     }
@@ -101,7 +101,7 @@ public:
             node = node->next;
 
         if (node == nullptr)
-            return (T)NULL;
+            return T();
 
         return removeNode(node);
     }
