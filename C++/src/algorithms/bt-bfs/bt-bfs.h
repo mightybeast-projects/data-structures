@@ -1,5 +1,5 @@
 #include "binary-tree.h"
-#include <queue>
+#include "queue.h"
 
 namespace BTBFS
 {
@@ -8,22 +8,21 @@ namespace BTBFS
     template <typename T>
     bool btBFS(BinaryTree::BinaryTree<T> tree, T value)
     {
-        std::queue<Node<T>> q;
-        q.push(*tree.root);
+        Queue::Queue<Node<T>> q;
+        q.enqueue(*tree.root);
 
-        while (q.size() > 0)
+        while (q.length > 0)
         {
-            Node<T> node = q.front();
-            q.pop();
+            Node<T> node = q.dequeue();
 
             if (node.value == value)
                 return true;
 
             if (node.left != nullptr)
-                q.push(*node.left);
+                q.enqueue(*node.left);
 
             if (node.right != nullptr)
-                q.push(*node.right);
+                q.enqueue(*node.right);
         }
 
         return false;

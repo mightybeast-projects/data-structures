@@ -39,7 +39,7 @@ namespace Queue
         T dequeue()
         {
             if (head == nullptr)
-                return (T)NULL;
+                return T();
 
             length--;
 
