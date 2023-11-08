@@ -44,6 +44,9 @@ add_executable(
     src/algorithms/bt-bfs/bt-bfs.tests.cpp
     src/algorithms/bt-bfs/bt-bfs.h
 
+    src/algorithms/bt-dfs/bt-dfs.tests.cpp
+    src/algorithms/bt-dfs/bt-dfs.h
+
     src/data-structures/stack/stack.tests.cpp
 
     src/data-structures/queue/queue.h
