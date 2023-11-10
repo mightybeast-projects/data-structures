@@ -55,6 +55,10 @@ add_executable(
     src/data-structures/linked-list/linked-list.tests.cpp
 
     src/data-structures/binary-tree/binary-tree.tests.cpp
+
+    src/data-structures/min-heap/min-heap.tests.cpp
+    src/data-structures/min-heap/min-heap.cpp
+    src/data-structures/min-heap/min-heap.h
 )
 
 target_link_libraries(
