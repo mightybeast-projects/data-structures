@@ -2,6 +2,7 @@ using NUnit.Framework;
 
 namespace CSharp.Algorithms.LinearSearch;
 
+[TestFixture]
 public class LinearSearchTests
 {
     private static readonly object[] trueCases =
