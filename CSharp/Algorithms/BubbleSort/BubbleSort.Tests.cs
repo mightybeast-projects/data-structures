@@ -17,8 +17,6 @@ public class BubbleSortTests
         int[] arr = [9, 4, 1, 6, 3, 2];
         int[] expected = [1, 2, 3, 4, 6, 9];
 
-        Console.WriteLine(BubbleSort.Sort(arr));
-
         Assert.That(BubbleSort.Sort(arr), Is.EqualTo(expected));
     }
 }

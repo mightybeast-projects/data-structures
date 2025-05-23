@@ -7,17 +7,9 @@ public class BubbleSort
         int[] res = arr;
 
         for (int i = 0; i < arr.Length; i++)
-        {
-            for (int j = 0; j < arr.Length - i - 1; j++)
-            {
-                if (res[j] > res[j + 1])
-                {
-                    int next = res[j + 1];
-                    res[j + 1] = res[j];
-                    res[j] = next;
-                }
-            }
-        }
+        for (int j = 0; j < arr.Length - i - 1; j++)
+            if (res[j] > res[j + 1])
+                (res[j], res[j + 1]) = (res[j + 1], res[j]);
 
         return res;
     }
