@@ -50,19 +50,24 @@ public class LinkedList<T>
         ValidateIndex(index);
 
         if (index == 0)
-            Prepend(value);
-        else if (index == Length)
-            Append(value);
-        else
         {
-            var indexNode = GetAt(index);
-            var node = new Node<T>(value) { Prev = indexNode.Prev, Next = indexNode };
-
-            indexNode.Prev!.Next = node;
-            indexNode.Prev = node;
-
-            Length++;
+            Prepend(value);
+            return;
         }
+
+        if (index == Length)
+        {
+            Append(value);
+            return;
+        }
+
+        var indexNode = GetAt(index);
+        var node = new Node<T>(value) { Prev = indexNode.Prev, Next = indexNode };
+
+        indexNode.Prev!.Next = node;
+        indexNode.Prev = node;
+
+        Length++;
     }
 
     public T Get(int index)
