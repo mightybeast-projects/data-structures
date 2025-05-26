@@ -257,6 +257,64 @@ public class LinkedListTests
     }
 
     [Test]
+    public void Remove_At_With_Out_Of_Range_Index_Should_Throw_Index_Out_Of_Range_Exception()
+    {
+        Assert.Throws<IndexOutOfRangeException>(() => list.RemoveAt(1));
+        Assert.Throws<IndexOutOfRangeException>(() => list.RemoveAt(-1));
+
+        Assert.That(list.Length, Is.Zero);
+        Assert.That(list.Head, Is.Null);
+        Assert.That(list.Tail, Is.Null);
+    }
+
+    [Test]
+    public void Remove_At_Should_Remove_Node_At_Index()
+    {
+        list.Append(3);
+        list.Append(6);
+        list.Append(10);
+
+        var res = list.RemoveAt(1);
+
+        Assert.That(res, Is.EqualTo(6));
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Head?.Value, Is.EqualTo(3));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(10));
+        Assert.That(list.Tail?.Value, Is.EqualTo(10));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(3));
+    }
+
+    [Test]
+    public void Remove_At_Should_Remove_Value_And_Assign_New_Head_If_Removed_Node_Was_First()
+    {
+        list.Append(3);
+        list.Append(6);
+        list.Append(10);
+
+        var res = list.RemoveAt(0);
+
+        Assert.That(res, Is.EqualTo(3));
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Head?.Value, Is.EqualTo(6));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(10));
+    }
+
+    [Test]
+    public void Remove_At_Should_Remove_Value_And_Assign_New_Tail_If_Removed_Node_Was_Last()
+    {
+        list.Append(3);
+        list.Append(6);
+        list.Append(10);
+
+        var res = list.RemoveAt(2);
+
+        Assert.That(res, Is.EqualTo(10));
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Tail?.Value, Is.EqualTo(6));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(3));
+    }
+
+    [Test]
     public void Get_Should_Return_Value_By_Node_Index()
     {
         list.Append(10);

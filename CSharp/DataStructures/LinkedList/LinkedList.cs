@@ -74,31 +74,17 @@ public class LinkedList<T>
     {
         var node = Head ?? throw new InvalidOperationException();
 
-        Length--;
-
-        if (Length == 0)
-        {
-            Head = null;
-            Tail = null;
-            return node.Value;
-        }
-
         while (node.Next != null && !node!.Value!.Equals(value))
             node = node.Next;
 
-        if (node.Prev != null)
-            node.Prev.Next = node.Next;
+        return RemoveNode(node);
+    }
 
-        if (node.Next != null)
-            node.Next.Prev = node.Prev;
+    public T RemoveAt(int index)
+    {
+        ValidateIndex(index);
 
-        if (node == Head)
-            Head = node.Next;
-
-        if (node == Tail)
-            Tail = node.Prev;
-
-        return node.Value;
+        return RemoveNode(GetAt(index));
     }
 
     public T Get(int index)
@@ -116,6 +102,32 @@ public class LinkedList<T>
             node = node?.Next;
 
         return node!;
+    }
+
+    private T RemoveNode(Node<T> node)
+    {
+        Length--;
+
+        if (Length == 0)
+        {
+            Head = null;
+            Tail = null;
+            return node.Value;
+        }
+
+        if (node.Prev != null)
+            node.Prev.Next = node.Next;
+
+        if (node.Next != null)
+            node.Next.Prev = node.Prev;
+
+        if (node == Head)
+            Head = node.Next;
+
+        if (node == Tail)
+            Tail = node.Prev;
+
+        return node.Value;
     }
 
     private void ValidateIndex(int index)
