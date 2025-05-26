@@ -20,7 +20,7 @@ public class LinkedListTests
     public void New_List_Should_Have_Null_Tail() => Assert.That(list.Tail, Is.Null);
 
     [Test]
-    public void First_Appended_Node_Should_Be_List_Head()
+    public void First_Appended_Node_Should_Be_The_List_Head()
     {
         list.Append(10);
 
@@ -28,7 +28,7 @@ public class LinkedListTests
     }
 
     [Test]
-    public void First_Appended_Node_Should_Be_List_Tail()
+    public void First_Appended_Node_Should_Be_The_List_Tail()
     {
         list.Append(10);
 
@@ -44,7 +44,7 @@ public class LinkedListTests
     }
 
     [Test]
-    public void Newly_Appended_Node_Should_Not_Be_List_Head()
+    public void Newly_Appended_Node_Should_Not_Be_The_List_Head()
     {
         list.Append(10);
         list.Append(2);
@@ -53,7 +53,7 @@ public class LinkedListTests
     }
 
     [Test]
-    public void Newly_Appended_Node_Should_Be_List_Tail()
+    public void Newly_Appended_Node_Should_Be_The_List_Tail()
     {
         list.Append(10);
         list.Append(2);
@@ -62,16 +62,16 @@ public class LinkedListTests
     }
 
     [Test]
-    public void Newly_Appended_Node_Should_Link_With_Current_Tail()
+    public void Newly_Appended_Node_Should_Link_To_The_Current_Tail_Of_The_List()
     {
         list.Append(10);
         list.Append(15);
         list.Append(2);
 
-        Assert.That(list.Head?.Child?.Value, Is.EqualTo(15));
-        Assert.That(list.Tail?.Parent?.Value, Is.EqualTo(15));
-        Assert.That(list.Head?.Child?.Child?.Value, Is.EqualTo(2));
-        Assert.That(list.Head?.Child?.Parent?.Value, Is.EqualTo(10));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(15));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(15));
+        Assert.That(list.Head?.Next?.Next?.Value, Is.EqualTo(2));
+        Assert.That(list.Head?.Next?.Prev?.Value, Is.EqualTo(10));
     }
 
     [Test]

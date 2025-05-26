@@ -3,8 +3,8 @@ namespace CSharp.DataStructures.LinkedList;
 public class Node<T>(T value)
 {
     public readonly T Value = value;
-    public Node<T>? Child;
-    public Node<T>? Parent;
+    public Node<T>? Next;
+    public Node<T>? Prev;
 }
 
 public class LinkedList<T>
@@ -12,16 +12,6 @@ public class LinkedList<T>
     public int Length;
     public Node<T>? Head;
     public Node<T>? Tail;
-
-    public T Get(int index)
-    {
-        var node = Head;
-
-        for (int i = 0; i < index; i++)
-            node = node?.Child;
-
-        return node!.Value;
-    }
 
     public void Append(T value)
     {
@@ -31,11 +21,21 @@ public class LinkedList<T>
 
         if (Tail != null)
         {
-            Tail.Child = node;
-            node.Parent = Tail;
+            Tail.Next = node;
+            node.Prev = Tail;
         }
 
         Tail = node;
         Length++;
+    }
+
+    public T Get(int index)
+    {
+        var node = Head;
+
+        for (int i = 0; i < index; i++)
+            node = node?.Next;
+
+        return node!.Value;
     }
 }
