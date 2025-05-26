@@ -181,6 +181,82 @@ public class LinkedListTests
     }
 
     [Test]
+    public void Remove_Should_Decrement_List_Length()
+    {
+        list.Append(4);
+        list.Remove(4);
+
+        Assert.That(list.Length, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void Remove_On_One_Sized_List_Should_Set_Head_And_Tail_To_Null()
+    {
+        list.Append(4);
+
+        var res = list.Remove(4);
+
+        Assert.That(res, Is.EqualTo(4));
+        Assert.That(list.Head, Is.Null);
+        Assert.That(list.Tail, Is.Null);
+    }
+
+    [Test]
+    public void Remove_Should_Throw_Invalid_Operation_Exception_If_List_Does_Not_Contain_Value()
+    {
+        Assert.Throws<InvalidOperationException>(() => list.Remove(3));
+
+        Assert.That(list.Length, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void Remove_Should_Remove_Specified_Value_From_List()
+    {
+        list.Append(3);
+        list.Append(6);
+        list.Append(10);
+
+        var res = list.Remove(6);
+
+        Assert.That(res, Is.EqualTo(6));
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Head?.Value, Is.EqualTo(3));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(10));
+        Assert.That(list.Tail?.Value, Is.EqualTo(10));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(3));
+    }
+
+    [Test]
+    public void Remove_Should_Remove_Value_And_Assign_New_Head_If_Removed_Value_Was_First()
+    {
+        list.Append(3);
+        list.Append(6);
+        list.Append(10);
+
+        var res = list.Remove(3);
+
+        Assert.That(res, Is.EqualTo(3));
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Head?.Value, Is.EqualTo(6));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(10));
+    }
+
+    [Test]
+    public void Remove_Should_Remove_Value_And_Assign_New_Tail_If_Removed_Value_Was_Last()
+    {
+        list.Append(3);
+        list.Append(6);
+        list.Append(10);
+
+        var res = list.Remove(10);
+
+        Assert.That(res, Is.EqualTo(10));
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Tail?.Value, Is.EqualTo(6));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(3));
+    }
+
+    [Test]
     public void Get_Should_Return_Value_By_Node_Index()
     {
         list.Append(10);
