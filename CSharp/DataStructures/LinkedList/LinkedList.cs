@@ -45,15 +45,9 @@ public class LinkedList<T>
         Length++;
     }
 
-    public T Get(int index)
-    {
-        return GetAt(index).Value;
-    }
-
     public void InsertAt(int index, T value)
     {
-        if (index < 0 || index > Length)
-            return;
+        ValidateIndex(index);
 
         if (index == 0)
             Prepend(value);
@@ -62,15 +56,20 @@ public class LinkedList<T>
         else
         {
             var indexNode = GetAt(index);
-            var node = new Node<T>(value);
+            var node = new Node<T>(value) { Prev = indexNode.Prev, Next = indexNode };
 
-            node.Prev = indexNode.Prev;
-            node.Next = indexNode;
             indexNode.Prev!.Next = node;
             indexNode.Prev = node;
 
             Length++;
         }
+    }
+
+    public T Get(int index)
+    {
+        ValidateIndex(index);
+
+        return GetAt(index).Value;
     }
 
     private Node<T> GetAt(int index)
@@ -81,5 +80,11 @@ public class LinkedList<T>
             node = node?.Next;
 
         return node!;
+    }
+
+    private void ValidateIndex(int index)
+    {
+        if (index < 0 || index > Length)
+            throw new IndexOutOfRangeException();
     }
 }

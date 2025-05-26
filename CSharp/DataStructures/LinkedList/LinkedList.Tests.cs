@@ -130,33 +130,14 @@ public class LinkedListTests
     }
 
     [Test]
-    public void Insert_At_With_Negative_Index_Should_Not_Insert_New_Value()
+    public void Insert_At_With_Out_Of_Range_Index_Should_Throw_Index_Out_Of_Range_Exception()
     {
-        list.InsertAt(-1, 100);
+        Assert.Throws<IndexOutOfRangeException>(() => list.InsertAt(1, 100));
+        Assert.Throws<IndexOutOfRangeException>(() => list.InsertAt(-1, 100));
 
         Assert.That(list.Length, Is.Zero);
         Assert.That(list.Head, Is.Null);
         Assert.That(list.Tail, Is.Null);
-    }
-
-    [Test]
-    public void Insert_At_With_Out_Of_Range_Index_Should_Not_Insert_New_Value()
-    {
-        list.InsertAt(1, 100);
-
-        Assert.That(list.Length, Is.Zero);
-        Assert.That(list.Head, Is.Null);
-        Assert.That(list.Tail, Is.Null);
-    }
-
-    [Test]
-    public void Insert_At_With_Empty_List_Should_Prepend_New_Value()
-    {
-        list.InsertAt(0, 1);
-
-        Assert.That(list.Length, Is.EqualTo(1));
-        Assert.That(list.Head?.Value, Is.EqualTo(1));
-        Assert.That(list.Tail?.Value, Is.EqualTo(1));
     }
 
     [Test]
@@ -209,5 +190,14 @@ public class LinkedListTests
         Assert.That(list.Get(0), Is.EqualTo(10));
         Assert.That(list.Get(1), Is.EqualTo(3));
         Assert.That(list.Get(2), Is.EqualTo(5));
+    }
+
+    [Test]
+    public void Get_Should_Throw_Index_Out_Of_Range_Exception_If_Index_Is_Out_Of_Range()
+    {
+        list.Append(1);
+
+        Assert.Throws<IndexOutOfRangeException>(() => list.Get(-1));
+        Assert.Throws<IndexOutOfRangeException>(() => list.Get(2));
     }
 }
