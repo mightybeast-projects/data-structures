@@ -29,6 +29,22 @@ public class LinkedList<T>
         Length++;
     }
 
+    public void Prepend(T value)
+    {
+        var node = new Node<T>(value);
+
+        Tail ??= node;
+
+        if (Head != null)
+        {
+            Head.Prev = node;
+            node.Next = Head;
+        }
+
+        Head = node;
+        Length++;
+    }
+
     public T Get(int index)
     {
         var node = Head;
