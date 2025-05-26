@@ -130,6 +130,76 @@ public class LinkedListTests
     }
 
     [Test]
+    public void Insert_At_With_Negative_Index_Should_Not_Insert_New_Value()
+    {
+        list.InsertAt(-1, 100);
+
+        Assert.That(list.Length, Is.Zero);
+        Assert.That(list.Head, Is.Null);
+        Assert.That(list.Tail, Is.Null);
+    }
+
+    [Test]
+    public void Insert_At_With_Out_Of_Range_Index_Should_Not_Insert_New_Value()
+    {
+        list.InsertAt(1, 100);
+
+        Assert.That(list.Length, Is.Zero);
+        Assert.That(list.Head, Is.Null);
+        Assert.That(list.Tail, Is.Null);
+    }
+
+    [Test]
+    public void Insert_At_With_Empty_List_Should_Prepend_New_Value()
+    {
+        list.InsertAt(0, 1);
+
+        Assert.That(list.Length, Is.EqualTo(1));
+        Assert.That(list.Head?.Value, Is.EqualTo(1));
+        Assert.That(list.Tail?.Value, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void Insert_At_With_Zero_Index_Should_Prepend_New_Value()
+    {
+        list.InsertAt(0, 1);
+        list.InsertAt(0, 2);
+
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Head?.Value, Is.EqualTo(2));
+        Assert.That(list.Tail?.Value, Is.EqualTo(1));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(1));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(2));
+    }
+
+    [Test]
+    public void Insert_At_With_Index_Equals_To_List_Length_Should_Append_New_Value()
+    {
+        list.InsertAt(0, 1);
+        list.InsertAt(1, 2);
+
+        Assert.That(list.Length, Is.EqualTo(2));
+        Assert.That(list.Head?.Value, Is.EqualTo(1));
+        Assert.That(list.Tail?.Value, Is.EqualTo(2));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(2));
+        Assert.That(list.Tail?.Prev?.Value, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void Insert_At_Should_Insert_Value_At_Index()
+    {
+        list.Append(1);
+        list.Append(4);
+        list.Append(10);
+        list.InsertAt(1, 2);
+
+        Assert.That(list.Length, Is.EqualTo(4));
+        Assert.That(list.Head?.Next?.Value, Is.EqualTo(2));
+        Assert.That(list.Head?.Next?.Next?.Prev?.Value, Is.EqualTo(2));
+        Assert.That(list.Head?.Next?.Next?.Next?.Value, Is.EqualTo(10));
+    }
+
+    [Test]
     public void Get_Should_Return_Value_By_Node_Index()
     {
         list.Append(10);
