@@ -38,7 +38,7 @@ public class QueueTests
     }
 
     [Test]
-    public void Non_First_Enqueued_Value_Should_Not_Be_Queue_Head()
+    public void First_Enqueued_Value_Should_Remain_To_Be_Queue_Head()
     {
         queue.Enqueue(10);
         queue.Enqueue(2);
