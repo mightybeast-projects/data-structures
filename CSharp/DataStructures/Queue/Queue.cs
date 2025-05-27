@@ -25,4 +25,12 @@ public class Queue<T>
 
         Tail = node;
     }
+
+    public T Peek()
+    {
+        if (Head == null)
+            throw new InvalidOperationException();
+
+        return Head.Value;
+    }
 }

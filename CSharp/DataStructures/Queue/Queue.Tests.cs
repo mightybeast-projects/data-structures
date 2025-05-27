@@ -63,4 +63,20 @@ public class QueueTests
 
         Assert.That(queue.Head?.Next?.Value, Is.EqualTo(2));
     }
+
+    [Test]
+    public void Peek_Should_Return_Current_Queue_Head()
+    {
+        queue.Enqueue(1);
+        queue.Enqueue(2);
+        queue.Enqueue(3);
+
+        Assert.That(queue.Peek(), Is.EqualTo(1));
+    }
+
+    [Test]
+    public void Peek_On_Empty_Queue_Should_Throw_Invalid_Operation_Exception()
+    {
+        Assert.Throws<InvalidOperationException>(() => queue.Peek());
+    }
 }
