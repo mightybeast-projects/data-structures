@@ -30,23 +30,6 @@ public class StackTests
     }
 
     [Test]
-    public void First_Pushed_Value_Should_Be_Stack_Tail()
-    {
-        stack.Push(10);
-
-        Assert.That(stack.Tail?.Value, Is.EqualTo(10));
-    }
-
-    [Test]
-    public void First_Pushed_Value_Should_Remain_To_Be_Stack_Tail()
-    {
-        stack.Push(10);
-        stack.Push(20);
-
-        Assert.That(stack.Tail?.Value, Is.EqualTo(10));
-    }
-
-    [Test]
     public void Newly_Pushed_Value_Should_Be_Stack_Head()
     {
         stack.Push(10);
@@ -62,6 +45,56 @@ public class StackTests
         stack.Push(20);
 
         Assert.That(stack.Head?.Prev?.Value, Is.EqualTo(10));
+    }
+
+    [Test]
+    public void Pop_On_Empty_Stack_Should_Throw_Invalid_Operation_Exception()
+    {
+        Assert.Throws<InvalidOperationException>(() => stack.Pop());
+    }
+
+    [Test]
+    public void Pop_Should_Decrement_Size()
+    {
+        stack.Push(10);
+
+        stack.Pop();
+
+        Assert.That(stack.Size, Is.Zero);
+    }
+
+    [Test]
+    public void Pop_On_Last_Value_Should_Reset_Stack_Head()
+    {
+        stack.Push(10);
+
+        stack.Pop();
+
+        Assert.That(stack.Head, Is.Null);
+    }
+
+    [Test]
+    public void Pop_Should_Return_Head_Value()
+    {
+        stack.Push(2);
+        stack.Push(20);
+        stack.Push(14);
+
+        var res = stack.Pop();
+
+        Assert.That(res, Is.EqualTo(14));
+    }
+
+    [Test]
+    public void Pop_Should_Shift_Stack()
+    {
+        stack.Push(2);
+        stack.Push(20);
+        stack.Push(14);
+
+        stack.Pop();
+
+        Assert.That(stack.Head?.Value, Is.EqualTo(20));
     }
 
     [Test]
