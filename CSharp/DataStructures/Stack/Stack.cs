@@ -25,4 +25,12 @@ public class Stack<T>
 
         Head = node;
     }
+
+    public T Peek()
+    {
+        if (Head == null)
+            throw new InvalidOperationException();
+
+        return Head.Value;
+    }
 }

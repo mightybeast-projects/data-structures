@@ -63,4 +63,18 @@ public class StackTests
 
         Assert.That(stack.Head?.Prev?.Value, Is.EqualTo(10));
     }
+
+    [Test]
+    public void Peek_On_Empty_Stack_Should_Throw_Invalid_Operation_Exception()
+    {
+        Assert.Throws<InvalidOperationException>(() => stack.Peek());
+    }
+
+    [Test]
+    public void Peek_Should_Return_Current_Stack_Head()
+    {
+        stack.Push(10);
+
+        Assert.That(stack.Peek(), Is.EqualTo(10));
+    }
 }
