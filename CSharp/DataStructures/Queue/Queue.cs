@@ -26,11 +26,30 @@ public class Queue<T>
         Tail = node;
     }
 
+    public T Dequeue()
+    {
+        var node = PeekNode();
+
+        Length--;
+
+        Head = Head!.Next;
+
+        if (Length == 0)
+            Tail = null;
+
+        return node.Value;
+    }
+
     public T Peek()
+    {
+        return PeekNode().Value;
+    }
+
+    private Node<T> PeekNode()
     {
         if (Head == null)
             throw new InvalidOperationException();
 
-        return Head.Value;
+        return Head;
     }
 }

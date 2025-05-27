@@ -65,6 +65,59 @@ public class QueueTests
     }
 
     [Test]
+    public void Dequeue_On_Empty_List_Should_Throw_Invalid_Operation_Exception()
+    {
+        Assert.Throws<InvalidOperationException>(() => queue.Dequeue());
+    }
+
+    [Test]
+    public void Dequeue_Should_Decrement_Queue_Length()
+    {
+        queue.Enqueue(10);
+        queue.Enqueue(2);
+        queue.Enqueue(4);
+
+        queue.Dequeue();
+
+        Assert.That(queue.Length, Is.EqualTo(2));
+    }
+
+    [Test]
+    public void Dequeue_Of_Last_Value_Should_Reset_Queue_Head_And_Tail()
+    {
+        queue.Enqueue(10);
+
+        queue.Dequeue();
+
+        Assert.That(queue.Head, Is.Null);
+        Assert.That(queue.Tail, Is.Null);
+    }
+
+    [Test]
+    public void Dequeue_Should_Return_Head_Value()
+    {
+        queue.Enqueue(10);
+        queue.Enqueue(2);
+        queue.Enqueue(4);
+
+        var res = queue.Dequeue();
+
+        Assert.That(res, Is.EqualTo(10));
+    }
+
+    [Test]
+    public void Dequeue_Should_Shift_Queue()
+    {
+        queue.Enqueue(10);
+        queue.Enqueue(2);
+        queue.Enqueue(4);
+
+        queue.Dequeue();
+
+        Assert.That(queue.Head?.Value, Is.EqualTo(2));
+    }
+
+    [Test]
     public void Peek_Should_Return_Current_Queue_Head()
     {
         queue.Enqueue(1);
