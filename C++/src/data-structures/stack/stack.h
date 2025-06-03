@@ -47,7 +47,6 @@ namespace Stack
 
             Node<T> *head = this->head;
             this->head = head->prev;
-            delete head->prev;
 
             return head->value;
         }
