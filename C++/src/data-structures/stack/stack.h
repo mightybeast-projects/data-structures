@@ -1,12 +1,4 @@
-namespace StackNode
-{
-    template <typename T>
-    struct Node
-    {
-        T value;
-        Node<T> *prev = nullptr;
-    };
-}
+#include "stack-node.h"
 
 namespace Stack
 {
@@ -19,44 +11,12 @@ namespace Stack
         int length = 0;
         Node<T> *head = nullptr;
 
-        Stack() {}
+        Stack();
 
-        void push(T value)
-        {
-            length++;
-
-            Node<T> *node = new Node<T>;
-            node->value = value;
-
-            if (head == nullptr)
-            {
-                head = node;
-                return;
-            }
-
-            node->prev = head;
-            head = node;
-        }
-
-        T pop()
-        {
-            if (head == nullptr)
-                return T();
-
-            length--;
-
-            Node<T> *head = this->head;
-            this->head = head->prev;
-
-            return head->value;
-        }
-
-        T peek()
-        {
-            if (head == nullptr)
-                return T();
-
-            return head->value;
-        }
+        void push(T value);
+        T pop();
+        T peek();
     };
 }
+
+#include "stack.tpp"
