@@ -1,3 +1,4 @@
+#pragma once
 #include "stack-node.h"
 
 namespace Stack

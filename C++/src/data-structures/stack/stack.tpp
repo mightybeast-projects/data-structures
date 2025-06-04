@@ -1,4 +1,5 @@
 #include "stack-node.h"
+#include "stack.h"
 
 namespace Stack
 {
