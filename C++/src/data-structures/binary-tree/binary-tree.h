@@ -1,18 +1,9 @@
-using namespace std;
-
-namespace BinaryTreeNode
-{
-    template <typename T>
-    struct Node
-    {
-        T value;
-        Node<T> *left = nullptr;
-        Node<T> *right = nullptr;
-    };
-}
+#pragma once
+#include "binary-tree-node.h"
 
 namespace BinaryTree
 {
+    using namespace std;
     using namespace BinaryTreeNode;
 
     template <typename T>
@@ -20,58 +11,15 @@ namespace BinaryTree
     {
     public:
         Node<T> *root;
-
-        vector<T> btPreOrderTraversal()
-        {
-            return preOrderRecurse(root, vector<T>{});
-        }
-
-        vector<T> btInOrderTraversal()
-        {
-            return inOrderRecurse(root, vector<T>{});
-        }
-
-        vector<T> btPostOrderTraversal()
-        {
-            return postOrderRecurse(root, vector<T>{});
-        }
+        vector<T> btPreOrderTraversal();
+        vector<T> btInOrderTraversal();
+        vector<T> btPostOrderTraversal();
 
     private:
-        vector<T> preOrderRecurse(Node<T> *node, vector<T> arr)
-        {
-            arr.push_back(node->value);
-
-            if (node->left != nullptr)
-                arr = preOrderRecurse(node->left, arr);
-            if (node->right != nullptr)
-                arr = preOrderRecurse(node->right, arr);
-
-            return arr;
-        }
-
-        vector<T> inOrderRecurse(Node<T> *node, vector<T> arr)
-        {
-            if (node->left != nullptr)
-                arr = inOrderRecurse(node->left, arr);
-
-            arr.push_back(node->value);
-
-            if (node->right != nullptr)
-                arr = inOrderRecurse(node->right, arr);
-
-            return arr;
-        }
-
-        vector<T> postOrderRecurse(Node<T> *node, vector<T> arr)
-        {
-            if (node->left != nullptr)
-                arr = postOrderRecurse(node->left, arr);
-            if (node->right != nullptr)
-                arr = postOrderRecurse(node->right, arr);
-
-            arr.push_back(node->value);
-
-            return arr;
-        }
+        vector<T> preOrderRecurse(Node<T> *node, vector<T> arr);
+        vector<T> inOrderRecurse(Node<T> *node, vector<T> arr);
+        vector<T> postOrderRecurse(Node<T> *node, vector<T> arr);
     };
 }
+
+#include "binary-tree.tpp"
