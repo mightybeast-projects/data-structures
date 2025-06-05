@@ -2,10 +2,10 @@
 #include "testing-utils.h"
 #include "queue.h"
 
-using namespace TestingUtils;
-
 namespace Queue
 {
+    using namespace TestingUtils;
+
     template <typename T>
     void EXPECT_NULL_QUEUE(Queue<T> queue);
 
