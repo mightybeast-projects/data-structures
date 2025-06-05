@@ -9,22 +9,12 @@ namespace SelectionSort
             int minI = i;
 
             for (int j = i; j < arrSize; j++)
-            {
                 if (arr[j] < arr[minI])
                     minI = j;
-            }
 
-            selectionSwap(arr, i, minI);
+            int tmp = arr[i];
+            arr[i] = arr[minI];
+            arr[minI] = tmp;
         }
-    }
-}
-
-namespace
-{
-    void selectionSwap(int *arr, int i, int j)
-    {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
     }
 }
