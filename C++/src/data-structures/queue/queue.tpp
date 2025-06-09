@@ -1,10 +1,7 @@
-#include "queue-node.hpp"
 #include "queue.hpp"
 
 namespace queue
 {
-    using namespace queueNode;
-
     template <typename T>
     void Queue<T>::enqueue(T value)
     {

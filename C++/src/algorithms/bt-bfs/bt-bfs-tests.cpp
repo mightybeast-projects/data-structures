@@ -1,14 +1,12 @@
 #include <gtest/gtest.h>
 #include "testing-utils.hpp"
 #include "bt-bfs.hpp"
-#include "binary-tree-node.hpp"
 
 namespace btBFS
 {
     using namespace testing;
     using namespace testingUtils;
     using namespace binaryTree;
-    using namespace binaryTreeNode;
 
     class BTFSTests : public Test
     {

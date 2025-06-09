@@ -1,16 +1,18 @@
 #pragma once
 #include "binary-tree.hpp"
 
+using namespace binaryTree;
+
 namespace btdfs
 {
     template <typename T>
-    bool btdfs(binaryTree::BinaryTree<T> tree, T value);
+    bool btdfs(BinaryTree<T> tree, T value);
 }
 
 namespace
 {
     template <typename T>
-    bool btdfsRecurse(binaryTreeNode::Node<T> *node, T value);
+    bool btdfsRecurse(Node<T> *node, T value);
 }
 
 #include "bt-dfs.tpp"

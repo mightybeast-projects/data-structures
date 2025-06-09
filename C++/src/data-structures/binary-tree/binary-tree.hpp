@@ -1,10 +1,16 @@
 #pragma once
-#include "binary-tree-node.hpp"
 
 namespace binaryTree
 {
     using namespace std;
-    using namespace binaryTreeNode;
+
+    template <typename T>
+    struct Node
+    {
+        T value;
+        Node<T> *left = nullptr;
+        Node<T> *right = nullptr;
+    };
 
     template <typename T>
     class BinaryTree

@@ -4,34 +4,36 @@
 
 namespace btdfs
 {
+    using namespace testing;
     using namespace testingUtils;
+    using namespace binaryTree;
 
-    class BTDFSTests : public testing::Test
+    class BTDFSTests : public Test
     {
     protected:
-        binaryTree::BinaryTree<int> tree;
+        BinaryTree<int> tree;
 
         void SetUp() override
         {
-            tree.root = new binaryTreeNode::Node<int>{
+            tree.root = new Node<int>{
                 1,
-                new binaryTreeNode::Node<int>{
+                new Node<int>{
                     2,
-                    new binaryTreeNode::Node<int>{
+                    new Node<int>{
                         4,
                         nullptr,
                         nullptr},
-                    new binaryTreeNode::Node<int>{
+                    new Node<int>{
                         5,
                         nullptr,
                         nullptr}},
-                new binaryTreeNode::Node<int>{
+                new Node<int>{
                     3,
-                    new binaryTreeNode::Node<int>{
+                    new Node<int>{
                         6,
                         nullptr,
                         nullptr},
-                    new binaryTreeNode::Node<int>{
+                    new Node<int>{
                         7,
                         nullptr,
                         nullptr}}};

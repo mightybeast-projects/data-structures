@@ -1,9 +1,14 @@
 #pragma once
-#include "linked-list-node.hpp"
 
 namespace linkedList
 {
-    using namespace linkedListNode;
+    template <typename T>
+    struct Node
+    {
+        T value;
+        Node<T> *next;
+        Node<T> *prev;
+    };
 
     template <typename T>
     class LinkedList

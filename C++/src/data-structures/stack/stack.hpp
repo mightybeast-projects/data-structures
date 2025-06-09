@@ -1,9 +1,13 @@
 #pragma once
-#include "stack-node.hpp"
 
 namespace stack
 {
-    using namespace stackNode;
+    template <typename T>
+    struct Node
+    {
+        T value;
+        Node<T> *prev = nullptr;
+    };
 
     template <typename T>
     class Stack

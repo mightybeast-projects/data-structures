@@ -2,10 +2,10 @@
 #include "stack.hpp"
 #include "testing-utils.hpp"
 
-using namespace testingUtils;
-
 namespace stack
 {
+    using namespace testingUtils;
+
     template <typename T>
     void EXPECT_NULL_STACK(Stack<T> stack);
 

@@ -1,11 +1,9 @@
 #include <vector>
-#include "binary-tree-node.hpp"
 #include "binary-tree.hpp"
 
 namespace binaryTree
 {
     using namespace std;
-    using namespace binaryTreeNode;
 
     template <typename T>
     vector<T> BinaryTree<T>::btPreOrderTraversal()

@@ -1,9 +1,13 @@
 #pragma once
-#include "queue-node.hpp"
 
 namespace queue
 {
-    using namespace queueNode;
+    template <typename T>
+    struct Node
+    {
+        T value;
+        Node<T> *next = nullptr;
+    };
 
     template <typename T>
     class Queue

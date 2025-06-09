@@ -3,7 +3,7 @@
 namespace btdfs
 {
     template <typename T>
-    bool btdfs(binaryTree::BinaryTree<T> tree, T value)
+    bool btdfs(BinaryTree<T> tree, T value)
     {
         return btdfsRecurse(tree.root, value);
     }
@@ -12,7 +12,7 @@ namespace btdfs
 namespace
 {
     template <typename T>
-    bool btdfsRecurse(binaryTreeNode::Node<T> *node, T value)
+    bool btdfsRecurse(Node<T> *node, T value)
     {
         if (node == nullptr)
             return false;

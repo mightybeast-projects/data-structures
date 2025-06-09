@@ -1,12 +1,10 @@
 #include <gtest/gtest.h>
 #include "testing-utils.hpp"
 #include "linked-list.hpp"
-#include "linked-list-node.hpp"
 
 namespace linkedList
 {
     using namespace testingUtils;
-    using namespace linkedListNode;
 
     void EXPECT_NULL_LINKEDLIST(LinkedList<int> list);
 

@@ -1,10 +1,7 @@
-#include "stack-node.hpp"
 #include "stack.hpp"
 
 namespace stack
 {
-    using namespace stackNode;
-
     template <typename T>
     Stack<T>::Stack() {}
 

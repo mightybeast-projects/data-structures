@@ -1,9 +1,9 @@
 #include <vector>
 
-using namespace std;
-
 namespace minHeap
 {
+    using namespace std;
+
     class MinHeap
     {
     public:

@@ -5,8 +5,8 @@
 namespace binaryTree
 {
     using namespace std;
+    using namespace testing;
     using namespace testingUtils;
-    using namespace binaryTreeNode;
 
     class BinaryTreeTests : public testing::Test
     {

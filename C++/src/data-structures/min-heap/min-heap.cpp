@@ -1,10 +1,10 @@
 #include <math.h>
 #include "min-heap.hpp"
 
-using namespace std;
-
 namespace minHeap
 {
+    using namespace std;
+
     void MinHeap::insert(int value)
     {
         arr.push_back(value);

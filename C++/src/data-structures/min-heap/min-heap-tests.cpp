@@ -2,11 +2,11 @@
 #include "testing-utils.hpp"
 #include "min-heap.hpp"
 
-using namespace testingUtils;
-using namespace minHeap;
-
 namespace minHeap
 {
+    using namespace testingUtils;
+    using namespace minHeap;
+
     TEST(MinHeapTests, MinHeap_IsCorrect)
     {
         MinHeap heap;
