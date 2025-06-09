@@ -15,7 +15,13 @@ namespace btdfs
 
         void SetUp() override
         {
-            tree.root = new Node<int>{
+            tree.root = buildRoot();
+        }
+
+    private:
+        Node<int> *buildRoot()
+        {
+            return new Node<int>{
                 1,
                 new Node<int>{
                     2,
