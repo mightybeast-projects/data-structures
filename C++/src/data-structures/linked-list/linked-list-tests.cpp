@@ -8,13 +8,13 @@ namespace LinkedList
     using namespace TestingUtils;
     using namespace LinkedListNode;
 
-    void EXPECT_NULL_LLIST(LinkedList<int> list);
+    void EXPECT_NULL_LINKEDLIST(LinkedList<int> list);
 
     TEST(LinkedListTests, LinkedList_IsCorrect)
     {
         LinkedList<int> list;
 
-        EXPECT_NULL_LLIST(list);
+        EXPECT_NULL_LINKEDLIST(list);
 
         list.append(3);
 
@@ -53,7 +53,7 @@ namespace LinkedList
         EXPECT_EQ(list.tail->value, 3);
 
         EXPECT_EQ(list.removeAt(0), 3);
-        EXPECT_NULL_LLIST(list);
+        EXPECT_NULL_LINKEDLIST(list);
 
         list.append(3);
         list.append(5);
@@ -98,7 +98,7 @@ namespace LinkedList
         EXPECT_EQ(list.tail->value, 9);
     }
 
-    void EXPECT_NULL_LLIST(LinkedList<int> list)
+    void EXPECT_NULL_LINKEDLIST(LinkedList<int> list)
     {
         EXPECT_NULLPTR(list.head);
         EXPECT_NULLPTR(list.tail);

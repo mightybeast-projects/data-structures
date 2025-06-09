@@ -18,5 +18,4 @@ namespace MinHeap
         void heapifyUp(int nodeIndex);
         void heapifyDown(int nodeIndex);
     };
-
 }

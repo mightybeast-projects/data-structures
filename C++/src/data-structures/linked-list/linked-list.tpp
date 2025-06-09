@@ -145,7 +145,7 @@ namespace LinkedList
     }
 
     template <typename T>
-    inline bool LinkedList<T>::indexOutOfBounds(int index)
+    bool LinkedList<T>::indexOutOfBounds(int index)
     {
         return index < 0 || index >= length;
     }

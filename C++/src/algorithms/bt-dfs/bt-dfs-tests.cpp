@@ -2,13 +2,12 @@
 #include "testing-utils.h"
 #include "bt-dfs.h"
 
-using namespace TestingUtils;
-
 namespace BTDFS
 {
+    using namespace TestingUtils;
+
     class BTDFSTests : public testing::Test
     {
-    public:
     protected:
         BinaryTree::BinaryTree<int> tree;
 

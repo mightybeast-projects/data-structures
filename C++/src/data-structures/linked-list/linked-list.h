@@ -23,7 +23,7 @@ namespace LinkedList
     private:
         Node<T> *getAt(int index);
         T removeNode(Node<T> *node);
-        inline bool indexOutOfBounds(int index);
+        bool indexOutOfBounds(int index);
     };
 }
 
