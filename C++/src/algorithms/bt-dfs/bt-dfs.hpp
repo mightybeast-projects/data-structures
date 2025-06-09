@@ -9,10 +9,4 @@ namespace btdfs
     bool btdfs(BinaryTree<T> tree, T value);
 }
 
-namespace
-{
-    template <typename T>
-    bool btdfsRecurse(Node<T> *node, T value);
-}
-
 #include "bt-dfs.tpp"
