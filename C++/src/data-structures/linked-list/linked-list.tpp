@@ -1,9 +1,9 @@
 #include "linked-list-node.hpp"
 #include "linked-list.hpp"
 
-namespace LinkedList
+namespace linkedList
 {
-    using namespace LinkedListNode;
+    using namespace linkedListNode;
 
     template <typename T>
     void LinkedList<T>::append(T value)

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace QueueNode
+namespace queueNode
 {
     template <typename T>
     struct Node

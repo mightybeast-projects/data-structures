@@ -1,8 +1,8 @@
 #include "linear-search.hpp"
 
-namespace LinearSearch
+namespace linearSearch
 {
-    bool linearSearch(int *arr, int key, int arrSize)
+    bool search(int *arr, int key, int arrSize)
     {
         for (int i = 0; i < arrSize; i++)
             if (arr[i] == key)

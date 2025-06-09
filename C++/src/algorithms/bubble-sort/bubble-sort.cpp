@@ -1,8 +1,8 @@
 #include "bubble-sort.hpp"
 
-namespace BubbleSort
+namespace bubbleSort
 {
-    void bubbleSort(int *arr, int size)
+    void sort(int *arr, int size)
     {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size - 1 - i; j++)

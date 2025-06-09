@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "linear-search.hpp"
 
-using namespace LinearSearch;
+using namespace linearSearch;
 
 TEST(LinearSearchTests, LinearSearch_IsCorrect)
 {
@@ -9,5 +9,5 @@ TEST(LinearSearchTests, LinearSearch_IsCorrect)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    EXPECT_EQ(linearSearch(arr, 4, arrSize), true);
+    EXPECT_EQ(search(arr, 4, arrSize), true);
 }

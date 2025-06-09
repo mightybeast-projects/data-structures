@@ -1,11 +1,12 @@
 #pragma once
 #include "binary-tree.hpp"
-#include "queue.hpp"
 
-namespace BTBFS
+namespace btBFS
 {
+    using namespace binaryTree;
+
     template <typename T>
-    bool btBFS(BinaryTree::BinaryTree<T> tree, T value);
+    bool btbfs(BinaryTree<T> tree, T value);
 }
 
 #include "bt-bfs.tpp"

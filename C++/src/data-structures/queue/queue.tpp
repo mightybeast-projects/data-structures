@@ -1,9 +1,9 @@
 #include "queue-node.hpp"
 #include "queue.hpp"
 
-namespace Queue
+namespace queue
 {
-    using namespace QueueNode;
+    using namespace queueNode;
 
     template <typename T>
     void Queue<T>::enqueue(T value)

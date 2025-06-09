@@ -1,9 +1,9 @@
 #pragma once
 #include "stack-node.hpp"
 
-namespace Stack
+namespace stack
 {
-    using namespace StackNode;
+    using namespace stackNode;
 
     template <typename T>
     class Stack

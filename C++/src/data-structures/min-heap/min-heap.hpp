@@ -2,7 +2,7 @@
 
 using namespace std;
 
-namespace MinHeap
+namespace minHeap
 {
     class MinHeap
     {

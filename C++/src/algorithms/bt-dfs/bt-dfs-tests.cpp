@@ -2,36 +2,36 @@
 #include "testing-utils.hpp"
 #include "bt-dfs.hpp"
 
-namespace BTDFS
+namespace btdfs
 {
-    using namespace TestingUtils;
+    using namespace testingUtils;
 
     class BTDFSTests : public testing::Test
     {
     protected:
-        BinaryTree::BinaryTree<int> tree;
+        binaryTree::BinaryTree<int> tree;
 
         void SetUp() override
         {
-            tree.root = new BinaryTreeNode::Node<int>{
+            tree.root = new binaryTreeNode::Node<int>{
                 1,
-                new BinaryTreeNode::Node<int>{
+                new binaryTreeNode::Node<int>{
                     2,
-                    new BinaryTreeNode::Node<int>{
+                    new binaryTreeNode::Node<int>{
                         4,
                         nullptr,
                         nullptr},
-                    new BinaryTreeNode::Node<int>{
+                    new binaryTreeNode::Node<int>{
                         5,
                         nullptr,
                         nullptr}},
-                new BinaryTreeNode::Node<int>{
+                new binaryTreeNode::Node<int>{
                     3,
-                    new BinaryTreeNode::Node<int>{
+                    new binaryTreeNode::Node<int>{
                         6,
                         nullptr,
                         nullptr},
-                    new BinaryTreeNode::Node<int>{
+                    new binaryTreeNode::Node<int>{
                         7,
                         nullptr,
                         nullptr}}};
@@ -40,8 +40,8 @@ namespace BTDFS
 
     TEST_F(BTDFSTests, BTDFS_IsCorrect)
     {
-        EXPECT_TRUE(btDFS(tree, 3));
-        EXPECT_TRUE(btDFS(tree, 7));
-        EXPECT_FALSE(btDFS(tree, -1));
+        EXPECT_TRUE(btdfs(tree, 3));
+        EXPECT_TRUE(btdfs(tree, 7));
+        EXPECT_FALSE(btdfs(tree, -1));
     }
 }

@@ -1,8 +1,8 @@
 #include "insertion-sort.hpp"
 
-namespace InsertionSort
+namespace insertionSort
 {
-    void insertionSort(int *arr, int arrSize)
+    void sort(int *arr, int arrSize)
     {
         for (int i = 1; i < arrSize; i++)
         {

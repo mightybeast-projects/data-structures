@@ -1,4 +1,4 @@
-namespace LinearSearch
+namespace linearSearch
 {
-    bool linearSearch(int *arr, int key, int arrSize);
+    bool search(int *arr, int key, int arrSize);
 }

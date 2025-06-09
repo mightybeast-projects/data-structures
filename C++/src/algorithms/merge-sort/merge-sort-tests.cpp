@@ -2,8 +2,8 @@
 #include "testing-utils.hpp"
 #include "merge-sort.hpp"
 
-using namespace TestingUtils;
-using namespace MergeSort;
+using namespace testingUtils;
+using namespace mergeSort;
 
 TEST(MergeSortTests, MergeSort_IsCorrect)
 {
@@ -12,7 +12,7 @@ TEST(MergeSortTests, MergeSort_IsCorrect)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    mergeSort(arr, arrSize - 1);
+    sort(arr, arrSize - 1);
 
     EXPECT_EQ_ARR(arr, expected, arrSize);
 }

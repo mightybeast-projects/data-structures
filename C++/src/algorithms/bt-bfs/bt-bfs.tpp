@@ -1,16 +1,20 @@
 #include "bt-bfs.hpp"
+#include "binary-tree.hpp"
+#include "queue.hpp"
 
-namespace BTBFS
+namespace btBFS
 {
+    using namespace binaryTree;
+
     template <typename T>
-    bool btBFS(BinaryTree::BinaryTree<T> tree, T value)
+    bool btbfs(BinaryTree<T> tree, T value)
     {
-        Queue::Queue<BinaryTreeNode::Node<T>> q;
+        queue::Queue<binaryTreeNode::Node<T>> q;
         q.enqueue(*tree.root);
 
         while (q.length > 0)
         {
-            BinaryTreeNode::Node<T> node = q.dequeue();
+            binaryTreeNode::Node<T> node = q.dequeue();
 
             if (node.value == value)
                 return true;

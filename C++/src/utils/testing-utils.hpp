@@ -2,7 +2,7 @@
 
 using namespace std;
 
-namespace TestingUtils
+namespace testingUtils
 {
     template <typename T>
     void EXPECT_EQ_ARR(T arr, T expected, int arrSize)

@@ -1,5 +1,5 @@
 #pragma once
-namespace LinkedListNode
+namespace linkedListNode
 {
     template <typename T>
     struct Node

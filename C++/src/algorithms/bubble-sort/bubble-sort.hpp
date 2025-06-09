@@ -1,6 +1,6 @@
-namespace BubbleSort
+namespace bubbleSort
 {
-    void bubbleSort(int *arr, int size);
+    void sort(int *arr, int size);
 }
 
 namespace

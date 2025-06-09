@@ -1,9 +1,9 @@
 #include <math.h>
 #include "binary-search.hpp"
 
-namespace BinarySearch
+namespace binarySearch
 {
-    int binarySearch(int *arr, int arrSize, int item)
+    int search(int *arr, int arrSize, int item)
     {
         int l = 0;
         int r = arrSize - 1;
@@ -20,6 +20,6 @@ namespace BinarySearch
                 return m;
         }
 
-        return NULL;
+        return -1;
     }
 }

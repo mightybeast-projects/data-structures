@@ -1,9 +1,9 @@
 #include "stack-node.hpp"
 #include "stack.hpp"
 
-namespace Stack
+namespace stack
 {
-    using namespace StackNode;
+    using namespace stackNode;
 
     template <typename T>
     Stack<T>::Stack() {}

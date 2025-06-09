@@ -1,9 +1,9 @@
 #pragma once
 #include "queue-node.hpp"
 
-namespace Queue
+namespace queue
 {
-    using namespace QueueNode;
+    using namespace queueNode;
 
     template <typename T>
     class Queue

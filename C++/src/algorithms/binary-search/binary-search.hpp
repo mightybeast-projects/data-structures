@@ -1,4 +1,4 @@
-namespace BinarySearch
+namespace binarySearch
 {
-    int binarySearch(int *arr, int arrSize, int item);
+    int search(int *arr, int arrSize, int item);
 }

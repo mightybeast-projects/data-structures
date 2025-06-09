@@ -1,6 +1,6 @@
 #pragma once
 
-namespace StackNode
+namespace stackNode
 {
     template <typename T>
     struct Node

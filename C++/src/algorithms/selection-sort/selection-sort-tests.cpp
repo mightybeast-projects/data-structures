@@ -2,17 +2,17 @@
 #include "testing-utils.hpp"
 #include "selection-sort.hpp"
 
-using namespace TestingUtils;
-using namespace SelectionSort;
+using namespace testingUtils;
+using namespace selectionSort;
 
-TEST(SelectionSort, SelectionSort_IsCorrect)
+TEST(selectionSort, SelectionSort_IsCorrect)
 {
     int arr[] = {5, 2, 4, 6, 1, 3};
     int expected[] = {1, 2, 3, 4, 5, 6};
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    selectionSort(arr, arrSize);
+    sort(arr, arrSize);
 
     EXPECT_EQ_ARR(arr, expected, arrSize);
 }

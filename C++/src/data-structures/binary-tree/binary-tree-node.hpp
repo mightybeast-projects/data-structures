@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BinaryTreeNode
+namespace binaryTreeNode
 {
     template <typename T>
     struct Node

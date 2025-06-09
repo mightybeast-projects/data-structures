@@ -2,9 +2,9 @@
 #include "stack.hpp"
 #include "testing-utils.hpp"
 
-using namespace TestingUtils;
+using namespace testingUtils;
 
-namespace Stack
+namespace stack
 {
     template <typename T>
     void EXPECT_NULL_STACK(Stack<T> stack);

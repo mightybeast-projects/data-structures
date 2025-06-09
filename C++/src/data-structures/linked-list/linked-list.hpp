@@ -1,9 +1,9 @@
 #pragma once
 #include "linked-list-node.hpp"
 
-namespace LinkedList
+namespace linkedList
 {
-    using namespace LinkedListNode;
+    using namespace linkedListNode;
 
     template <typename T>
     class LinkedList

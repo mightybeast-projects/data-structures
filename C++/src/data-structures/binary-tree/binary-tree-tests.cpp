@@ -2,11 +2,11 @@
 #include "testing-utils.hpp"
 #include "binary-tree.hpp"
 
-namespace BinaryTree
+namespace binaryTree
 {
     using namespace std;
-    using namespace TestingUtils;
-    using namespace BinaryTreeNode;
+    using namespace testingUtils;
+    using namespace binaryTreeNode;
 
     class BinaryTreeTests : public testing::Test
     {

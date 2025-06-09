@@ -2,9 +2,9 @@
 #include "testing-utils.hpp"
 #include "queue.hpp"
 
-namespace Queue
+namespace queue
 {
-    using namespace TestingUtils;
+    using namespace testingUtils;
 
     template <typename T>
     void EXPECT_NULL_QUEUE(Queue<T> queue);

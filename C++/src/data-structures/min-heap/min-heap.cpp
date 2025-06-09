@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace MinHeap
+namespace minHeap
 {
     void MinHeap::insert(int value)
     {

@@ -2,8 +2,8 @@
 #include "testing-utils.hpp"
 #include "insertion-sort.hpp"
 
-using namespace TestingUtils;
-using namespace InsertionSort;
+using namespace testingUtils;
+using namespace insertionSort;
 
 TEST(InsertionSortTests, InsertionSort_IsCorrect)
 {
@@ -12,7 +12,7 @@ TEST(InsertionSortTests, InsertionSort_IsCorrect)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    insertionSort(arr, arrSize);
+    sort(arr, arrSize);
 
     EXPECT_EQ_ARR(arr, expected, arrSize);
 }

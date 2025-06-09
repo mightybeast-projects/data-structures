@@ -1,24 +1,24 @@
 #include "merge-sort.hpp"
 
-namespace MergeSort
+namespace mergeSort
 {
-    void mergeSort(int *arr, int arrSize)
+    void sort(int *arr, int arrSize)
     {
-        mergeSortRecurse(arr, 0, arrSize);
+        sortRecurse(arr, 0, arrSize);
     }
 }
 
 namespace
 {
-    void mergeSortRecurse(int *arr, int p, int r)
+    void sortRecurse(int *arr, int p, int r)
     {
         if (p >= r)
             return;
 
         int q = (p + r) / 2;
 
-        mergeSortRecurse(arr, p, q);
-        mergeSortRecurse(arr, q + 1, r);
+        sortRecurse(arr, p, q);
+        sortRecurse(arr, q + 1, r);
 
         merge(arr, p, q, r);
     }

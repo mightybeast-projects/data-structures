@@ -2,8 +2,8 @@
 #include "bubble-sort.hpp"
 #include "testing-utils.hpp"
 
-using namespace BubbleSort;
-using namespace TestingUtils;
+using namespace bubbleSort;
+using namespace testingUtils;
 
 TEST(BubbleSortTests, BubbleSort_IsCorrect)
 {
@@ -12,7 +12,7 @@ TEST(BubbleSortTests, BubbleSort_IsCorrect)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    bubbleSort(arr, arrSize);
+    sort(arr, arrSize);
 
     EXPECT_EQ_ARR(arr, expected, arrSize);
 }
