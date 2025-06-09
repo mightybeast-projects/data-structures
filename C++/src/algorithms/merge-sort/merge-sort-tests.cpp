@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "merge-sort.h"
+#include "testing-utils.hpp"
+#include "merge-sort.hpp"
 
 using namespace TestingUtils;
 using namespace MergeSort;

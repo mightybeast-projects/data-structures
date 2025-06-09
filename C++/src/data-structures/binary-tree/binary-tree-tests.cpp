@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "binary-tree.h"
+#include "testing-utils.hpp"
+#include "binary-tree.hpp"
 
 namespace BinaryTree
 {

@@ -1,4 +1,4 @@
-#include "selection-sort.h"
+#include "selection-sort.hpp"
 
 namespace SelectionSort
 {

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "stack.h"
-#include "testing-utils.h"
+#include "stack.hpp"
+#include "testing-utils.hpp"
 
 using namespace TestingUtils;
 

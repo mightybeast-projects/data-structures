@@ -1,4 +1,4 @@
-#include "insertion-sort.h"
+#include "insertion-sort.hpp"
 
 namespace InsertionSort
 {

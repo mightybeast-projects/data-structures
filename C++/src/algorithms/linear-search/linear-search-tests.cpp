@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "linear-search.h"
+#include "linear-search.hpp"
 
 using namespace LinearSearch;
 

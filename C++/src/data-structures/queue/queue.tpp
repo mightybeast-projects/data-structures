@@ -1,5 +1,5 @@
-#include "queue-node.h"
-#include "queue.h"
+#include "queue-node.hpp"
+#include "queue.hpp"
 
 namespace Queue
 {

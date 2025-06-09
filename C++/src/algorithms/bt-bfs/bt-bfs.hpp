@@ -1,6 +1,6 @@
 #pragma once
-#include "binary-tree.h"
-#include "queue.h"
+#include "binary-tree.hpp"
+#include "queue.hpp"
 
 namespace BTBFS
 {

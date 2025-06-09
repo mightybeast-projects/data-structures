@@ -1,5 +1,5 @@
-#include "linked-list-node.h"
-#include "linked-list.h"
+#include "linked-list-node.hpp"
+#include "linked-list.hpp"
 
 namespace LinkedList
 {

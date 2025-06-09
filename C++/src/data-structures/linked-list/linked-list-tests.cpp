@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "linked-list.h"
-#include "linked-list-node.h"
+#include "testing-utils.hpp"
+#include "linked-list.hpp"
+#include "linked-list-node.hpp"
 
 namespace LinkedList
 {

@@ -1,4 +1,4 @@
-#include "bubble-sort.h"
+#include "bubble-sort.hpp"
 
 namespace BubbleSort
 {

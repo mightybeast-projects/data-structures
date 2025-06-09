@@ -1,5 +1,5 @@
 #pragma once
-#include "queue-node.h"
+#include "queue-node.hpp"
 
 namespace Queue
 {

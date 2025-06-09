@@ -1,5 +1,5 @@
 #pragma once
-#include "stack-node.h"
+#include "stack-node.hpp"
 
 namespace Stack
 {

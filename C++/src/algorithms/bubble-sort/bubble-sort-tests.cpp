@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "bubble-sort.h"
-#include "testing-utils.h"
+#include "bubble-sort.hpp"
+#include "testing-utils.hpp"
 
 using namespace BubbleSort;
 using namespace TestingUtils;

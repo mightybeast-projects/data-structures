@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "min-heap.h"
+#include "testing-utils.hpp"
+#include "min-heap.hpp"
 
 using namespace TestingUtils;
 using namespace MinHeap;

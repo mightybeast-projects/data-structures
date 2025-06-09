@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "selection-sort.h"
+#include "testing-utils.hpp"
+#include "selection-sort.hpp"
 
 using namespace TestingUtils;
 using namespace SelectionSort;

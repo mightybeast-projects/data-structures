@@ -1,6 +1,6 @@
 #include <vector>
-#include "binary-tree-node.h"
-#include "binary-tree.h"
+#include "binary-tree-node.hpp"
+#include "binary-tree.hpp"
 
 namespace BinaryTree
 {

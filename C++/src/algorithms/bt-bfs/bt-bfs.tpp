@@ -1,4 +1,4 @@
-#include "bt-bfs.h"
+#include "bt-bfs.hpp"
 
 namespace BTBFS
 {

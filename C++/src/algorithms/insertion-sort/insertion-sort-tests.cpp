@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "insertion-sort.h"
+#include "testing-utils.hpp"
+#include "insertion-sort.hpp"
 
 using namespace TestingUtils;
 using namespace InsertionSort;

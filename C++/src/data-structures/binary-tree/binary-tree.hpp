@@ -1,5 +1,5 @@
 #pragma once
-#include "binary-tree-node.h"
+#include "binary-tree-node.hpp"
 
 namespace BinaryTree
 {

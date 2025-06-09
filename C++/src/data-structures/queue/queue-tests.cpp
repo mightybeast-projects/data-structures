@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "queue.h"
+#include "testing-utils.hpp"
+#include "queue.hpp"
 
 namespace Queue
 {

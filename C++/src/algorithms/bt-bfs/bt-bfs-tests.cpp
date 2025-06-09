@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "testing-utils.h"
-#include "bt-bfs.h"
+#include "testing-utils.hpp"
+#include "bt-bfs.hpp"
 
 namespace BTBFS
 {

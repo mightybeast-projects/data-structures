@@ -1,5 +1,5 @@
 #pragma once
-#include "binary-tree.h"
+#include "binary-tree.hpp"
 
 namespace BTDFS
 {

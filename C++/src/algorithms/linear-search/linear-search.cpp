@@ -1,4 +1,4 @@
-#include "linear-search.h"
+#include "linear-search.hpp"
 
 namespace LinearSearch
 {

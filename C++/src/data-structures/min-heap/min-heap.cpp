@@ -1,5 +1,5 @@
 #include <math.h>
-#include "min-heap.h"
+#include "min-heap.hpp"
 
 using namespace std;
 

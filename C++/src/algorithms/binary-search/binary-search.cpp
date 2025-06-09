@@ -1,5 +1,5 @@
 #include <math.h>
-#include "binary-search.h"
+#include "binary-search.hpp"
 
 namespace BinarySearch
 {

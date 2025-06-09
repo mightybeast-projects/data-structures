@@ -1,4 +1,4 @@
-#include "merge-sort.h"
+#include "merge-sort.hpp"
 
 namespace MergeSort
 {

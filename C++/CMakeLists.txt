@@ -18,7 +18,7 @@ enable_testing()
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
     src/**/*.cpp
-    src/**/*.h
+    src/**/*.hpp
 )
 
 add_executable(tests ${SOURCE_FILES})
