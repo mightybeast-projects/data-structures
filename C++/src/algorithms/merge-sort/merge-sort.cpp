@@ -2,6 +2,33 @@
 
 namespace
 {
+    void sortRecurse(int *arr, int p, int r);
+    void merge(int *arr, int p, int q, int r);
+}
+
+namespace mergeSort
+{
+    void sort(int *arr, int arrSize)
+    {
+        sortRecurse(arr, 0, arrSize);
+    }
+}
+
+namespace
+{
+    void sortRecurse(int *arr, int p, int r)
+    {
+        if (p >= r)
+            return;
+
+        int q = (p + r) / 2;
+
+        sortRecurse(arr, p, q);
+        sortRecurse(arr, q + 1, r);
+
+        merge(arr, p, q, r);
+    }
+
     void merge(int *arr, int p, int q, int r)
     {
         int ln = q - p + 1;
@@ -48,26 +75,5 @@ namespace
             j++;
             k++;
         }
-    }
-
-    void sortRecurse(int *arr, int p, int r)
-    {
-        if (p >= r)
-            return;
-
-        int q = (p + r) / 2;
-
-        sortRecurse(arr, p, q);
-        sortRecurse(arr, q + 1, r);
-
-        merge(arr, p, q, r);
-    }
-}
-
-namespace mergeSort
-{
-    void sort(int *arr, int arrSize)
-    {
-        sortRecurse(arr, 0, arrSize);
     }
 }
