@@ -8,7 +8,7 @@ namespace linkedList
 
     void EXPECT_NULL_LINKEDLIST(LinkedList<int> list);
 
-    TEST(LinkedListTests, LinkedList_IsCorrect)
+    TEST(Linked_List, Linked_List_Is_Correct)
     {
         LinkedList<int> list;
 

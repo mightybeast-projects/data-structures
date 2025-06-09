@@ -3,7 +3,7 @@
 
 using namespace binarySearch;
 
-TEST(BinarySearchTests, BinarySearch_IsCorrect)
+TEST(Binary_Search, Item_Is_Found)
 {
     int arr[] = {9, 3, 799, 4, 420};
 

@@ -3,7 +3,7 @@
 
 using namespace linearSearch;
 
-TEST(LinearSearchTests, LinearSearch_IsCorrect)
+TEST(Linear_Search, Item_Is_Found)
 {
     int arr[] = {9, 3, 799, 4, 420};
 

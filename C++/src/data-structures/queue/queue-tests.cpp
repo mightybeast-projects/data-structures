@@ -9,7 +9,7 @@ namespace queue
     template <typename T>
     void EXPECT_NULL_QUEUE(Queue<T> queue);
 
-    TEST(QueueTests, Queue_IsCorrect)
+    TEST(Queue, Queue_Is_Correct)
     {
         Queue<int> queue;
 

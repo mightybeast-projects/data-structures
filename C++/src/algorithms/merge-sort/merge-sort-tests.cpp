@@ -5,7 +5,7 @@
 using namespace testingUtils;
 using namespace mergeSort;
 
-TEST(MergeSortTests, MergeSort_IsCorrect)
+TEST(Merge_Sort, Array_Is_Sorted)
 {
     int arr[] = {9, 3, 799, 4, 1};
     int expected[] = {1, 3, 4, 9, 799};

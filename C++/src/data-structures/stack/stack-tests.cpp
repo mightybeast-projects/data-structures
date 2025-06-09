@@ -9,21 +9,7 @@ namespace stack
     template <typename T>
     void EXPECT_NULL_STACK(Stack<T> stack);
 
-    TEST(StackTests, Node_Referencing_IsCorrect)
-    {
-        Node<int> *ptr = nullptr, node1, node2;
-
-        node1.value = 123;
-
-        node2.value = 345;
-        node2.prev = &node1;
-
-        ptr = &node2;
-
-        EXPECT_EQ(ptr->prev->value, 123);
-    }
-
-    TEST(StackTests, Stack_IsCorrect)
+    TEST(Stack, Stack_Is_Correct)
     {
         Stack<int> stack;
 
@@ -47,6 +33,20 @@ namespace stack
         stack.pop();
 
         EXPECT_NULL_STACK(stack);
+    }
+
+    TEST(Stack, Node_Referencing_Is_Correct)
+    {
+        Node<int> *ptr = nullptr, node1, node2;
+
+        node1.value = 123;
+
+        node2.value = 345;
+        node2.prev = &node1;
+
+        ptr = &node2;
+
+        EXPECT_EQ(ptr->prev->value, 123);
     }
 
     template <typename T>

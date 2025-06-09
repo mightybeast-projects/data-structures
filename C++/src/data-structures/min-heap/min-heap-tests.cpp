@@ -7,7 +7,7 @@ namespace minHeap
     using namespace testingUtils;
     using namespace minHeap;
 
-    TEST(MinHeapTests, MinHeap_IsCorrect)
+    TEST(Min_Heap, Min_Heap_Is_Correct)
     {
         MinHeap heap;
 

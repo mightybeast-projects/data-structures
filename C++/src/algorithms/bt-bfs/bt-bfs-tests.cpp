@@ -8,7 +8,7 @@ namespace btBFS
     using namespace testingUtils;
     using namespace binaryTree;
 
-    class BTFSTests : public Test
+    class BTBFS : public Test
     {
     protected:
         BinaryTree<int> tree;
@@ -46,7 +46,7 @@ namespace btBFS
         }
     };
 
-    TEST_F(BTFSTests, BTBFS_IsCorrect)
+    TEST_F(BTBFS, Node_Is_Found)
     {
         EXPECT_TRUE(btbfs(tree, 3));
         EXPECT_TRUE(btbfs(tree, 7));

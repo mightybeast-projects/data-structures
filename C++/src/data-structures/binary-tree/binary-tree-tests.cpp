@@ -8,7 +8,7 @@ namespace binaryTree
     using namespace testing;
     using namespace testingUtils;
 
-    class BinaryTreeTests : public Test
+    class Binary_Tree : public Test
     {
     protected:
         BinaryTree<int> tree;
@@ -46,17 +46,17 @@ namespace binaryTree
         }
     };
 
-    TEST_F(BinaryTreeTests, PreOrderTraversal_IsCorrect)
+    TEST_F(Binary_Tree, Tree_Is_Traversable_Pre_Order)
     {
         EXPECT_EQ_VEC(tree.btPreOrderTraversal(), vector<int>{1, 2, 4, 5, 3, 6, 7});
     }
 
-    TEST_F(BinaryTreeTests, InOrderTraversal_IsCorrect)
+    TEST_F(Binary_Tree, Tree_Is_Traversable_In_Order)
     {
         EXPECT_EQ_VEC(tree.btInOrderTraversal(), vector<int>{4, 2, 5, 1, 6, 3, 7});
     }
 
-    TEST_F(BinaryTreeTests, PostOrderTraversal_IsCorrect)
+    TEST_F(Binary_Tree, Tree_Is_Traversable_Post_Order)
     {
         EXPECT_EQ_VEC(tree.btPostOrderTraversal(), vector<int>{4, 5, 2, 6, 7, 3, 1});
     }

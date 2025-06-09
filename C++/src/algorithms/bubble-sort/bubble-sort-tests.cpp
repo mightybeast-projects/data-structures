@@ -5,7 +5,7 @@
 using namespace bubbleSort;
 using namespace testingUtils;
 
-TEST(BubbleSortTests, BubbleSort_IsCorrect)
+TEST(Bubble_Sort, Array_Is_Sorted)
 {
     int arr[] = {9, 3, 799, 4, 420};
     int expected[] = {3, 4, 9, 420, 799};
