@@ -1,12 +1,20 @@
 #pragma once
+
 #include "binary-tree.hpp"
 
-using namespace binaryTree;
-
-namespace btdfs
+namespace btDFS
 {
+    using namespace binaryTree;
+
     template <typename T>
-    bool btdfs(BinaryTree<T> tree, T value);
+    struct BTDFS
+    {
+        bool btdfs(BinaryTree<T> tree, T value);
+
+    private:
+        bool btdfsRecurse(Node<T> *node, T value);
+    };
+
 }
 
 #include "bt-dfs.tpp"

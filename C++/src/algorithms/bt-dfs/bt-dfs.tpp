@@ -1,24 +1,15 @@
 #include "bt-dfs.hpp"
 
-namespace
+namespace btDFS
 {
     template <typename T>
-    bool btdfsRecurse(Node<T> *node, T value);
-}
-
-namespace btdfs
-{
-    template <typename T>
-    bool btdfs(BinaryTree<T> tree, T value)
+    bool BTDFS<T>::btdfs(BinaryTree<T> tree, T value)
     {
         return btdfsRecurse(tree.root, value);
     }
-}
 
-namespace
-{
     template <typename T>
-    bool btdfsRecurse(Node<T> *node, T value)
+    bool BTDFS<T>::btdfsRecurse(Node<T> *node, T value)
     {
         if (node == nullptr)
             return false;

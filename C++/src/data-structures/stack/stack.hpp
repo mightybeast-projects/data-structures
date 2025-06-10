@@ -10,9 +10,8 @@ namespace stack
     };
 
     template <typename T>
-    class Stack
+    struct Stack
     {
-    public:
         int length = 0;
         Node<T> *head = nullptr;
 

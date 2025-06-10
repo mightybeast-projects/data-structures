@@ -10,9 +10,8 @@ namespace queue
     };
 
     template <typename T>
-    class Queue
+    struct Queue
     {
-    public:
         int length = 0;
         Node<T> *head = nullptr;
         Node<T> *tail = nullptr;

@@ -11,9 +11,8 @@ namespace linkedList
     };
 
     template <typename T>
-    class LinkedList
+    struct LinkedList
     {
-    public:
         Node<T> *head = nullptr;
         Node<T> *tail = nullptr;
         int length = 0;

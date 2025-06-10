@@ -4,9 +4,8 @@ namespace minHeap
 {
     using namespace std;
 
-    class MinHeap
+    struct MinHeap
     {
-    public:
         int length = 0;
 
         void insert(int value);

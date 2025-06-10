@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 namespace binaryTree
 {
     using namespace std;
@@ -13,9 +15,8 @@ namespace binaryTree
     };
 
     template <typename T>
-    class BinaryTree
+    struct BinaryTree
     {
-    public:
         Node<T> *root;
         vector<T> btPreOrderTraversal();
         vector<T> btInOrderTraversal();
