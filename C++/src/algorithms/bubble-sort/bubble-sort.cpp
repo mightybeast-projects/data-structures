@@ -1,9 +1,6 @@
 #include "bubble-sort.hpp"
 
-namespace
-{
-    void bubbleSwap(int *arr, int i);
-}
+void bubbleSwap(int *arr, int i);
 
 namespace bubbleSort
 {
@@ -15,15 +12,12 @@ namespace bubbleSort
     }
 }
 
-namespace
+void bubbleSwap(int *arr, int i)
 {
-    void bubbleSwap(int *arr, int i)
-    {
-        if (arr[i] < arr[i + 1])
-            return;
+    if (arr[i] < arr[i + 1])
+        return;
 
-        int tmp = arr[i + 1];
-        arr[i + 1] = arr[i];
-        arr[i] = tmp;
-    }
+    int tmp = arr[i + 1];
+    arr[i + 1] = arr[i];
+    arr[i] = tmp;
 }
