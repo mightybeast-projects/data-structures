@@ -15,7 +15,7 @@ namespace binaryTree
     template <typename T>
     struct BinaryTree
     {
-        Node<T> *root;
+        Node<T> *root = nullptr;
         std::vector<T> btPreOrderTraversal();
         std::vector<T> btInOrderTraversal();
         std::vector<T> btPostOrderTraversal();

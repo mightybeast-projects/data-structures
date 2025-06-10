@@ -6,8 +6,8 @@ namespace linkedList
     struct Node
     {
         T value;
-        Node<T> *next;
-        Node<T> *prev;
+        Node<T> *next = nullptr;
+        Node<T> *prev = nullptr;
     };
 
     template <typename T>
