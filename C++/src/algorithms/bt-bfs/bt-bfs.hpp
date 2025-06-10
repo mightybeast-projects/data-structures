@@ -4,10 +4,8 @@
 
 namespace btBFS
 {
-    using namespace binaryTree;
-
     template <typename T>
-    bool btbfs(BinaryTree<T> tree, T value);
+    bool btbfs(binaryTree::BinaryTree<T> tree, T value);
 }
 
 #include "bt-bfs.tpp"

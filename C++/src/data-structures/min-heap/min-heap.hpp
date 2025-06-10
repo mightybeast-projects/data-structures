@@ -1,9 +1,9 @@
+#pragma once
+
 #include <vector>
 
 namespace minHeap
 {
-    using namespace std;
-
     struct MinHeap
     {
         int length = 0;
@@ -13,7 +13,7 @@ namespace minHeap
         int peek();
 
     private:
-        vector<int> arr = {};
+        std::vector<int> arr = {};
         void heapifyUp(int nodeIndex);
         void heapifyDown(int nodeIndex);
     };

@@ -3,13 +3,11 @@
 
 namespace testingUtils
 {
-    using namespace std;
-
     template <typename T>
     void EXPECT_EQ_ARR(T arr, T expected, int arrSize);
 
     template <typename T>
-    void EXPECT_EQ_VEC(vector<T> vec, vector<T> expected);
+    void EXPECT_EQ_VEC(std::vector<T> vec, std::vector<T> expected);
 
     template <typename T>
     void EXPECT_NULL(T obj);

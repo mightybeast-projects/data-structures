@@ -1,7 +1,10 @@
 #include "bt-dfs.hpp"
+#include "binary-tree.hpp"
 
 namespace btDFS
 {
+    using namespace binaryTree;
+
     template <typename T>
     bool BTDFS<T>::btdfs(BinaryTree<T> tree, T value)
     {

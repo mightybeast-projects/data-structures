@@ -4,15 +4,13 @@
 
 namespace btDFS
 {
-    using namespace binaryTree;
-
     template <typename T>
     struct BTDFS
     {
-        bool btdfs(BinaryTree<T> tree, T value);
+        bool btdfs(binaryTree::BinaryTree<T> tree, T value);
 
     private:
-        bool btdfsRecurse(Node<T> *node, T value);
+        bool btdfsRecurse(binaryTree::Node<T> *node, T value);
     };
 
 }

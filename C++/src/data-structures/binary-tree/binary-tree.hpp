@@ -4,8 +4,6 @@
 
 namespace binaryTree
 {
-    using namespace std;
-
     template <typename T>
     struct Node
     {
@@ -18,14 +16,14 @@ namespace binaryTree
     struct BinaryTree
     {
         Node<T> *root;
-        vector<T> btPreOrderTraversal();
-        vector<T> btInOrderTraversal();
-        vector<T> btPostOrderTraversal();
+        std::vector<T> btPreOrderTraversal();
+        std::vector<T> btInOrderTraversal();
+        std::vector<T> btPostOrderTraversal();
 
     private:
-        vector<T> preOrderRecurse(Node<T> *node, vector<T> arr);
-        vector<T> inOrderRecurse(Node<T> *node, vector<T> arr);
-        vector<T> postOrderRecurse(Node<T> *node, vector<T> arr);
+        std::vector<T> preOrderRecurse(Node<T> *node, std::vector<T> arr);
+        std::vector<T> inOrderRecurse(Node<T> *node, std::vector<T> arr);
+        std::vector<T> postOrderRecurse(Node<T> *node, std::vector<T> arr);
     };
 }
 
