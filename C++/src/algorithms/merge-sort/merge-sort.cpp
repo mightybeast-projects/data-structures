@@ -18,20 +18,20 @@ namespace
 {
     void sortRecurse(int *arr, int p, int r)
     {
-        if (p >= r)
+        if (r - p <= 1)
             return;
 
         int q = (p + r) / 2;
 
         sortRecurse(arr, p, q);
-        sortRecurse(arr, q + 1, r);
+        sortRecurse(arr, q, r);
 
         merge(arr, p, q, r);
     }
 
     void merge(int *arr, int p, int q, int r)
     {
-        int ln = q - p + 1;
+        int ln = q - p;
         int rn = r - q;
 
         int L[ln];
@@ -41,7 +41,7 @@ namespace
             L[i] = arr[p + i];
 
         for (int j = 0; j < rn; j++)
-            R[j] = arr[q + j + 1];
+            R[j] = arr[q + j];
 
         int i = 0;
         int j = 0;

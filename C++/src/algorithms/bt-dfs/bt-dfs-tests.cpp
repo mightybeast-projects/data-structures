@@ -2,7 +2,6 @@
 #include "testing-utils.hpp"
 #include "bt-dfs.hpp"
 
-using namespace testing;
 using namespace btDFS;
 using namespace testingUtils;
 using namespace binaryTree;

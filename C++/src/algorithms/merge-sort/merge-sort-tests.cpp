@@ -12,7 +12,7 @@ TEST(Merge_Sort, Array_Is_Sorted)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    sort(arr, arrSize - 1);
+    sort(arr, arrSize);
 
     EXPECT_EQ_ARR(arr, expected, arrSize);
 }

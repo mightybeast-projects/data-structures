@@ -2,62 +2,60 @@
 #include "testing-utils.hpp"
 #include "binary-tree.hpp"
 
-namespace binaryTree
+using namespace std;
+using namespace testing;
+using namespace testingUtils;
+using namespace binaryTree;
+
+class Binary_Tree : public Test
 {
-    using namespace std;
-    using namespace testing;
-    using namespace testingUtils;
+public:
+    BinaryTree<int> tree;
 
-    class Binary_Tree : public Test
+    void SetUp() override
     {
-    protected:
-        BinaryTree<int> tree;
+        tree.root = buildRoot();
+    }
 
-        void SetUp() override
-        {
-            tree.root = buildRoot();
-        }
-
-    private:
-        Node<int> *buildRoot()
-        {
-            return new Node<int>{
-                1,
+private:
+    Node<int> *buildRoot()
+    {
+        return new Node<int>{
+            1,
+            new Node<int>{
+                2,
                 new Node<int>{
-                    2,
-                    new Node<int>{
-                        4,
-                        nullptr,
-                        nullptr},
-                    new Node<int>{
-                        5,
-                        nullptr,
-                        nullptr}},
+                    4,
+                    nullptr,
+                    nullptr},
                 new Node<int>{
-                    3,
-                    new Node<int>{
-                        6,
-                        nullptr,
-                        nullptr},
-                    new Node<int>{
-                        7,
-                        nullptr,
-                        nullptr}}};
-        }
-    };
-
-    TEST_F(Binary_Tree, Tree_Is_Traversable_Pre_Order)
-    {
-        EXPECT_EQ_VEC(tree.btPreOrderTraversal(), vector<int>{1, 2, 4, 5, 3, 6, 7});
+                    5,
+                    nullptr,
+                    nullptr}},
+            new Node<int>{
+                3,
+                new Node<int>{
+                    6,
+                    nullptr,
+                    nullptr},
+                new Node<int>{
+                    7,
+                    nullptr,
+                    nullptr}}};
     }
+};
 
-    TEST_F(Binary_Tree, Tree_Is_Traversable_In_Order)
-    {
-        EXPECT_EQ_VEC(tree.btInOrderTraversal(), vector<int>{4, 2, 5, 1, 6, 3, 7});
-    }
+TEST_F(Binary_Tree, Tree_Is_Traversable_Pre_Order)
+{
+    EXPECT_EQ_VEC(tree.btPreOrderTraversal(), vector<int>{1, 2, 4, 5, 3, 6, 7});
+}
 
-    TEST_F(Binary_Tree, Tree_Is_Traversable_Post_Order)
-    {
-        EXPECT_EQ_VEC(tree.btPostOrderTraversal(), vector<int>{4, 5, 2, 6, 7, 3, 1});
-    }
+TEST_F(Binary_Tree, Tree_Is_Traversable_In_Order)
+{
+    EXPECT_EQ_VEC(tree.btInOrderTraversal(), vector<int>{4, 2, 5, 1, 6, 3, 7});
+}
+
+TEST_F(Binary_Tree, Tree_Is_Traversable_Post_Order)
+{
+    EXPECT_EQ_VEC(tree.btPostOrderTraversal(), vector<int>{4, 5, 2, 6, 7, 3, 1});
 }

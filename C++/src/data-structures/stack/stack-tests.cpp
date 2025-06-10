@@ -2,59 +2,57 @@
 #include "stack.hpp"
 #include "testing-utils.hpp"
 
-namespace stack
+using namespace testingUtils;
+using namespace stack;
+
+template <typename T>
+void EXPECT_NULL_STACK(Stack<T> stack);
+
+TEST(Stack, Stack_Is_Correct)
 {
-    using namespace testingUtils;
+    Stack<int> stack;
 
-    template <typename T>
-    void EXPECT_NULL_STACK(Stack<T> stack);
+    EXPECT_NULL_STACK(stack);
 
-    TEST(Stack, Stack_Is_Correct)
-    {
-        Stack<int> stack;
+    stack.push(5);
+    stack.push(7);
+    stack.push(9);
 
-        EXPECT_NULL_STACK(stack);
+    EXPECT_EQ(stack.length, 3);
+    EXPECT_EQ(stack.head->value, 9);
+    EXPECT_EQ(stack.head->prev->value, 7);
 
-        stack.push(5);
-        stack.push(7);
-        stack.push(9);
+    EXPECT_EQ(stack.peek(), 9);
 
-        EXPECT_EQ(stack.length, 3);
-        EXPECT_EQ(stack.head->value, 9);
-        EXPECT_EQ(stack.head->prev->value, 7);
+    EXPECT_EQ(stack.pop(), 9);
+    EXPECT_EQ(stack.length, 2);
+    EXPECT_EQ(stack.peek(), 7);
 
-        EXPECT_EQ(stack.peek(), 9);
+    stack.pop();
+    stack.pop();
 
-        EXPECT_EQ(stack.pop(), 9);
-        EXPECT_EQ(stack.length, 2);
-        EXPECT_EQ(stack.peek(), 7);
+    EXPECT_NULL_STACK(stack);
+}
 
-        stack.pop();
-        stack.pop();
+TEST(Stack, Node_Referencing_Is_Correct)
+{
+    Node<int> *ptr = nullptr, node1, node2;
 
-        EXPECT_NULL_STACK(stack);
-    }
+    node1.value = 123;
 
-    TEST(Stack, Node_Referencing_Is_Correct)
-    {
-        Node<int> *ptr = nullptr, node1, node2;
+    node2.value = 345;
+    node2.prev = &node1;
 
-        node1.value = 123;
+    ptr = &node2;
 
-        node2.value = 345;
-        node2.prev = &node1;
+    EXPECT_EQ(ptr->prev->value, 123);
+}
 
-        ptr = &node2;
-
-        EXPECT_EQ(ptr->prev->value, 123);
-    }
-
-    template <typename T>
-    void EXPECT_NULL_STACK(Stack<T> stack)
-    {
-        EXPECT_EQ(stack.length, 0);
-        EXPECT_NULLPTR(stack.head);
-        EXPECT_NULL(stack.peek());
-        EXPECT_NULL(stack.pop());
-    }
+template <typename T>
+void EXPECT_NULL_STACK(Stack<T> stack)
+{
+    EXPECT_EQ(stack.length, 0);
+    EXPECT_NULLPTR(stack.head);
+    EXPECT_NULL(stack.peek());
+    EXPECT_NULL(stack.pop());
 }
