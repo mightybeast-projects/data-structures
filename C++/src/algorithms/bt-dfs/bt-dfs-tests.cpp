@@ -8,30 +8,17 @@ using namespace binaryTree;
 
 TEST(BTDFS, Node_Is_Found)
 {
-    BinaryTree<int> tree;
+    Node<int> n4{4, nullptr, nullptr};
+    Node<int> n5{5, nullptr, nullptr};
+    Node<int> n6{6, nullptr, nullptr};
+    Node<int> n7{7, nullptr, nullptr};
 
-    tree.root = new Node<int>{
-        1,
-        new Node<int>{
-            2,
-            new Node<int>{
-                4,
-                nullptr,
-                nullptr},
-            new Node<int>{
-                5,
-                nullptr,
-                nullptr}},
-        new Node<int>{
-            3,
-            new Node<int>{
-                6,
-                nullptr,
-                nullptr},
-            new Node<int>{
-                7,
-                nullptr,
-                nullptr}}};
+    Node<int> n2{2, &n4, &n5};
+    Node<int> n3{3, &n6, &n7};
+    Node<int> root{1, &n2, &n3};
+
+    BinaryTree<int> tree;
+    tree.root = &root;
 
     BTDFS<int> dfs;
 

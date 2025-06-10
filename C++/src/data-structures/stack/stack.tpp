@@ -32,9 +32,12 @@ namespace stack
         length--;
 
         Node<T> *head = this->head;
+        auto value = head->value;
         this->head = head->prev;
 
-        return head->value;
+        delete head;
+
+        return value;
     }
 
     template <typename T>

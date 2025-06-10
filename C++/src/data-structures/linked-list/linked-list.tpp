@@ -7,7 +7,7 @@ namespace linkedList
     {
         length++;
 
-        Node<T> *node = new Node<T>();
+        Node<T> *node = new Node<T>;
         node->value = value;
 
         if (head == nullptr)
@@ -27,7 +27,7 @@ namespace linkedList
     {
         length++;
 
-        Node<T> *node = new Node<T>();
+        Node<T> *node = new Node<T>;
         node->value = value;
 
         if (head == nullptr)
@@ -55,7 +55,7 @@ namespace linkedList
 
         length++;
 
-        Node<T> *node = new Node<T>();
+        Node<T> *node = new Node<T>;
         node->value = value;
 
         Node<T> *nextNode = getAt(index);
@@ -138,7 +138,11 @@ namespace linkedList
         if (tail == node)
             tail = prevNode;
 
-        return node->value;
+        T value = node->value;
+
+        delete node;
+
+        return value;
     }
 
     template <typename T>

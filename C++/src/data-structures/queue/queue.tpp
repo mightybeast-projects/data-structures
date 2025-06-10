@@ -27,14 +27,17 @@ namespace queue
 
         length--;
 
-        Node<T> *headNode = head;
-        head = headNode->next;
-        headNode->next = nullptr;
+        Node<T> *head = this->head;
+        T value = head->value;
+        this->head = head->next;
+        head->next = nullptr;
 
         if (length == 0)
             tail = nullptr;
 
-        return headNode->value;
+        delete head;
+
+        return value;
     }
 
     template <typename T>

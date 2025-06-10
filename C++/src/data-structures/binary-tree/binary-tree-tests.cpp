@@ -17,6 +17,13 @@ public:
         tree.root = buildRoot();
     }
 
+    void TearDown() override
+    {
+        deleteNode(tree.root);
+
+        tree.root = nullptr;
+    }
+
 private:
     Node<int> *buildRoot()
     {
@@ -42,6 +49,20 @@ private:
                     7,
                     nullptr,
                     nullptr}}};
+    }
+
+    void deleteNode(Node<int> *node)
+    {
+        if (!node)
+            return;
+
+        auto left = node->left;
+        auto right = node->right;
+
+        deleteNode(left);
+        deleteNode(right);
+
+        delete node;
     }
 };
 
