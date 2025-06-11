@@ -27,28 +27,16 @@ public:
 private:
     Node<int> *buildRoot()
     {
-        return new Node<int>{
-            1,
-            new Node<int>{
-                2,
-                new Node<int>{
-                    4,
-                    nullptr,
-                    nullptr},
-                new Node<int>{
-                    5,
-                    nullptr,
-                    nullptr}},
-            new Node<int>{
-                3,
-                new Node<int>{
-                    6,
-                    nullptr,
-                    nullptr},
-                new Node<int>{
-                    7,
-                    nullptr,
-                    nullptr}}};
+        auto n4 = new Node<int>{4};
+        auto n5 = new Node<int>{5};
+
+        auto n6 = new Node<int>{6};
+        auto n7 = new Node<int>{7};
+
+        auto n2 = new Node<int>{2, n4, n5};
+        auto n3 = new Node<int>{3, n6, n7};
+
+        return new Node<int>{1, n2, n3};
     }
 
     void deleteNode(Node<int> *node)
