@@ -3,15 +3,11 @@
 namespace stack
 {
     template <typename T>
-    Stack<T>::Stack() {}
-
-    template <typename T>
     void Stack<T>::push(T value)
     {
         length++;
 
-        Node<T> *node = new Node<T>;
-        node->value = value;
+        Node<T> *node = new Node<T>(value);
 
         if (head == nullptr)
         {
@@ -31,11 +27,12 @@ namespace stack
 
         length--;
 
-        Node<T> *head = this->head;
-        auto value = head->value;
-        this->head = head->prev;
+        Node<T> *oldHead = this->head;
+        auto value = oldHead->value;
 
-        delete head;
+        this->head = oldHead->prev;
+
+        delete oldHead;
 
         return value;
     }

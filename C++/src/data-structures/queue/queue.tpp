@@ -7,8 +7,7 @@ namespace queue
     {
         length++;
 
-        Node<T> *node = new Node<T>;
-        node->value = value;
+        Node<T> *node = new Node<T>(value);
 
         if (head == nullptr)
             head = node;
@@ -29,6 +28,7 @@ namespace queue
 
         Node<T> *head = this->head;
         T value = head->value;
+
         this->head = head->next;
         head->next = nullptr;
 

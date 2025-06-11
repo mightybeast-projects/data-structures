@@ -7,6 +7,8 @@ namespace stack
     {
         T value;
         Node<T> *prev = nullptr;
+
+        Node(T val) : value(val) {};
     };
 
     template <typename T>
@@ -14,8 +16,6 @@ namespace stack
     {
         int length = 0;
         Node<T> *head = nullptr;
-
-        Stack();
 
         void push(T value);
         T pop();

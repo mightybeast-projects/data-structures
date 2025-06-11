@@ -7,8 +7,7 @@ namespace linkedList
     {
         length++;
 
-        Node<T> *node = new Node<T>;
-        node->value = value;
+        Node<T> *node = new Node<T>(value);
 
         if (head == nullptr)
         {
@@ -27,8 +26,7 @@ namespace linkedList
     {
         length++;
 
-        Node<T> *node = new Node<T>;
-        node->value = value;
+        Node<T> *node = new Node<T>(value);
 
         if (head == nullptr)
         {
@@ -55,8 +53,7 @@ namespace linkedList
 
         length++;
 
-        Node<T> *node = new Node<T>;
-        node->value = value;
+        Node<T> *node = new Node<T>(value);
 
         Node<T> *nextNode = getAt(index);
         Node<T> *prevNode = nextNode->prev;

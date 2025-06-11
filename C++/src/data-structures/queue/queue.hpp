@@ -7,6 +7,8 @@ namespace queue
     {
         T value;
         Node<T> *next = nullptr;
+
+        Node(T val) : value(val) {};
     };
 
     template <typename T>
