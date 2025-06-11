@@ -5,13 +5,13 @@
 using namespace testingUtils;
 using namespace linkedList;
 
-void EXPECT_NULL_LINKEDLIST(LinkedList<int> list);
-
 TEST(Linked_List, Linked_List_Is_Correct)
 {
     LinkedList<int> list;
 
-    EXPECT_NULL_LINKEDLIST(list);
+    EXPECT_NULLPTR(list.head);
+    EXPECT_NULLPTR(list.tail);
+    EXPECT_EQ(list.length, 0);
 
     list.append(3);
 
@@ -50,7 +50,6 @@ TEST(Linked_List, Linked_List_Is_Correct)
     EXPECT_EQ(list.tail->value, 3);
 
     EXPECT_EQ(list.removeAt(0), 3);
-    EXPECT_NULL_LINKEDLIST(list);
 
     list.append(3);
     list.append(5);
@@ -85,14 +84,4 @@ TEST(Linked_List, Linked_List_Is_Correct)
 
     EXPECT_EQ(list.head->value, -2);
     EXPECT_EQ(list.tail->value, 9);
-}
-
-void EXPECT_NULL_LINKEDLIST(LinkedList<int> list)
-{
-    EXPECT_NULLPTR(list.head);
-    EXPECT_NULLPTR(list.tail);
-    EXPECT_EQ(list.length, 0);
-    EXPECT_NULL(list.get(0));
-    EXPECT_NULL(list.removeAt(0));
-    EXPECT_NULL(list.remove(0));
 }

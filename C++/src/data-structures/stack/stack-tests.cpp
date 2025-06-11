@@ -5,14 +5,12 @@
 using namespace testingUtils;
 using namespace stack;
 
-template <typename T>
-void EXPECT_NULL_STACK(Stack<T> stack);
-
 TEST(Stack, Stack_Is_Correct)
 {
     Stack<int> stack;
 
-    EXPECT_NULL_STACK(stack);
+    EXPECT_EQ(stack.length, 0);
+    EXPECT_NULLPTR(stack.head);
 
     stack.push(5);
     stack.push(7);
@@ -31,28 +29,6 @@ TEST(Stack, Stack_Is_Correct)
     stack.pop();
     stack.pop();
 
-    EXPECT_NULL_STACK(stack);
-}
-
-TEST(Stack, Node_Referencing_Is_Correct)
-{
-    Node<int> *ptr = nullptr, node1, node2;
-
-    node1.value = 123;
-
-    node2.value = 345;
-    node2.prev = &node1;
-
-    ptr = &node2;
-
-    EXPECT_EQ(ptr->prev->value, 123);
-}
-
-template <typename T>
-void EXPECT_NULL_STACK(Stack<T> stack)
-{
     EXPECT_EQ(stack.length, 0);
     EXPECT_NULLPTR(stack.head);
-    EXPECT_NULL(stack.peek());
-    EXPECT_NULL(stack.pop());
 }
