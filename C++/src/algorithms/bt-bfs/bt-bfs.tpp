@@ -1,13 +1,12 @@
-#include "bt-bfs.hpp"
 #include "binary-tree.hpp"
+#include "bt-bfs.hpp"
 #include "queue.hpp"
 
 namespace btBFS
 {
     using namespace binaryTree;
 
-    template <typename T>
-    bool btbfs(BinaryTree<T> tree, T value)
+    template <typename T> bool btbfs(BinaryTree<T> tree, T value)
     {
         queue::Queue<binaryTree::Node<T>> q;
         q.enqueue(*tree.root);

@@ -1,4 +1,4 @@
 namespace selectionSort
 {
-    void sort(int *arr, int arrSize);
+    void sort(int* arr, int arrSize);
 }

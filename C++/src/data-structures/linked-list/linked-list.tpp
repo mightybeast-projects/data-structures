@@ -2,12 +2,11 @@
 
 namespace linkedList
 {
-    template <typename T>
-    void LinkedList<T>::append(T value)
+    template <typename T> void LinkedList<T>::append(T value)
     {
         length++;
 
-        Node<T> *node = new Node<T>(value);
+        Node<T>* node = new Node<T>(value);
 
         if (head == nullptr)
         {
@@ -21,12 +20,11 @@ namespace linkedList
         tail = node;
     }
 
-    template <typename T>
-    void LinkedList<T>::prepend(T value)
+    template <typename T> void LinkedList<T>::prepend(T value)
     {
         length++;
 
-        Node<T> *node = new Node<T>(value);
+        Node<T>* node = new Node<T>(value);
 
         if (head == nullptr)
         {
@@ -40,8 +38,7 @@ namespace linkedList
         head = node;
     }
 
-    template <typename T>
-    void LinkedList<T>::insertAt(int index, T value)
+    template <typename T> void LinkedList<T>::insertAt(int index, T value)
     {
         if (indexOutOfBounds(index))
             return;
@@ -53,10 +50,10 @@ namespace linkedList
 
         length++;
 
-        Node<T> *node = new Node<T>(value);
+        Node<T>* node = new Node<T>(value);
 
-        Node<T> *nextNode = getAt(index);
-        Node<T> *prevNode = nextNode->prev;
+        Node<T>* nextNode = getAt(index);
+        Node<T>* prevNode = nextNode->prev;
 
         prevNode->next = node;
         node->prev = prevNode;
@@ -65,8 +62,7 @@ namespace linkedList
         node->next = nextNode;
     }
 
-    template <typename T>
-    T LinkedList<T>::get(int index)
+    template <typename T> T LinkedList<T>::get(int index)
     {
         if (indexOutOfBounds(index))
             return T();
@@ -74,8 +70,7 @@ namespace linkedList
         return getAt(index)->value;
     }
 
-    template <typename T>
-    T LinkedList<T>::removeAt(int index)
+    template <typename T> T LinkedList<T>::removeAt(int index)
     {
         if (indexOutOfBounds(index))
             return T();
@@ -83,10 +78,9 @@ namespace linkedList
         return removeNode(getAt(index));
     }
 
-    template <typename T>
-    T LinkedList<T>::remove(T value)
+    template <typename T> T LinkedList<T>::remove(T value)
     {
-        Node<T> *node = head;
+        Node<T>* node = head;
 
         while (node != nullptr && node->value != value)
             node = node->next;
@@ -97,10 +91,9 @@ namespace linkedList
         return removeNode(node);
     }
 
-    template <typename T>
-    Node<T> *LinkedList<T>::getAt(int index)
+    template <typename T> Node<T>* LinkedList<T>::getAt(int index)
     {
-        Node<T> *node = head;
+        Node<T>* node = head;
 
         for (int i = 0; i < index; i++)
             node = node->next;
@@ -108,8 +101,7 @@ namespace linkedList
         return node;
     }
 
-    template <typename T>
-    T LinkedList<T>::removeNode(Node<T> *node)
+    template <typename T> T LinkedList<T>::removeNode(Node<T>* node)
     {
         length--;
 
@@ -120,8 +112,8 @@ namespace linkedList
             return node->value;
         }
 
-        Node<T> *prevNode = node->prev;
-        Node<T> *nextNode = node->next;
+        Node<T>* prevNode = node->prev;
+        Node<T>* nextNode = node->next;
 
         if (nextNode != nullptr)
             nextNode->prev = prevNode;
@@ -142,8 +134,7 @@ namespace linkedList
         return value;
     }
 
-    template <typename T>
-    bool LinkedList<T>::indexOutOfBounds(int index)
+    template <typename T> bool LinkedList<T>::indexOutOfBounds(int index)
     {
         return index < 0 || index >= length;
     }

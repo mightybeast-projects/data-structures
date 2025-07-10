@@ -1,5 +1,5 @@
-#include <math.h>
 #include "min-heap.hpp"
+#include <math.h>
 
 namespace minHeap
 {
@@ -71,8 +71,7 @@ namespace minHeap
             arr[nodeIndex] = rightChild;
             arr[rihgtChildIndex] = node;
             heapifyDown(rihgtChildIndex);
-        }
-        else if (rightChild > leftChild && node > leftChild)
+        } else if (rightChild > leftChild && node > leftChild)
         {
             arr[nodeIndex] = leftChild;
             arr[leftChildIndex] = node;

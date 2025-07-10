@@ -1,4 +1,4 @@
 namespace insertionSort
 {
-    void sort(int *arr, int arrSize);
+    void sort(int* arr, int arrSize);
 }

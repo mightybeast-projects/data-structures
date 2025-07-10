@@ -2,12 +2,11 @@
 
 namespace queue
 {
-    template <typename T>
-    void Queue<T>::enqueue(T value)
+    template <typename T> void Queue<T>::enqueue(T value)
     {
         length++;
 
-        Node<T> *node = new Node<T>(value);
+        Node<T>* node = new Node<T>(value);
 
         if (head == nullptr)
             head = node;
@@ -18,15 +17,14 @@ namespace queue
         tail = node;
     }
 
-    template <typename T>
-    T Queue<T>::dequeue()
+    template <typename T> T Queue<T>::dequeue()
     {
         if (head == nullptr)
             return T();
 
         length--;
 
-        Node<T> *head = this->head;
+        Node<T>* head = this->head;
         T value = head->value;
 
         this->head = head->next;
@@ -40,8 +38,7 @@ namespace queue
         return value;
     }
 
-    template <typename T>
-    T Queue<T>::peek()
+    template <typename T> T Queue<T>::peek()
     {
         if (head == nullptr)
             return T();

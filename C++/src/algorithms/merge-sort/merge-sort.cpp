@@ -1,17 +1,17 @@
 #include "merge-sort.hpp"
 
-void sortRecurse(int *arr, int p, int r);
-void merge(int *arr, int p, int q, int r);
+void sortRecurse(int* arr, int p, int r);
+void merge(int* arr, int p, int q, int r);
 
 namespace mergeSort
 {
-    void sort(int *arr, int arrSize)
+    void sort(int* arr, int arrSize)
     {
         sortRecurse(arr, 0, arrSize);
     }
 }
 
-void sortRecurse(int *arr, int p, int r)
+void sortRecurse(int* arr, int p, int r)
 {
     if (r - p <= 1)
         return;
@@ -24,7 +24,7 @@ void sortRecurse(int *arr, int p, int r)
     merge(arr, p, q, r);
 }
 
-void merge(int *arr, int p, int q, int r)
+void merge(int* arr, int p, int q, int r)
 {
     int ln = q - p;
     int rn = r - q;
@@ -48,8 +48,7 @@ void merge(int *arr, int p, int q, int r)
         {
             arr[k] = L[i];
             i++;
-        }
-        else
+        } else
         {
             arr[k] = R[j];
             j++;

@@ -2,20 +2,18 @@
 
 namespace stack
 {
-    template <typename T>
-    struct Node
+    template <typename T> struct Node
     {
         T value;
-        Node<T> *prev = nullptr;
+        Node<T>* prev = nullptr;
 
-        Node(T val) : value(val) {};
+        Node(T val) : value(val) { };
     };
 
-    template <typename T>
-    struct Stack
+    template <typename T> struct Stack
     {
         int length = 0;
-        Node<T> *head = nullptr;
+        Node<T>* head = nullptr;
 
         void push(T value);
         T pop();
