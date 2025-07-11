@@ -10,7 +10,7 @@ void toCOrNotToC()
     bool notToC = false;
 
     if (toC || notToC)
-        printf("Just c already. \n");
+        printf("Good question... \n");
 
     return;
 }
