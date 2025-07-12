@@ -20,9 +20,17 @@ void largestNumbers()
 
 void shippingBoxes()
 {
-    int height = 12;
-    int width = 3;
-    int length = 6;
+    int height, width, length;
+
+    printf("Input box's height: ");
+    scanf("%d", &height);
+
+    printf("Input box's width: ");
+    scanf("%d", &width);
+
+    printf("Input box's length: ");
+    scanf("%d", &length);
+
     float volume = height * width * length;
     float dimensionalWeight = volume / 166;
 
@@ -33,8 +41,8 @@ void shippingBoxes()
 
 int main()
 {
-    toCOrNotToC();
-    largestNumbers();
+    // toCOrNotToC();
+    // largestNumbers();
     shippingBoxes();
 
     return 0;
