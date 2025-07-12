@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define INCHES_PER_POUND 166;
-
 void toCOrNotToC()
 {
     printf("To c or not to c? That is the question.\n");
@@ -19,6 +17,8 @@ void largestNumbers()
 
     printf("%.2f is (not) the largest float.\n", randomFloat);
 }
+
+#define INCHES_PER_POUND 166
 
 void shippingBoxes()
 {
@@ -41,11 +41,24 @@ void shippingBoxes()
     printf("Dimensional weight: %f\n", dimensionalWeight);
 }
 
+#define FAHRENHEIT_OFFSET 32.0f
+
+void toCelcius()
+{
+    float inFahrenheit;
+
+    printf("Input temperature in Fagrenheit: ");
+    scanf("%f", &inFahrenheit);
+
+    printf("Temperature in Celsius: %.1f\n", inFahrenheit - FAHRENHEIT_OFFSET);
+}
+
 int main()
 {
     // toCOrNotToC();
     // largestNumbers();
-    shippingBoxes();
+    // shippingBoxes();
+    toCelcius();
 
     return 0;
 }
