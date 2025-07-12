@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define INCHES_PER_POUND 166;
+
 void toCOrNotToC()
 {
     printf("To c or not to c? That is the question.\n");
@@ -32,7 +34,7 @@ void shippingBoxes()
     scanf("%d", &length);
 
     float volume = height * width * length;
-    float dimensionalWeight = volume / 166;
+    float dimensionalWeight = volume / INCHES_PER_POUND;
 
     printf("Dimensions: %d, %d, %d\n", height, width, length);
     printf("Volume: %f\n", volume);
