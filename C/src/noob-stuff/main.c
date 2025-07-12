@@ -20,9 +20,9 @@ void largestNumbers()
 
     printf("%d is (not) the largest int.\n", randomInt);
 
-    float randomFloat = 30234.12f;
+    float randomFloat = 30234.1226f;
 
-    printf("%f is (not) the largest float.\n", randomFloat);
+    printf("%.2f is (not) the largest float.\n", randomFloat);
 }
 
 int main()
