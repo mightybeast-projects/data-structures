@@ -25,10 +25,24 @@ void largestNumbers()
     printf("%.2f is (not) the largest float.\n", randomFloat);
 }
 
+void shippingBoxes()
+{
+    int height = 12;
+    int width = 3;
+    int length = 6;
+    float volume = height * width * length;
+    float dimensionalWeight = volume / 166;
+
+    printf("Dimensions: %d, %d, %d\n", height, width, length);
+    printf("Volume: %f\n", volume);
+    printf("Dimensional weight: %f\n", dimensionalWeight);
+}
+
 int main()
 {
     toCOrNotToC();
     largestNumbers();
+    shippingBoxes();
 
     return 0;
 }
