@@ -11,6 +11,14 @@ void main()
 {
     int id;
 
+    printf("1 - To C or not to C\n");
+    printf("2 - 'Largest' numbers\n");
+    printf("3 - Shipping boxes\n");
+    printf("4 - To Celsius\n");
+    printf("5 - UPS check digit\n");
+    printf("6 - Broker commision\n");
+    printf("7 - Legal date format\n");
+
     printf("Enter program id (1 - 7): ");
     scanf("%d", &id);
 
