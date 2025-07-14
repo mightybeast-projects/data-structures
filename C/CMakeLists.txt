@@ -14,4 +14,5 @@ add_executable(tests ${SOURCE_FILES})
 target_include_directories(tests PRIVATE
     src/algorithms
     src/data-structures
+    src/noob-stuff
 )
