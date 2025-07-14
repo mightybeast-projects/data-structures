@@ -129,11 +129,14 @@ void legalDateForm()
     case 2:
     case 22:
         printf("nd ");
+        break;
     case 3:
     case 23:
         printf("rd ");
+        break;
     default:
         printf("th ");
+        break;
     }
 
     printf("day of ");
