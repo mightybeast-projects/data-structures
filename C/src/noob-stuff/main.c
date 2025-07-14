@@ -183,11 +183,33 @@ void legalDateForm()
 
 void main()
 {
-    // toCOrNotToC();
-    // largestNumbers();
-    // shippingBoxes();
-    // toCelcius();
-    // upcCheckDigit();
-    // brokerCommision();
-    legalDateForm();
+    int id;
+
+    printf("Enter program id (1 - 7): ");
+    scanf("%d", &id);
+
+    switch (id)
+    {
+    case 1:
+        toCOrNotToC();
+        break;
+    case 2:
+        largestNumbers();
+        break;
+    case 3:
+        shippingBoxes();
+        break;
+    case 4:
+        toCelcius();
+        break;
+    case 5:
+        upcCheckDigit();
+        break;
+    case 6:
+        brokerCommision();
+        break;
+    case 7:
+        legalDateForm();
+        break;
+    }
 }
