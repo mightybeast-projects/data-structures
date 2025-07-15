@@ -6,6 +6,7 @@
 #include "6-broker-commision.h"
 #include "7-legal-date-format.h"
 #include "8-table-of-squares.h"
+#include "9-number-of-digits.h"
 #include <stdio.h>
 
 void main()
@@ -20,6 +21,7 @@ void main()
     printf("6 - Broker commision\n");
     printf("7 - Legal date format\n");
     printf("8 - Table of squares\n");
+    printf("9 - Number of digits\n");
 
     printf("Enter program id: ");
     scanf("%d", &id);
@@ -49,6 +51,9 @@ void main()
         break;
     case 8:
         tableOfSquares();
+        break;
+    case 9:
+        numberOfDigits();
         break;
     }
 }
