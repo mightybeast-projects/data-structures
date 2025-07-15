@@ -5,6 +5,7 @@
 #include "5-upc-check-digit.h"
 #include "6-broker-commision.h"
 #include "7-legal-date-format.h"
+#include "8-table-of-squares.h"
 #include <stdio.h>
 
 void main()
@@ -18,8 +19,9 @@ void main()
     printf("5 - UPS check digit\n");
     printf("6 - Broker commision\n");
     printf("7 - Legal date format\n");
+    printf("8 - Table of squares\n");
 
-    printf("Enter program id (1 - 7): ");
+    printf("Enter program id: ");
     scanf("%d", &id);
 
     switch (id)
@@ -44,6 +46,9 @@ void main()
         break;
     case 7:
         legalDateFormat();
+        break;
+    case 8:
+        tableOfSquares();
         break;
     }
 }
