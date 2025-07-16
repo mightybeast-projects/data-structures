@@ -1,5 +1,6 @@
 #include "1-to-c-or-not-to-c.h"
 #include "10-types-limits.h"
+#include "11-message-length.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -22,6 +23,7 @@ void main()
     printf("8 - Table of squares\n");
     printf("9 - Number of digits\n");
     printf("10 - Types limits\n");
+    printf("11 - Message length\n");
 
     printf("Enter program id: ");
 
@@ -60,6 +62,9 @@ void main()
         break;
     case 10:
         typesLimits();
+        break;
+    case 11:
+        messageLength();
         break;
     }
 }
