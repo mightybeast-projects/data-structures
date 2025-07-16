@@ -1,5 +1,5 @@
 #include "1-to-c-or-not-to-c.h"
-#include "10-number-limits.h"
+#include "10-types-limits.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -12,8 +12,6 @@
 
 void main()
 {
-    int id;
-
     printf("1 - To C or not to C\n");
     printf("2 - 'Largest' numbers\n");
     printf("3 - Shipping boxes\n");
@@ -23,9 +21,11 @@ void main()
     printf("7 - Legal date format\n");
     printf("8 - Table of squares\n");
     printf("9 - Number of digits\n");
-    printf("10 - Number limits\n");
+    printf("10 - Types limits\n");
 
     printf("Enter program id: ");
+
+    int id;
     scanf("%d", &id);
 
     printf("---------------------\n");
@@ -59,7 +59,7 @@ void main()
         numberOfDigits();
         break;
     case 10:
-        numberLimits();
+        typesLimits();
         break;
     }
 }
