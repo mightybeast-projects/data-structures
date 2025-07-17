@@ -15,8 +15,15 @@
 #include "7-legal-date-format.h"
 #include "8-table-of-squares.h"
 #include "9-number-of-digits.h"
+#include "main.h"
 
 void main()
+{
+    printDescriptions();
+    scanAndRunSelectedProgram();
+}
+
+void printDescriptions()
 {
     printf("1 - To C or not to C\n");
     printf("2 - 'Largest' numbers\n");
@@ -33,13 +40,16 @@ void main()
     printf("13 - Repeated digits\n");
     printf("14 - Interest rates\n");
     printf("15 - Hand of cards\n");
+}
 
+void scanAndRunSelectedProgram()
+{
     printf("Enter program id: ");
 
     int id;
     scanf("%d", &id);
-
     printf("---------------------\n");
+
     switch (id)
     {
     case 1:
