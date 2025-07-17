@@ -1,4 +1,4 @@
-#include "linear-search.h"
+#include "linear-search.c"
 #include "unity-include.tests.h"
 
 void Linear_Search_Should_Find_Item()

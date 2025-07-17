@@ -15,7 +15,9 @@
 #include "7-legal-date-format.h"
 #include "8-table-of-squares.h"
 #include "9-number-of-digits.h"
-#include "main.h"
+
+void printDescriptions();
+void scanAndRunSelectedProgram();
 
 void main()
 {
