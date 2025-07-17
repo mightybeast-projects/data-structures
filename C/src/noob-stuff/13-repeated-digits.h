@@ -8,7 +8,7 @@ void repeatedDigits()
 
     printf("Enter a number: ");
 
-    long int number;
+    long number;
     scanf("%ld", &number);
 
     while (number % 10 > 0)
