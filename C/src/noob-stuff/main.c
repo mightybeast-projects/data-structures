@@ -1,6 +1,9 @@
+#include <stdio.h>
+
 #include "1-to-c-or-not-to-c.h"
 #include "10-types-limits.h"
 #include "11-message-length.h"
+#include "12-reversing-numbers.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -9,7 +12,6 @@
 #include "7-legal-date-format.h"
 #include "8-table-of-squares.h"
 #include "9-number-of-digits.h"
-#include <stdio.h>
 
 void main()
 {
@@ -24,6 +26,7 @@ void main()
     printf("9 - Number of digits\n");
     printf("10 - Types limits\n");
     printf("11 - Message length\n");
+    printf("12 - Reversing numbers\n");
 
     printf("Enter program id: ");
 
@@ -65,6 +68,9 @@ void main()
         break;
     case 11:
         messageLength();
+        break;
+    case 12:
+        reversingNumbers();
         break;
     }
 }
