@@ -6,6 +6,7 @@
 #include "12-reversing-numbers.h"
 #include "13-repeated-digits.h"
 #include "14-interest-rates.h"
+#include "15-hand-of-cards.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -31,6 +32,7 @@ void main()
     printf("12 - Reversing numbers\n");
     printf("13 - Repeated digits\n");
     printf("14 - Interest rates\n");
+    printf("15 - Hand of cards\n");
 
     printf("Enter program id: ");
 
@@ -81,6 +83,9 @@ void main()
         break;
     case 14:
         interestRates();
+        break;
+    case 15:
+        handOfCards();
         break;
     }
 }
