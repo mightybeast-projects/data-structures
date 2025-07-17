@@ -1,21 +1,19 @@
 #include "linear-search.h"
-#include "unity.h"
+#include "unity-include.tests.h"
 
-void setUp(void) { }
-
-void tearDown(void) { }
-
-void test_add_should_add_two_numbers(void)
+void Linear_Search_Should_Find_Item()
 {
-    tmp();
-    TEST_ASSERT_EQUAL_INT(5, 5);
+    int arr[] = { 6, 4, 8, 9, 10 };
+
+    TEST_ASSERT_EQUAL_INT(linearSearch(arr, 5, 8), true);
+    TEST_ASSERT_EQUAL_INT(linearSearch(arr, 5, 100), false);
 }
 
-int main(void)
+int main()
 {
     UNITY_BEGIN();
 
-    RUN_TEST(test_add_should_add_two_numbers);
+    RUN_TEST(Linear_Search_Should_Find_Item);
 
     return UNITY_END();
 }
