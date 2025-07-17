@@ -4,6 +4,7 @@
 #include "10-types-limits.h"
 #include "11-message-length.h"
 #include "12-reversing-numbers.h"
+#include "13-repeated-digits.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -27,6 +28,7 @@ void main()
     printf("10 - Types limits\n");
     printf("11 - Message length\n");
     printf("12 - Reversing numbers\n");
+    printf("13 - Repeated digits\n");
 
     printf("Enter program id: ");
 
@@ -71,6 +73,9 @@ void main()
         break;
     case 12:
         reversingNumbers();
+        break;
+    case 13:
+        repeatedDigits();
         break;
     }
 }
