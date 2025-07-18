@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "1-to-c-or-not-to-c.h"
 #include "10-types-limits.h"
 #include "11-message-length.h"
@@ -16,6 +14,7 @@
 #include "7-legal-date-format.h"
 #include "8-table-of-squares.h"
 #include "9-number-of-digits.h"
+#include <stdio.h>
 
 void printDescriptions();
 void scanAndRunSelectedProgram();
