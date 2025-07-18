@@ -1,10 +1,10 @@
 #include "bubble-sort.hpp"
 
-void bubbleSwap(int* arr, int i);
+void bubbleSwap(int arr[], int i);
 
 namespace bubbleSort
 {
-    void sort(int* arr, int size)
+    void sort(int arr[], int size)
     {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size - 1 - i; j++)
@@ -12,7 +12,7 @@ namespace bubbleSort
     }
 }
 
-void bubbleSwap(int* arr, int i)
+void bubbleSwap(int arr[], int i)
 {
     if (arr[i] < arr[i + 1])
         return;
