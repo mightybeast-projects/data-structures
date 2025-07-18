@@ -7,6 +7,7 @@
 #include "13-repeated-digits.h"
 #include "14-interest-rates.h"
 #include "15-hand-of-cards.h"
+#include "16-guess-the-number.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -42,6 +43,7 @@ void printDescriptions()
     printf("13 - Repeated digits\n");
     printf("14 - Interest rates\n");
     printf("15 - Hand of cards\n");
+    printf("16 - Guess the number\n");
 }
 
 void scanAndRunSelectedProgram()
@@ -98,6 +100,9 @@ void scanAndRunSelectedProgram()
         break;
     case 15:
         handOfCards();
+        break;
+    case 16:
+        guessTheNumber();
         break;
     }
 }
