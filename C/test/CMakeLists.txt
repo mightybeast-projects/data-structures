@@ -4,6 +4,7 @@ add_subdirectory(lib/unity)
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
     src/*.tests.c
+    src/algorithms/*.tests.c
 ) 
  
 add_executable(c-tests ${SOURCE_FILES})
@@ -11,4 +12,9 @@ add_executable(c-tests ${SOURCE_FILES})
 target_link_libraries(c-tests PRIVATE
     c-ds
     unity
+)
+
+target_include_directories(c-tests PUBLIC
+    src/
+    src/algorithms
 )
