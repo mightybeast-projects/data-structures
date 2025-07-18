@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define SUITS_SIZE sizeof(suits) / sizeof(suits[0])
 #define RANKS_SIZE sizeof(ranks) / sizeof(ranks[0])
@@ -18,6 +19,8 @@ void handOfCards()
     printf("Your hand:");
 
     bool inHand[SUITS_SIZE][RANKS_SIZE] = { false };
+
+    srand(time(NULL));
 
     while (n > 0)
     {
