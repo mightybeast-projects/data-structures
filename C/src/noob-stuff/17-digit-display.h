@@ -1,10 +1,11 @@
 #include "stdio.h"
+#include "string.h"
 
 void displayDigit()
 {
     // clang-format off
     char digitDisplay[5][10][6] = { 
-        { " ___ ", "     ", " ___ ", " ___ ",  "    ", " ___ ", " ___ ", " ___ ", " ___ ", " ___ " },
+        { " ___ ", "     ", " ___ ", " ___ ", "     ", " ___ ", " ___ ", " ___ ", " ___ ", " ___ " },
         { "|   |", "    |", "    |", "    |", "|   |", "|    ", "|    ", "    |", "|   |", "|   |" },
         { "|   |", "    |", " ___|", " ___|", "|___|", "|___ ", "|___ ", "    |", "|___|", "|___|" },
         { "|   |", "    |", "|    ", "    |", "    |", "    |", "|   |", "    |", "|   |", "    |" },
@@ -12,10 +13,22 @@ void displayDigit()
     };
     // clang-format on
 
-    int d;
-    printf("Enter a number to display: ");
-    scanf("%d", &d);
+    char input[100];
 
-    for (int row = 0; row < 5; row++)
-        printf("%s\n", digitDisplay[row][d]);
+    printf("Enter a number to display: ");
+    scanf("%s", input);
+
+    int length = strlen(input);
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < length; j++)
+        {
+            int digit = input[j] - '0';
+
+            printf("%s ", digitDisplay[i][digit]);
+        }
+
+        printf("\n");
+    }
 }
