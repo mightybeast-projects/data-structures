@@ -25,22 +25,22 @@ void quickSortRecurse(int arr[], int l, int h)
 int partition(int arr[], int l, int h)
 {
     int pivot = arr[h];
-    int pIndex = l;
+    int i = l;
 
-    for (int i = l; i < h; i++)
+    for (int j = l; j < h; j++)
     {
-        if (arr[i] <= pivot)
+        if (arr[j] <= pivot)
         {
-            int current = arr[i];
-            arr[i] = arr[pIndex];
-            arr[pIndex] = current;
-            pIndex++;
+            int tmp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = tmp;
+            i++;
         }
     }
 
-    int last = arr[h];
-    arr[h] = arr[pIndex];
-    arr[pIndex] = last;
+    int tmp = arr[h];
+    arr[h] = arr[i];
+    arr[i] = tmp;
 
-    return pIndex;
+    return i;
 }
