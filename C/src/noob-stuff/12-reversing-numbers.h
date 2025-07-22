@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-#define size 10
+#define SIZE 5
 
 void reversingNumbers()
 {
-    int a[size];
+    int a[SIZE];
 
-    printf("Enter 10 numbers: ");
+    printf("Enter %d numbers: ", SIZE);
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < SIZE; i++)
         scanf("%d", &a[i]);
 
     printf("In reverse order: ");
 
-    for (int i = size - 1; i >= 0; i--)
+    for (int i = SIZE - 1; i >= 0; i--)
         printf("%d ", a[i]);
 
     printf("\n");

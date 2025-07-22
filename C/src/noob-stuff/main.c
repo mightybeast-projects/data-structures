@@ -7,6 +7,7 @@
 #include "15-hand-of-cards.h"
 #include "16-guess-the-number.h"
 #include "17-digit-display.h"
+#include "18-preprocessor-trash.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -45,6 +46,7 @@ void printDescriptions()
     printf("15 - Hand of cards\n");
     printf("16 - Guess the number\n");
     printf("17 - Display a digit\n");
+    printf("18 - Preprocessor trash\n");
 }
 
 void scanAndRunSelectedProgram()
@@ -107,6 +109,9 @@ void scanAndRunSelectedProgram()
         break;
     case 17:
         displayDigit();
+        break;
+    case 18:
+        preprocessorTrash();
         break;
     }
 }

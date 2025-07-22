@@ -1,6 +1,10 @@
 #include "stdio.h"
 #include "string.h"
 
+#define INPUT_SIZE 100
+#define begin {
+#define end }
+
 void displayDigit()
 {
     // clang-format off
@@ -13,7 +17,7 @@ void displayDigit()
     };
     // clang-format on
 
-    char input[100];
+    char input[INPUT_SIZE + 1];
 
     printf("Enter a number to display: ");
     scanf("%s", input);

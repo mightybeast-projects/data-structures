@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SUITS_SIZE sizeof(suits) / sizeof(suits[0])
-#define RANKS_SIZE sizeof(ranks) / sizeof(ranks[0])
+#define SUITS_SIZE 4
+#define RANKS_SIZE 13
 
 void handOfCards()
 {
