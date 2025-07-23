@@ -2,6 +2,7 @@
 #include "stdlib.h"
 
 #define PART_NAME_SIZE 100
+#define DB_SIZE 5
 
 typedef struct
 {
@@ -18,10 +19,10 @@ void update();
 void print();
 
 int readPartId();
-Part* getPart(int id);
-void printPart(Part part);
+Part* getPart(const int id);
+void printPart(const Part* p);
 
-Part db[5] = { 0 };
+Part db[DB_SIZE] = { 0 };
 int dbIndex = 0;
 
 void partsDatabase()
@@ -63,14 +64,14 @@ void run()
 
 void insert()
 {
-    if (dbIndex == sizeof(db) / sizeof(db[0]))
+    if (dbIndex == DB_SIZE)
     {
         printf("Database is full\n");
         return;
     }
 
-    int id = readPartId();
-    Part* partPtr = getPart(id);
+    const int id = readPartId();
+    const Part* partPtr = getPart(id);
 
     if (partPtr)
     {
@@ -91,15 +92,15 @@ void insert()
 
     Part part;
     part.id = id;
-    part.quantity = quantity;
     strcpy(part.name, name);
+    part.quantity = quantity;
 
     db[dbIndex++] = part;
 }
 
 void update()
 {
-    int id = readPartId();
+    const int id = readPartId();
     Part* partPtr = getPart(id);
 
     if (partPtr)
@@ -110,7 +111,7 @@ void update()
 
         partPtr->quantity += change;
 
-        return printPart(*partPtr);
+        return printPart(partPtr);
     }
 
     printf("Could not find a part with id: %d\n", id);
@@ -118,11 +119,11 @@ void update()
 
 void search()
 {
-    int id = readPartId();
-    Part* partPtr = getPart(id);
+    const int id = readPartId();
+    const Part* partPtr = getPart(id);
 
     if (partPtr)
-        return printPart(*partPtr);
+        return printPart(partPtr);
 
     printf("Could not find a part with id: %d\n", id);
 }
@@ -131,7 +132,7 @@ void print()
 {
     for (int i = 0; i < dbIndex; i++)
         if (db[i].id)
-            printPart(db[i]);
+            printPart(&db[i]);
 }
 
 int readPartId()
@@ -144,7 +145,7 @@ int readPartId()
     return id;
 }
 
-Part* getPart(int id)
+Part* getPart(const int id)
 {
     for (int i = 0; i < dbIndex; i++)
         if (db[i].id == id)
@@ -153,7 +154,7 @@ Part* getPart(int id)
     return NULL;
 }
 
-void printPart(Part p)
+void printPart(const Part* p)
 {
-    printf("Id:%d\t Name:%s\t Quantity:%d\n", p.id, p.name, p.quantity);
+    printf("Id:%d\t Name:%s\t Quantity:%d\n", p->id, p->name, p->quantity);
 }
