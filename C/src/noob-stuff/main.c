@@ -8,6 +8,7 @@
 #include "16-guess-the-number.h"
 #include "17-digit-display.h"
 #include "18-preprocessor-trash.h"
+#include "19-parts-database.h"
 #include "2-largest-numbers.h"
 #include "3-shipping-boxes.h"
 #include "4-to-celsius.h"
@@ -47,6 +48,7 @@ void printDescriptions()
     printf("16 - Guess the number\n");
     printf("17 - Display a digit\n");
     printf("18 - Preprocessor trash\n");
+    printf("19 - Parts database\n");
 }
 
 void scanAndRunSelectedProgram()
@@ -112,6 +114,9 @@ void scanAndRunSelectedProgram()
         break;
     case 18:
         preprocessorTrash();
+        break;
+    case 19:
+        partsDatabase();
         break;
     }
 }
