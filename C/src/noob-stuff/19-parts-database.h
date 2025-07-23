@@ -3,12 +3,12 @@
 
 #define PART_NAME_SIZE 100
 
-struct Part
+typedef struct
 {
     int id;
     char name[PART_NAME_SIZE];
     int quantity;
-};
+} Part;
 
 void run();
 
@@ -18,10 +18,10 @@ void update();
 void print();
 
 int readPartId();
-struct Part* getPart(int id);
-void printPart(struct Part part);
+Part* getPart(int id);
+void printPart(Part part);
 
-struct Part db[5] = { 0 };
+Part db[5] = { 0 };
 int dbIndex = 0;
 
 void partsDatabase()
@@ -70,7 +70,7 @@ void insert()
     }
 
     int id = readPartId();
-    struct Part* partPtr = getPart(id);
+    Part* partPtr = getPart(id);
 
     if (partPtr)
     {
@@ -89,7 +89,7 @@ void insert()
     printf("Enter quantity on hand: ");
     scanf("%d", &quantity);
 
-    struct Part part;
+    Part part;
     part.id = id;
     part.quantity = quantity;
     strcpy(part.name, name);
@@ -100,7 +100,7 @@ void insert()
 void update()
 {
     int id = readPartId();
-    struct Part* partPtr = getPart(id);
+    Part* partPtr = getPart(id);
 
     if (partPtr)
     {
@@ -119,7 +119,7 @@ void update()
 void search()
 {
     int id = readPartId();
-    struct Part* partPtr = getPart(id);
+    Part* partPtr = getPart(id);
 
     if (partPtr)
         return printPart(*partPtr);
@@ -144,7 +144,7 @@ int readPartId()
     return id;
 }
 
-struct Part* getPart(int id)
+Part* getPart(int id)
 {
     for (int i = 0; i < dbIndex; i++)
         if (db[i].id == id)
@@ -153,7 +153,7 @@ struct Part* getPart(int id)
     return NULL;
 }
 
-void printPart(struct Part p)
+void printPart(Part p)
 {
     printf("Id:%d\t Name:%s\t Quantity:%d\n", p.id, p.name, p.quantity);
 }
