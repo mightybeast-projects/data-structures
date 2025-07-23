@@ -1,19 +1,24 @@
 #include "stdio.h"
 #include "stdlib.h"
 
+#define PART_NAME_SIZE 100
+
 struct Part
 {
     int id;
-    char name[100];
+    char name[PART_NAME_SIZE];
     int quantity;
 };
 
 void run();
-void execute(char command);
+
 void insert();
 void search();
 void update();
 void print();
+
+int readPartId();
+struct Part* getPart(int id);
 void printPart(struct Part part);
 
 struct Part db[5] = { 0 };
@@ -29,14 +34,9 @@ void run()
 {
     char command;
     printf("Enter command code "
-           "(i - Insert, s - Search, u - Update, p - Print, q - Quit): \n");
+           "(i - Insert, s - Search, u - Update, p - Print, q - Quit): ");
     scanf(" %c", &command);
 
-    execute(command);
-}
-
-void execute(char command)
-{
     switch (command)
     {
     case 'i':
@@ -57,6 +57,8 @@ void execute(char command)
     default:
         return;
     }
+
+    printf("---------------------\n");
 }
 
 void insert()
@@ -67,23 +69,20 @@ void insert()
         return;
     }
 
-    int id;
-    printf("Enter part number: ");
-    scanf("%d", &id);
-    getchar();
+    int id = readPartId();
+    struct Part* partPtr = getPart(id);
 
-    for (int i = 0; i < dbIndex; i++)
+    if (partPtr)
     {
-        if (db[i].id == id)
-        {
-            printf("Part with id %d is already in the database.\n", id);
-            return;
-        }
+        printf("Part with id %d is already in the database.\n", id);
+        return;
     }
 
-    char name[100];
+    getchar();
+
+    char name[PART_NAME_SIZE];
     printf("Enter part name: ");
-    fgets(name, sizeof(name), stdin);
+    fgets(name, PART_NAME_SIZE, stdin);
     name[strlen(name) - 1] = '\0';
 
     int quantity;
@@ -100,21 +99,18 @@ void insert()
 
 void update()
 {
-    int id;
-    printf("Enter part number: ");
-    scanf("%d", &id);
+    int id = readPartId();
+    struct Part* partPtr = getPart(id);
 
-    for (int i = 0; i < dbIndex; i++)
+    if (partPtr)
     {
-        if (db[i].id == id)
-        {
-            int change;
-            printf("Enter change in quantity on hand: ");
-            scanf("%d", &change);
+        int change;
+        printf("Enter change in quantity on hand: ");
+        scanf("%d", &change);
 
-            db[i].quantity += change;
-            return;
-        }
+        partPtr->quantity += change;
+
+        return printPart(*partPtr);
     }
 
     printf("Could not find a part with id: %d\n", id);
@@ -122,18 +118,11 @@ void update()
 
 void search()
 {
-    int id;
-    printf("Enter part number: ");
-    scanf("%d", &id);
+    int id = readPartId();
+    struct Part* partPtr = getPart(id);
 
-    for (int i = 0; i < dbIndex; i++)
-    {
-        if (db[i].id == id)
-        {
-            printPart(db[i]);
-            return;
-        }
-    }
+    if (partPtr)
+        return printPart(*partPtr);
 
     printf("Could not find a part with id: %d\n", id);
 }
@@ -145,8 +134,26 @@ void print()
             printPart(db[i]);
 }
 
-void printPart(struct Part part)
+int readPartId()
 {
-    printf(
-        "Id:%d\t Name:%s\t Quantity:%d\n", part.id, part.name, part.quantity);
+    int id;
+
+    printf("Enter part number: ");
+    scanf("%d", &id);
+
+    return id;
+}
+
+struct Part* getPart(int id)
+{
+    for (int i = 0; i < dbIndex; i++)
+        if (db[i].id == id)
+            return &db[i];
+
+    return NULL;
+}
+
+void printPart(struct Part p)
+{
+    printf("Id:%d\t Name:%s\t Quantity:%d\n", p.id, p.name, p.quantity);
 }
