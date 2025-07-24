@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void brokerCommision()
+void brokerCommision(void)
 {
     float value;
 

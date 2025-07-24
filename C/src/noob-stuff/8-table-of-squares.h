@@ -1,7 +1,7 @@
 #pragma once
 #include <stdio.h>
 
-void tableOfSquares()
+void tableOfSquares(void)
 {
     int n;
 

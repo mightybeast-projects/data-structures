@@ -4,7 +4,7 @@
 #define DEBUG 1
 #define ADD(x, y) (x + y)
 
-void preprocessorTrash()
+void preprocessorTrash(void)
 {
     printf("MightyBeastLabs (c) %d.\n", YEAR);
     printf("Compiled on %s at %s\n", __DATE__, __TIME__);

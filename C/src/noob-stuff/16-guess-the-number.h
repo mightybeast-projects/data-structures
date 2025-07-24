@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-void generateNumber();
-void promptForRestart();
+void generateNumber(void);
+void promptForRestart(void);
 
-void guessTheNumber()
+void guessTheNumber(void)
 {
     srand(time(NULL));
 
@@ -14,7 +14,7 @@ void guessTheNumber()
     generateNumber();
 }
 
-void generateNumber()
+void generateNumber(void)
 {
     int n = rand() % 100;
 
@@ -40,7 +40,7 @@ void generateNumber()
     promptForRestart();
 }
 
-void promptForRestart()
+void promptForRestart(void)
 {
     printf("Play again? (Y/N): ");
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void messageLength()
+void messageLength(void)
 {
     getchar();
 

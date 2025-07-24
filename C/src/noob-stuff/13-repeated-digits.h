@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-void repeatedDigits()
+void repeatedDigits(void)
 {
     bool repeated[10] = { false };
     bool seen[10] = { false };

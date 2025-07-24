@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void largestNumbers()
+void largestNumbers(void)
 {
     int randomInt = 2147483;
 

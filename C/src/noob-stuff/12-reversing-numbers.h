@@ -2,7 +2,7 @@
 
 #define SIZE 5
 
-void reversingNumbers()
+void reversingNumbers(void)
 {
     int a[SIZE];
 

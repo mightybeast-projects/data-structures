@@ -2,7 +2,7 @@
 #include "limits.h"
 #include "stdio.h"
 
-void typesLimits()
+void typesLimits(void)
 {
     printf("Integer (signed | default):\n");
     printf("\tLimits of an integer: [%d --> %d] | [%ld bytes]\n",

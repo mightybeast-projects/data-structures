@@ -1,7 +1,7 @@
 #include "bubble-sort.h"
 #include "unity.h"
 
-void Bubble_Sort_Should_Sort_Array()
+void Bubble_Sort_Should_Sort_Array(void)
 {
     int actual[] = { 5, 3, 2, 1, 4 };
     int expected[] = { 1, 2, 3, 4, 5 };

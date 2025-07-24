@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void legalDateFormat()
+void legalDateFormat(void)
 {
     int day, month, year;
 

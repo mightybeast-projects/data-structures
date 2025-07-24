@@ -2,10 +2,8 @@
 #include "string.h"
 
 #define INPUT_SIZE 100
-#define begin {
-#define end }
 
-void displayDigit()
+void displayDigit(void)
 {
     // clang-format off
     char digitDisplay[5][10][6] = { 

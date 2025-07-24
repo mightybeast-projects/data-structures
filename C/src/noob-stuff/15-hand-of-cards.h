@@ -6,7 +6,7 @@
 #define SUITS_SIZE 4
 #define RANKS_SIZE 13
 
-void handOfCards()
+void handOfCards(void)
 {
     int n;
     printf("Enter number of cards in hand: ");

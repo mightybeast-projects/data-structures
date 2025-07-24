@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void toCOrNotToC()
+void toCOrNotToC(void)
 {
     printf("To c or not to c? That is the question.\n");
 

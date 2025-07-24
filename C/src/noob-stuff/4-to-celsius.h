@@ -2,7 +2,7 @@
 
 #define FAHRENHEIT_OFFSET 32.0f
 
-void toCelcius()
+void toCelcius(void)
 {
     float inFahrenheit;
 

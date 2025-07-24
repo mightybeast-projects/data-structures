@@ -2,7 +2,7 @@
 #include "unity.h"
 #include <stdbool.h>
 
-void Binary_Search_Should_Find_Item()
+void Binary_Search_Should_Find_Item(void)
 {
     int arr[] = { 4, 6, 8, 9, 10, 15 };
 

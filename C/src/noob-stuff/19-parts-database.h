@@ -11,27 +11,27 @@ typedef struct
     int quantity;
 } Part;
 
-void run();
+void run(void);
 
-void insert();
-void search();
-void update();
-void print();
+void insert(void);
+void search(void);
+void update(void);
+void print(void);
 
-int readPartId();
+int readPartId(void);
 Part* getPart(const int id);
 void printPart(const Part* p);
 
 Part db[DB_SIZE] = { 0 };
 int dbIndex = 0;
 
-void partsDatabase()
+void partsDatabase(void)
 {
     while (1)
         run();
 }
 
-void run()
+void run(void)
 {
     char command;
     printf("Enter command code "
@@ -62,7 +62,7 @@ void run()
     printf("---------------------\n");
 }
 
-void insert()
+void insert(void)
 {
     if (dbIndex == DB_SIZE)
     {
@@ -98,7 +98,7 @@ void insert()
     db[dbIndex++] = part;
 }
 
-void update()
+void update(void)
 {
     const int id = readPartId();
     Part* partPtr = getPart(id);
@@ -117,7 +117,7 @@ void update()
     printf("Could not find a part with id: %d\n", id);
 }
 
-void search()
+void search(void)
 {
     const int id = readPartId();
     const Part* partPtr = getPart(id);
@@ -128,14 +128,14 @@ void search()
     printf("Could not find a part with id: %d\n", id);
 }
 
-void print()
+void print(void)
 {
     for (int i = 0; i < dbIndex; i++)
         if (db[i].id)
             printPart(&db[i]);
 }
 
-int readPartId()
+int readPartId(void)
 {
     int id;
 

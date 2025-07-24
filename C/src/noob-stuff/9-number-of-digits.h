@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void numberOfDigits()
+void numberOfDigits(void)
 {
     int n;
 

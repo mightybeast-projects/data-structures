@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void interestRates()
+void interestRates(void)
 {
     float deposit;
     printf("Enter deposit: ");

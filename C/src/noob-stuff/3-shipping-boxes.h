@@ -2,7 +2,7 @@
 
 #define INCHES_PER_POUND 166
 
-void shippingBoxes()
+void shippingBoxes(void)
 {
     int height, width, length;
 

@@ -2,7 +2,7 @@
 #include "unity.h"
 #include <stdbool.h>
 
-void Linear_Search_Should_Find_Item()
+void Linear_Search_Should_Find_Item(void)
 {
     int arr[] = { 7, 6, 4, 8, 9, 10 };
 

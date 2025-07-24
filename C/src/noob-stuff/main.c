@@ -19,16 +19,16 @@
 #include "9-number-of-digits.h"
 #include <stdio.h>
 
-void printDescriptions();
-void scanAndRunSelectedProgram();
+void printDescriptions(void);
+void scanAndRunSelectedProgram(void);
 
-void main()
+void main(void)
 {
     printDescriptions();
     scanAndRunSelectedProgram();
 }
 
-void printDescriptions()
+void printDescriptions(void)
 {
     printf("1 - To C or not to C\n");
     printf("2 - 'Largest' numbers\n");
@@ -51,7 +51,7 @@ void printDescriptions()
     printf("19 - Parts database\n");
 }
 
-void scanAndRunSelectedProgram()
+void scanAndRunSelectedProgram(void)
 {
     printf("Enter program id: ");
 
