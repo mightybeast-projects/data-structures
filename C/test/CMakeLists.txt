@@ -17,4 +17,5 @@ target_link_libraries(c-tests PRIVATE
 target_include_directories(c-tests PUBLIC
     src/
     src/algorithms
+    src/data-structures
 )

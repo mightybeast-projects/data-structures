@@ -3,11 +3,18 @@
 #include "insertion-sort.tests.h"
 #include "linear-search.tests.h"
 #include "quick-sort.tests.h"
+#include "stack.tests.h"
 #include "unity.h"
 
-void setUp() { }
+void setUp()
+{
+    stackSetUp();
+}
 
-void tearDown() { }
+void tearDown()
+{
+    stackTearDown();
+}
 
 int main()
 {
@@ -18,6 +25,8 @@ int main()
     RUN_TEST(Bubble_Sort_Should_Sort_Array);
     RUN_TEST(Insertion_Sort_Should_Sort_Array);
     RUN_TEST(Quick_Sort_Should_Sort_Array);
+
+    runStackTests();
 
     return UNITY_END();
 }
