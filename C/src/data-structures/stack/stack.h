@@ -1,5 +1,6 @@
 #include "stdbool.h"
 
-typedef struct stack* Stack;
+typedef struct stack Stack;
 
-Stack createStack();
+Stack* create();
+bool isEmpty(const Stack* s);

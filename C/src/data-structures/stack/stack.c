@@ -5,7 +5,12 @@ struct stack
 {
 };
 
-Stack createStack()
+Stack* create()
 {
     return malloc(sizeof(struct stack));
+}
+
+bool isEmpty(const Stack* s)
+{
+    return true;
 }
