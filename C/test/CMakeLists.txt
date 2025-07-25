@@ -14,8 +14,10 @@ target_link_libraries(c-tests PRIVATE
     unity
 )
 
-target_include_directories(c-tests PUBLIC
-    src/
-    src/algorithms
-    src/data-structures
-)
+file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true "${CMAKE_CURRENT_SOURCE_DIR}/src/*")
+
+foreach(dir ${INCLUDE_DIRS})
+	if(IS_DIRECTORY ${dir})
+		target_include_directories(c-tests PUBLIC ${dir})
+	endif()
+endforeach()
