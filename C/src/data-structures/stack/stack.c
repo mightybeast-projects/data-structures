@@ -15,73 +15,80 @@ struct stack
     Node* top;
 };
 
+void deleteNode(Node* node);
+
 Stack* create()
 {
     Stack* stack = malloc(sizeof(struct stack));
+
+    if (!stack)
+        return NULL;
+
     stack->size = 0;
     stack->top = NULL;
 
     return stack;
 }
 
-void deleteNode(Node* n);
-
-bool isEmpty(const Stack* s)
+bool isEmpty(const Stack* stack)
 {
-    return s->size == 0;
+    return stack->size == 0;
 }
 
-int size(const Stack* s)
+int size(const Stack* stack)
 {
-    return s->size;
+    return stack->size;
 }
 
-void push(Stack* s, int value)
+void push(Stack* stack, int value)
 {
     Node* node = malloc(sizeof(struct node));
+
+    if (!node)
+        return;
+
     node->value = value;
-    node->prev = NULL;
+    node->prev = stack->top;
+    stack->top = node;
 
-    if (!s->top)
-        s->top = node;
-    else
-    {
-        node->prev = s->top;
-        s->top = node;
-    }
-
-    s->size++;
+    stack->size++;
 }
 
-int pop(Stack* s)
+int pop(Stack* stack)
 {
-    Node* top = s->top;
+    if (!stack->top)
+        return -1;
+
+    Node* top = stack->top;
     int value = top->value;
 
-    s->top = top->prev;
-    s->size--;
+    stack->top = top->prev;
+    stack->size--;
 
     free(top);
 
     return value;
 }
 
-int peek(const Stack* s)
+int peek(const Stack* stack)
 {
-    return s->top->value;
+    if (!stack->top)
+        return -1;
+
+    return stack->top->value;
 }
 
-void delete(Stack* s)
+void delete(Stack* stack)
 {
-    deleteNode(s->top);
-    free(s);
+    deleteNode(stack->top);
+    free(stack);
 }
 
-void deleteNode(Node* n)
+void deleteNode(Node* node)
 {
-    if (!n)
+    if (!node)
         return;
 
-    deleteNode(n->prev);
-    free(n);
+    deleteNode(node->prev);
+    free(node);
 }

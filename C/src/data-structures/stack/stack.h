@@ -3,9 +3,9 @@
 typedef struct stack Stack;
 
 Stack* create();
-bool isEmpty(const Stack* s);
-int size(const Stack* s);
-void push(Stack* s, int value);
-int pop(Stack* s);
-int peek(const Stack* s);
-void delete(Stack* s);
+bool isEmpty(const Stack* stack);
+int size(const Stack* stack);
+void push(Stack* stack, int value);
+int pop(Stack* stack);
+int peek(const Stack* stack);
+void delete(Stack* stack);

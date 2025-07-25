@@ -12,6 +12,7 @@ void Stack_Should_Be_Empty_After_One_Push_And_One_Pop(void);
 void Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop(void);
 void Stack_Push_Should_Push_New_Value_On_Top(void);
 void Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop(void);
+void Stack_Pop_On_Empty_Stack_Should_Return_Minus_One(void);
 void Stack_Size_Should_Return_Stack_Size(void);
 void Stack_Should_Have_LIFO_Behaviour(void);
 
@@ -34,6 +35,7 @@ void runStackTests(void)
     RUN_TEST(Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop);
     RUN_TEST(Stack_Push_Should_Push_New_Value_On_Top);
     RUN_TEST(Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop);
+    RUN_TEST(Stack_Pop_On_Empty_Stack_Should_Return_Minus_One);
     RUN_TEST(Stack_Size_Should_Return_Stack_Size);
     RUN_TEST(Stack_Should_Have_LIFO_Behaviour);
 }
@@ -88,6 +90,16 @@ void Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop(void)
     pop(stack);
 
     TEST_ASSERT_EQUAL_INT(2, peek(stack));
+}
+
+void Stack_Pop_On_Empty_Stack_Should_Return_Minus_One()
+{
+    TEST_ASSERT_EQUAL_INT(-1, pop(stack));
+}
+
+void Stack_Peek_On_Empty_Stack_Should_Return_Minus_One()
+{
+    TEST_ASSERT_EQUAL_INT(-1, peek(stack));
 }
 
 void Stack_Size_Should_Return_Stack_Size(void)
