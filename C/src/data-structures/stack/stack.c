@@ -3,14 +3,28 @@
 
 struct stack
 {
+    bool isEmpty;
 };
 
 Stack* create()
 {
-    return malloc(sizeof(struct stack));
+    Stack* stack = malloc(sizeof(struct stack));
+    stack->isEmpty = true;
+
+    return stack;
 }
 
 bool isEmpty(const Stack* s)
 {
-    return true;
+    return s->isEmpty;
+}
+
+void push(Stack* s, int value)
+{
+    s->isEmpty = false;
+}
+
+void delete(Stack* s)
+{
+    free(s);
 }
