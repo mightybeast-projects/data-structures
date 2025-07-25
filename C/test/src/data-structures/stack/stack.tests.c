@@ -5,17 +5,6 @@
 
 static Stack* stack;
 
-void Stack_Create_Should_Return_Newly_Created_Stack(void);
-void Newly_Created_Stack_Should_Be_Empty(void);
-void Stack_Should_Not_Be_Empty_After_One_Push(void);
-void Stack_Should_Be_Empty_After_One_Push_And_One_Pop(void);
-void Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop(void);
-void Stack_Push_Should_Push_New_Value_On_Top(void);
-void Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop(void);
-void Stack_Pop_On_Empty_Stack_Should_Return_Minus_One(void);
-void Stack_Size_Should_Return_Stack_Size(void);
-void Stack_Should_Have_LIFO_Behaviour(void);
-
 void stackSetUp()
 {
     stack = create();
@@ -24,20 +13,6 @@ void stackSetUp()
 void stackTearDown()
 {
     delete(stack);
-}
-
-void runStackTests(void)
-{
-    RUN_TEST(Stack_Create_Should_Return_Newly_Created_Stack);
-    RUN_TEST(Newly_Created_Stack_Should_Be_Empty);
-    RUN_TEST(Stack_Should_Not_Be_Empty_After_One_Push);
-    RUN_TEST(Stack_Should_Be_Empty_After_One_Push_And_One_Pop);
-    RUN_TEST(Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop);
-    RUN_TEST(Stack_Push_Should_Push_New_Value_On_Top);
-    RUN_TEST(Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop);
-    RUN_TEST(Stack_Pop_On_Empty_Stack_Should_Return_Minus_One);
-    RUN_TEST(Stack_Size_Should_Return_Stack_Size);
-    RUN_TEST(Stack_Should_Have_LIFO_Behaviour);
 }
 
 void Stack_Create_Should_Return_Newly_Created_Stack(void)
@@ -136,4 +111,18 @@ void Stack_Should_Have_LIFO_Behaviour(void)
     TEST_ASSERT_EQUAL_INT(6, t2);
     TEST_ASSERT_EQUAL_INT(4, peek(stack));
     TEST_ASSERT_EQUAL_INT(1, size(stack));
+}
+
+void runStackTests(void)
+{
+    RUN_TEST(Stack_Create_Should_Return_Newly_Created_Stack);
+    RUN_TEST(Newly_Created_Stack_Should_Be_Empty);
+    RUN_TEST(Stack_Should_Not_Be_Empty_After_One_Push);
+    RUN_TEST(Stack_Should_Be_Empty_After_One_Push_And_One_Pop);
+    RUN_TEST(Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop);
+    RUN_TEST(Stack_Push_Should_Push_New_Value_On_Top);
+    RUN_TEST(Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop);
+    RUN_TEST(Stack_Pop_On_Empty_Stack_Should_Return_Minus_One);
+    RUN_TEST(Stack_Size_Should_Return_Stack_Size);
+    RUN_TEST(Stack_Should_Have_LIFO_Behaviour);
 }
