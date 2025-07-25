@@ -31,6 +31,11 @@ bool isEmpty(const Stack* s)
     return s->size == 0;
 }
 
+int size(const Stack* s)
+{
+    return s->size;
+}
+
 void push(Stack* s, int value)
 {
     Node* node = malloc(sizeof(struct node));
