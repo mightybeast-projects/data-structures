@@ -2,4 +2,4 @@
 
 #include <stdbool.h>
 
-bool linearSearch(int arr[], int n, int value);
+bool linearSearch(int arr[], int size, int value);

@@ -1,9 +1,9 @@
 #include "binary-search.h"
 
-bool binarySearch(int arr[], int n, int value)
+bool binarySearch(int arr[], int size, int value)
 {
     int l = 0;
-    int h = n - 1;
+    int h = size - 1;
 
     int m;
 

@@ -1,8 +1,8 @@
 #include "linear-search.h"
 
-bool linearSearch(int arr[], int n, int value)
+bool linearSearch(int arr[], int size, int value)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < size; i++)
         if (arr[i] == value)
             return true;
 

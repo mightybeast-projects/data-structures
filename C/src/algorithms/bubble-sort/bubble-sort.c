@@ -1,16 +1,16 @@
 #include "bubble-sort.h"
 
-void bubbleSort(int arr[], int n)
+void bubbleSort(int arr[], int size)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < size; i++)
     {
-        for (int j = 0; j < n - i - 1; j++)
+        for (int j = 0; j < size - i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {
-                int current = arr[j];
+                int tmp = arr[j];
                 arr[j] = arr[j + 1];
-                arr[j + 1] = current;
+                arr[j + 1] = tmp;
             }
         }
     }

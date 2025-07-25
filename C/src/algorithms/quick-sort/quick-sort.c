@@ -3,10 +3,10 @@
 void quickSortRecurse(int arr[], int l, int h);
 int partition(int arr[], int l, int h);
 
-void quickSort(int arr[], int n)
+void quickSort(int arr[], int size)
 {
     int l = 0;
-    int h = n - 1;
+    int h = size - 1;
 
     quickSortRecurse(arr, l, h);
 }
