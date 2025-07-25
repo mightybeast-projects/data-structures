@@ -3,25 +3,30 @@
 
 struct stack
 {
-    bool isEmpty;
+    int size;
 };
 
 Stack* create()
 {
     Stack* stack = malloc(sizeof(struct stack));
-    stack->isEmpty = true;
+    stack->size = 0;
 
     return stack;
 }
 
 bool isEmpty(const Stack* s)
 {
-    return s->isEmpty;
+    return s->size == 0;
 }
 
 void push(Stack* s, int value)
 {
-    s->isEmpty = false;
+    s->size++;
+}
+
+int pop(Stack* s)
+{
+    s->size--;
 }
 
 void delete(Stack* s)
