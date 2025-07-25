@@ -10,6 +10,8 @@ void Newly_Created_Stack_Should_Be_Empty(void);
 void Stack_Should_Not_Be_Empty_After_One_Push(void);
 void Stack_Should_Be_Empty_After_One_Push_And_One_Pop(void);
 void Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop(void);
+void Stack_Push_Should_Push_New_Value_On_Top(void);
+void Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop(void);
 
 void stackSetUp()
 {
@@ -28,6 +30,8 @@ void runStackTests(void)
     RUN_TEST(Stack_Should_Not_Be_Empty_After_One_Push);
     RUN_TEST(Stack_Should_Be_Empty_After_One_Push_And_One_Pop);
     RUN_TEST(Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop);
+    RUN_TEST(Stack_Push_Should_Push_New_Value_On_Top);
+    RUN_TEST(Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop);
 }
 
 void Stack_Create_Should_Return_Newly_Created_Stack(void)
@@ -64,4 +68,20 @@ void Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop(void)
     pop(stack);
 
     TEST_ASSERT_FALSE(isEmpty(stack));
+}
+
+void Stack_Push_Should_Push_New_Value_On_Top(void)
+{
+    push(stack, 2);
+
+    TEST_ASSERT_EQUAL_INT(2, peek(stack));
+}
+
+void Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop(void)
+{
+    push(stack, 2);
+    push(stack, 10);
+    pop(stack);
+
+    TEST_ASSERT_EQUAL_INT(2, peek(stack));
 }

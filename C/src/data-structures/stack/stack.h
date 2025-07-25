@@ -6,4 +6,5 @@ Stack* create();
 bool isEmpty(const Stack* s);
 void push(Stack* s, int value);
 int pop(Stack* s);
+int peek(const Stack* s);
 void delete(Stack* s);
