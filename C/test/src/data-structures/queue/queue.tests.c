@@ -25,35 +25,59 @@ void Newly_Created_Queue_Should_Be_Empty(void)
 
 void After_One_Enqueue_Queue_Should_Not_Be_Empty(void)
 {
-    queueEnqueue(queue);
+    queueEnqueue(queue, 10);
 
     TEST_ASSERT_FALSE(queueIsEmpty(queue));
 }
 
-void After_One_Enqueue_And_One_Dequeue_Queue_Should_Be_Empty()
+void After_One_Enqueue_And_One_Dequeue_Queue_Should_Be_Empty(void)
 {
-    queueEnqueue(queue);
+    queueEnqueue(queue, 10);
     queueDequeue(queue);
 
     TEST_ASSERT_TRUE(queueIsEmpty(queue));
 }
 
-void After_Two_Enqueue_And_One_Dequeue_Queue_Should_Not_Be_Empty()
+void After_Two_Enqueue_And_One_Dequeue_Queue_Should_Not_Be_Empty(void)
 {
-    queueEnqueue(queue);
-    queueEnqueue(queue);
+    queueEnqueue(queue, 10);
+    queueEnqueue(queue, 101);
     queueDequeue(queue);
 
     TEST_ASSERT_FALSE(queueIsEmpty(queue));
 }
 
-void Queue_Should_Return_Its_Length()
+void Queue_Should_Return_Its_Length(void)
 {
-    queueEnqueue(queue);
-    queueEnqueue(queue);
-    queueEnqueue(queue);
+    queueEnqueue(queue, 10);
+    queueEnqueue(queue, 10);
+    queueEnqueue(queue, 10);
 
     TEST_ASSERT_EQUAL_INT(3, queueLength(queue));
+}
+
+void Enqueue_Should_Enqueue_New_Value(void)
+{
+    queueEnqueue(queue, 10);
+
+    TEST_ASSERT_EQUAL_INT(10, queuePeek(queue));
+}
+
+void After_Two_Enqueue_First_Value_Should_Be_First(void)
+{
+    queueEnqueue(queue, 1);
+    queueEnqueue(queue, 2);
+
+    TEST_ASSERT_EQUAL_INT(1, queuePeek(queue));
+}
+
+void Queue_Should_Have_FIFO_Behaviour()
+{
+    queueEnqueue(queue, 1);
+    queueEnqueue(queue, 2);
+    queueDequeue(queue);
+
+    TEST_ASSERT_EQUAL_INT(2, queuePeek(queue));
 }
 
 void runQueueTests(void)
@@ -64,4 +88,7 @@ void runQueueTests(void)
     RUN_TEST(After_One_Enqueue_And_One_Dequeue_Queue_Should_Be_Empty);
     RUN_TEST(After_Two_Enqueue_And_One_Dequeue_Queue_Should_Not_Be_Empty);
     RUN_TEST(Queue_Should_Return_Its_Length);
+    RUN_TEST(Enqueue_Should_Enqueue_New_Value);
+    RUN_TEST(After_Two_Enqueue_First_Value_Should_Be_First);
+    RUN_TEST(Queue_Should_Have_FIFO_Behaviour);
 }
