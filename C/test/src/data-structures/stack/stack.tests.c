@@ -7,12 +7,12 @@ static Stack* stack;
 
 void stackSetUp()
 {
-    stack = create();
+    stack = createStack();
 }
 
 void stackTearDown()
 {
-    delete(stack);
+    deleteStack(stack);
 }
 
 void Stack_Create_Should_Return_Newly_Created_Stack(void)
@@ -22,95 +22,95 @@ void Stack_Create_Should_Return_Newly_Created_Stack(void)
 
 void Newly_Created_Stack_Should_Be_Empty(void)
 {
-    TEST_ASSERT_TRUE(isEmpty(stack));
-    TEST_ASSERT_EQUAL_INT(1, isEmpty(stack));
+    TEST_ASSERT_TRUE(stackIsEmpty(stack));
+    TEST_ASSERT_EQUAL_INT(1, stackIsEmpty(stack));
 }
 
 void Stack_Should_Not_Be_Empty_After_One_Push(void)
 {
-    push(stack, 1);
+    stackPush(stack, 1);
 
-    TEST_ASSERT_FALSE(isEmpty(stack));
+    TEST_ASSERT_FALSE(stackIsEmpty(stack));
 }
 
 void Stack_Should_Be_Empty_After_One_Push_And_One_Pop(void)
 {
-    push(stack, 1);
-    pop(stack);
+    stackPush(stack, 1);
+    stackPop(stack);
 
-    TEST_ASSERT_TRUE(isEmpty(stack));
-    TEST_ASSERT_EQUAL_INT(1, isEmpty(stack));
+    TEST_ASSERT_TRUE(stackIsEmpty(stack));
+    TEST_ASSERT_EQUAL_INT(1, stackIsEmpty(stack));
 }
 
 void Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop(void)
 {
-    push(stack, 1);
-    push(stack, 2);
-    pop(stack);
+    stackPush(stack, 1);
+    stackPush(stack, 2);
+    stackPop(stack);
 
-    TEST_ASSERT_FALSE(isEmpty(stack));
+    TEST_ASSERT_FALSE(stackIsEmpty(stack));
 }
 
 void Stack_Push_Should_Push_New_Value_On_Top(void)
 {
-    push(stack, 2);
+    stackPush(stack, 2);
 
-    TEST_ASSERT_EQUAL_INT(2, peek(stack));
+    TEST_ASSERT_EQUAL_INT(2, stackPeek(stack));
 }
 
 void Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop(void)
 {
-    push(stack, 2);
-    push(stack, 10);
-    pop(stack);
+    stackPush(stack, 2);
+    stackPush(stack, 10);
+    stackPop(stack);
 
-    TEST_ASSERT_EQUAL_INT(2, peek(stack));
+    TEST_ASSERT_EQUAL_INT(2, stackPeek(stack));
 }
 
 void Stack_Pop_On_Empty_Stack_Should_Return_Minus_One()
 {
-    TEST_ASSERT_EQUAL_INT(-1, pop(stack));
+    TEST_ASSERT_EQUAL_INT(-1, stackPop(stack));
 }
 
 void Stack_Peek_On_Empty_Stack_Should_Return_Minus_One()
 {
-    TEST_ASSERT_EQUAL_INT(-1, peek(stack));
+    TEST_ASSERT_EQUAL_INT(-1, stackPeek(stack));
 }
 
 void Stack_Size_Should_Return_Stack_Size(void)
 {
-    push(stack, 2);
-    push(stack, 10);
-    push(stack, 5);
-    push(stack, 6);
-    pop(stack);
+    stackPush(stack, 2);
+    stackPush(stack, 10);
+    stackPush(stack, 5);
+    stackPush(stack, 6);
+    stackPop(stack);
 
-    TEST_ASSERT_EQUAL_INT(3, size(stack));
+    TEST_ASSERT_EQUAL_INT(3, stackSize(stack));
 }
 
 void Stack_Should_Have_LIFO_Behaviour(void)
 {
-    push(stack, 4);
-    push(stack, 6);
+    stackPush(stack, 4);
+    stackPush(stack, 6);
 
-    TEST_ASSERT_EQUAL_INT(6, peek(stack));
+    TEST_ASSERT_EQUAL_INT(6, stackPeek(stack));
 
-    push(stack, 2);
-    push(stack, -1);
+    stackPush(stack, 2);
+    stackPush(stack, -1);
 
-    TEST_ASSERT_EQUAL_INT(4, size(stack));
+    TEST_ASSERT_EQUAL_INT(4, stackSize(stack));
 
-    const int t1 = pop(stack);
+    const int t1 = stackPop(stack);
 
     TEST_ASSERT_EQUAL_INT(t1, -1);
-    TEST_ASSERT_EQUAL_INT(3, size(stack));
+    TEST_ASSERT_EQUAL_INT(3, stackSize(stack));
 
-    pop(stack);
-    const int t2 = pop(stack);
+    stackPop(stack);
+    const int t2 = stackPop(stack);
 
     TEST_ASSERT_EQUAL_INT(6, t2);
-    TEST_ASSERT_EQUAL_INT(4, peek(stack));
-    TEST_ASSERT_EQUAL_INT(1, size(stack));
+    TEST_ASSERT_EQUAL_INT(4, stackPeek(stack));
+    TEST_ASSERT_EQUAL_INT(1, stackSize(stack));
 }
 
 void runStackTests(void)

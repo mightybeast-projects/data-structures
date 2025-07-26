@@ -17,7 +17,7 @@ struct stack
 
 void deleteNode(Node* node);
 
-Stack* create()
+Stack* createStack(void)
 {
     Stack* stack = malloc(sizeof(struct stack));
 
@@ -30,17 +30,17 @@ Stack* create()
     return stack;
 }
 
-bool isEmpty(const Stack* stack)
+bool stackIsEmpty(const Stack* stack)
 {
     return stack->size == 0;
 }
 
-int size(const Stack* stack)
+int stackSize(const Stack* stack)
 {
     return stack->size;
 }
 
-void push(Stack* stack, int value)
+void stackPush(Stack* stack, int value)
 {
     Node* node = malloc(sizeof(struct node));
 
@@ -54,7 +54,7 @@ void push(Stack* stack, int value)
     stack->size++;
 }
 
-int pop(Stack* stack)
+int stackPop(Stack* stack)
 {
     if (!stack->top)
         return -1;
@@ -70,7 +70,7 @@ int pop(Stack* stack)
     return value;
 }
 
-int peek(const Stack* stack)
+int stackPeek(const Stack* stack)
 {
     if (!stack->top)
         return -1;
@@ -78,7 +78,7 @@ int peek(const Stack* stack)
     return stack->top->value;
 }
 
-void delete(Stack* stack)
+void deleteStack(Stack* stack)
 {
     deleteNode(stack->top);
     free(stack);

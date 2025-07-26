@@ -5,15 +5,18 @@
 #include "quick-sort.tests.h"
 #include "stack.tests.h"
 #include "unity.h"
+#include "queue.tests.h"
 
 void setUp()
 {
     stackSetUp();
+    queueSetUp();
 }
 
 void tearDown()
 {
     stackTearDown();
+    queueTearDown();
 }
 
 int main()
@@ -27,6 +30,7 @@ int main()
     RUN_TEST(Quick_Sort_Should_Sort_Array);
 
     runStackTests();
+    runQueueTests();
 
     return UNITY_END();
 }
