@@ -23,7 +23,6 @@ void Stack_Create_Should_Return_Newly_Created_Stack(void)
 void Newly_Created_Stack_Should_Be_Empty(void)
 {
     TEST_ASSERT_TRUE(stackIsEmpty(stack));
-    TEST_ASSERT_EQUAL_INT(1, stackIsEmpty(stack));
 }
 
 void Stack_Should_Not_Be_Empty_After_One_Push(void)
@@ -39,7 +38,6 @@ void Stack_Should_Be_Empty_After_One_Push_And_One_Pop(void)
     stackPop(stack);
 
     TEST_ASSERT_TRUE(stackIsEmpty(stack));
-    TEST_ASSERT_EQUAL_INT(1, stackIsEmpty(stack));
 }
 
 void Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop(void)

@@ -3,9 +3,33 @@
 
 struct queue
 {
+    int length;
 };
 
 Queue* createQueue(void)
 {
-    return malloc(sizeof(struct queue));
+    Queue* queue = malloc(sizeof(struct queue));
+    queue->length = 0;
+
+    return queue;
+}
+
+bool queueIsEmpty(const Queue* queue)
+{
+    return queue->length == 0;
+}
+
+void queueEnqueue(Queue* queue)
+{
+    queue->length++;
+}
+
+void queueDequeue(Queue* queue)
+{
+    queue->length--;
+}
+
+int queueLength(const Queue* queue)
+{
+    return queue->length;
 }
