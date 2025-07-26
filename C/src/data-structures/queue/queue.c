@@ -53,6 +53,9 @@ void queueEnqueue(Queue* queue, int value)
 
 int queueDequeue(Queue* queue)
 {
+    if (queueIsEmpty(queue))
+        return -1;
+
     queue->length--;
 
     Node* node = queue->first;
@@ -67,6 +70,9 @@ int queueDequeue(Queue* queue)
 
 int queuePeek(const Queue* queue)
 {
+    if (queueIsEmpty(queue))
+        return -1;
+
     return queue->first->value;
 }
 

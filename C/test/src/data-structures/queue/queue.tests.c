@@ -82,9 +82,30 @@ void Queue_Should_Have_FIFO_Behaviour()
 {
     queueEnqueue(queue, 1);
     queueEnqueue(queue, 2);
-    queueDequeue(queue);
+
+    const int f1 = queueDequeue(queue);
 
     TEST_ASSERT_EQUAL_INT(2, queuePeek(queue));
+    TEST_ASSERT_EQUAL_INT(1, f1);
+
+    queueEnqueue(queue, 10);
+    queueEnqueue(queue, 20);
+
+    const int f2 = queueDequeue(queue);
+
+    TEST_ASSERT_EQUAL_INT(2, queueLength(queue));
+    TEST_ASSERT_EQUAL_INT(2, f2);
+    TEST_ASSERT_EQUAL_INT(10, queuePeek(queue));
+}
+
+void Peek_On_Empty_Queue_Should_Return_Minus_One()
+{
+    TEST_ASSERT_EQUAL_INT(-1, queuePeek(queue));
+}
+
+void Dequeue_On_Empty_Queue_Should_Return_Minus_One()
+{
+    TEST_ASSERT_EQUAL_INT(-1, queueDequeue(queue));
 }
 
 void runQueueTests(void)
@@ -99,4 +120,6 @@ void runQueueTests(void)
     RUN_TEST(After_Two_Enqueue_First_Value_Should_Be_First);
     RUN_TEST(Queue_Should_Dequeue_Current_First);
     RUN_TEST(Queue_Should_Have_FIFO_Behaviour);
+    RUN_TEST(Peek_On_Empty_Queue_Should_Return_Minus_One);
+    RUN_TEST(Dequeue_On_Empty_Queue_Should_Return_Minus_One);
 }
