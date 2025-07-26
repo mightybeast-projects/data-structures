@@ -51,15 +51,18 @@ void queueEnqueue(Queue* queue, int value)
     }
 }
 
-void queueDequeue(Queue* queue)
+int queueDequeue(Queue* queue)
 {
     queue->length--;
 
     Node* node = queue->first;
+    int value = node->value;
 
     queue->first = node->next;
 
     free(node);
+
+    return value;
 }
 
 int queuePeek(const Queue* queue)

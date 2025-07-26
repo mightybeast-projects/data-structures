@@ -71,6 +71,13 @@ void After_Two_Enqueue_First_Value_Should_Be_First(void)
     TEST_ASSERT_EQUAL_INT(1, queuePeek(queue));
 }
 
+void Queue_Should_Dequeue_Current_First()
+{
+    queueEnqueue(queue, 2);
+
+    TEST_ASSERT_EQUAL_INT(2, queueDequeue(queue));
+}
+
 void Queue_Should_Have_FIFO_Behaviour()
 {
     queueEnqueue(queue, 1);
@@ -90,5 +97,6 @@ void runQueueTests(void)
     RUN_TEST(Queue_Should_Return_Its_Length);
     RUN_TEST(Enqueue_Should_Enqueue_New_Value);
     RUN_TEST(After_Two_Enqueue_First_Value_Should_Be_First);
+    RUN_TEST(Queue_Should_Dequeue_Current_First);
     RUN_TEST(Queue_Should_Have_FIFO_Behaviour);
 }
