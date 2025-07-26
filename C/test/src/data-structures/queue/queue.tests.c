@@ -8,7 +8,10 @@ void queueSetUp()
     queue = createQueue();
 }
 
-void queueTearDown() { }
+void queueTearDown()
+{
+    deleteQueue(queue);
+}
 
 void Queue_Create_Should_Create_New_Queue(void)
 {

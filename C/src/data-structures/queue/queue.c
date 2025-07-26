@@ -33,3 +33,8 @@ int queueLength(const Queue* queue)
 {
     return queue->length;
 }
+
+void deleteQueue(Queue* queue)
+{
+    free(queue);
+}
