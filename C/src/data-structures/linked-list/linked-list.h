@@ -11,5 +11,6 @@ bool linkedListRemove(LinkedList* linkedList, const int value);
 void linkedListInsertAt(LinkedList* linkedList,
     const int index,
     const int value);
+bool linkedListRemoveAt(LinkedList* linkedList, const int index);
 int linkedListGet(const LinkedList* linkedList, const int index);
 void deleteLinkedList(LinkedList* linkedList);

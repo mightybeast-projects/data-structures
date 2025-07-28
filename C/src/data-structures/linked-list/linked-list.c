@@ -153,6 +153,35 @@ void linkedListInsertAt(LinkedList* linkedList,
     linkedList->size++;
 }
 
+bool linkedListRemoveAt(LinkedList* linkedList, const int index)
+{
+    if (indexOutOfBounds(index, linkedList->size))
+        return false;
+
+    Node* node = linkedList->head;
+
+    for (int i = 0; i < index; i++)
+        node = node->next;
+
+    if (node == linkedList->head)
+        linkedList->head = node->next;
+
+    if (node == linkedList->tail)
+        linkedList->tail = node->prev;
+
+    if (node->prev)
+        node->prev->next = node->next;
+
+    if (node->next)
+        node->next->prev = node->prev;
+
+    free(node);
+
+    linkedList->size--;
+
+    return true;
+}
+
 int linkedListGet(const LinkedList* linkedList, const int index)
 {
     if (indexOutOfBounds(index, linkedList->size))
