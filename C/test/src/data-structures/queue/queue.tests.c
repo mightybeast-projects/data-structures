@@ -1,3 +1,4 @@
+#define QUEUE_ITEM_TYPE int
 #include "queue.h"
 #include "queue.tests.h"
 #include "unity.h"
@@ -99,14 +100,14 @@ void Queue_Should_Have_FIFO_Behaviour()
     TEST_ASSERT_EQUAL_INT(10, queuePeek(queue));
 }
 
-void Queue_Peek_On_Empty_Queue_Should_Return_Minus_One()
+void Queue_Peek_On_Empty_Queue_Should_Return_Zero_Value()
 {
-    TEST_ASSERT_EQUAL_INT(-1, queuePeek(queue));
+    TEST_ASSERT_EQUAL_INT(0, queuePeek(queue));
 }
 
-void Queue_Dequeue_On_Empty_Queue_Should_Return_Minus_One()
+void Queue_Dequeue_On_Empty_Queue_Should_Return_Zero_Value()
 {
-    TEST_ASSERT_EQUAL_INT(-1, queueDequeue(queue));
+    TEST_ASSERT_EQUAL_INT(0, queueDequeue(queue));
 }
 
 void runQueueTests(void)
@@ -121,6 +122,6 @@ void runQueueTests(void)
     RUN_TEST(After_Two_Enqueue_First_Value_Should_Be_First);
     RUN_TEST(Queue_Should_Dequeue_Current_First);
     RUN_TEST(Queue_Should_Have_FIFO_Behaviour);
-    RUN_TEST(Queue_Peek_On_Empty_Queue_Should_Return_Minus_One);
-    RUN_TEST(Queue_Dequeue_On_Empty_Queue_Should_Return_Minus_One);
+    RUN_TEST(Queue_Peek_On_Empty_Queue_Should_Return_Zero_Value);
+    RUN_TEST(Queue_Dequeue_On_Empty_Queue_Should_Return_Zero_Value);
 }

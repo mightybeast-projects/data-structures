@@ -5,7 +5,7 @@ typedef struct node Node;
 
 struct node
 {
-    int value;
+    QueueItem value;
     Node* next;
 };
 
@@ -37,7 +37,7 @@ bool queueIsEmpty(const Queue* queue)
     return queue->length == 0;
 }
 
-void queueEnqueue(Queue* queue, int value)
+void queueEnqueue(Queue* queue, QueueItem value)
 {
     Node* node = malloc(sizeof(struct node));
 
@@ -59,13 +59,13 @@ void queueEnqueue(Queue* queue, int value)
     queue->length++;
 }
 
-int queueDequeue(Queue* queue)
+QueueItem queueDequeue(Queue* queue)
 {
     if (queueIsEmpty(queue))
-        return -1;
+        return NULL;
 
     Node* node = queue->first;
-    int value = node->value;
+    QueueItem value = node->value;
 
     queue->first = node->next;
     queue->length--;
@@ -78,10 +78,10 @@ int queueDequeue(Queue* queue)
     return value;
 }
 
-int queuePeek(const Queue* queue)
+QueueItem queuePeek(const Queue* queue)
 {
     if (queueIsEmpty(queue))
-        return -1;
+        return NULL;
 
     return queue->first->value;
 }
