@@ -26,15 +26,15 @@ void Newly_Created_Linked_List_Should_Be_Empty()
 
 void After_One_Append_Linked_List_Should_Not_Be_Empty()
 {
-    linkedListAppend(linkedList);
+    linkedListAppend(linkedList, 1);
 
     TEST_ASSERT_FALSE(linkedListIsEmpty(linkedList));
 }
 
 void After_Two_Appends_And_One_Remove_Linked_List_Should_Not_Be_Empty()
 {
-    linkedListAppend(linkedList);
-    linkedListAppend(linkedList);
+    linkedListAppend(linkedList, 1);
+    linkedListAppend(linkedList, 2);
     linkedListRemove(linkedList);
 
     TEST_ASSERT_FALSE(linkedListIsEmpty(linkedList));
@@ -42,13 +42,29 @@ void After_Two_Appends_And_One_Remove_Linked_List_Should_Not_Be_Empty()
 
 void Linked_List_Should_Have_Size()
 {
-    linkedListAppend(linkedList);
-    linkedListAppend(linkedList);
-    linkedListAppend(linkedList);
-    linkedListAppend(linkedList);
+    linkedListAppend(linkedList, 1);
+    linkedListAppend(linkedList, 2);
+    linkedListAppend(linkedList, 3);
+    linkedListAppend(linkedList, 4);
     linkedListRemove(linkedList);
 
     TEST_ASSERT_EQUAL_INT(3, linkedListSize(linkedList));
+}
+
+void Linked_List_Append_Should_Append_New_Value()
+{
+    linkedListAppend(linkedList, 1);
+    linkedListAppend(linkedList, 3);
+
+    TEST_ASSERT_EQUAL_INT(3, linkedListGet(linkedList, 1));
+}
+
+void Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds()
+{
+    linkedListAppend(linkedList, 1);
+
+    TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, -1));
+    TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, 2));
 }
 
 void runLinkedListTests(void)
@@ -58,4 +74,7 @@ void runLinkedListTests(void)
     RUN_TEST(After_One_Append_Linked_List_Should_Not_Be_Empty);
     RUN_TEST(After_Two_Appends_And_One_Remove_Linked_List_Should_Not_Be_Empty);
     RUN_TEST(Linked_List_Should_Have_Size);
+    RUN_TEST(Linked_List_Append_Should_Append_New_Value);
+    RUN_TEST(
+        Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds);
 }
