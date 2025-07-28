@@ -93,6 +93,11 @@ void Linked_List_Remove_Should_Return_False_If_List_Does_Not_Contain_Specified_V
     TEST_ASSERT_FALSE(linkedListRemove(linkedList, 3));
 }
 
+void Linked_List_Remove_On_Empty_List_Should_Return_False()
+{
+    TEST_ASSERT_FALSE(linkedListRemove(linkedList, 4));
+}
+
 void Linked_List_Remove_Should_Remove_Value_And_Return_True()
 {
     linkedListAppend(linkedList, 4);
@@ -120,5 +125,6 @@ void runLinkedListTests(void)
     RUN_TEST(Linked_List_Prepend_Should_Prepend_New_Value);
     RUN_TEST(
         Linked_List_Remove_Should_Return_False_If_List_Does_Not_Contain_Specified_Value);
+    RUN_TEST(Linked_List_Remove_On_Empty_List_Should_Return_False);
     RUN_TEST(Linked_List_Remove_Should_Remove_Value_And_Return_True);
 }
