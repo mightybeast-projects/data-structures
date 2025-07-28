@@ -35,7 +35,8 @@ void After_Two_Appends_And_One_Remove_Linked_List_Should_Not_Be_Empty()
 {
     linkedListAppend(linkedList, 1);
     linkedListAppend(linkedList, 2);
-    linkedListRemove(linkedList);
+
+    linkedListRemove(linkedList, 2);
 
     TEST_ASSERT_FALSE(linkedListIsEmpty(linkedList));
 }
@@ -46,7 +47,8 @@ void Linked_List_Should_Have_Size()
     linkedListAppend(linkedList, 2);
     linkedListAppend(linkedList, 3);
     linkedListAppend(linkedList, 4);
-    linkedListRemove(linkedList);
+
+    linkedListRemove(linkedList, 1);
 
     TEST_ASSERT_EQUAL_INT(3, linkedListSize(linkedList));
 }
@@ -82,6 +84,28 @@ void Linked_List_Prepend_Should_Prepend_New_Value()
     TEST_ASSERT_EQUAL_INT(6, linkedListGet(linkedList, 0));
 }
 
+void Linked_List_Remove_Should_Return_False_If_List_Does_Not_Contain_Specified_Value()
+{
+    linkedListAppend(linkedList, 4);
+    linkedListAppend(linkedList, 5);
+    linkedListAppend(linkedList, 7);
+
+    TEST_ASSERT_FALSE(linkedListRemove(linkedList, 3));
+}
+
+void Linked_List_Remove_Should_Remove_Value_And_Return_True()
+{
+    linkedListAppend(linkedList, 4);
+    linkedListAppend(linkedList, 7);
+    linkedListAppend(linkedList, 9);
+
+    const bool result = linkedListRemove(linkedList, 7);
+
+    TEST_ASSERT_TRUE(result);
+    TEST_ASSERT_EQUAL_INT(2, linkedListSize(linkedList));
+    TEST_ASSERT_EQUAL_INT(9, linkedListGet(linkedList, 1));
+}
+
 void runLinkedListTests(void)
 {
     RUN_TEST(Linked_List_Create_Should_Return_Newly_Created_Linked_List);
@@ -94,4 +118,7 @@ void runLinkedListTests(void)
         Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds);
     RUN_TEST(After_One_Prepend_Linked_List_Should_Not_Be_Empty);
     RUN_TEST(Linked_List_Prepend_Should_Prepend_New_Value);
+    RUN_TEST(
+        Linked_List_Remove_Should_Return_False_If_List_Does_Not_Contain_Specified_Value);
+    RUN_TEST(Linked_List_Remove_Should_Remove_Value_And_Return_True);
 }

@@ -94,9 +94,39 @@ void linkedListPrepend(LinkedList* linkedList, const int value)
     linkedList->size++;
 }
 
-void linkedListRemove(LinkedList* linkedList)
+bool linkedListRemove(LinkedList* linkedList, const int value)
 {
-    linkedList->size--;
+    Node* node = linkedList->head;
+
+    while (node)
+    {
+        if (node->value != value)
+        {
+            node = node->next;
+
+            continue;
+        }
+
+        if (node == linkedList->head)
+            linkedList->head = node->next;
+
+        if (node == linkedList->tail)
+            linkedList->tail = node->prev;
+
+        if (node->prev)
+            node->prev->next = node->next;
+
+        if (node->next)
+            node->next->prev = node->prev;
+
+        linkedList->size--;
+
+        free(node);
+
+        return true;
+    }
+
+    return false;
 }
 
 int linkedListGet(const LinkedList* linkedList, const int index)
