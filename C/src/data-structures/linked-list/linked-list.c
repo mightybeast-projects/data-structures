@@ -18,6 +18,7 @@ struct linkedList
     Node* tail;
 };
 
+static bool indexOutOfBounds(const int index, const int size);
 static Node* createNode(const int value);
 static void deleteNode(Node* node);
 
@@ -122,9 +123,39 @@ bool linkedListRemove(LinkedList* linkedList, const int value)
     return false;
 }
 
+void linkedListInsertAt(LinkedList* linkedList,
+    const int index,
+    const int value)
+{
+    if (indexOutOfBounds(index, linkedList->size))
+        return;
+
+    if (index == 0)
+        return linkedListPrepend(linkedList, value);
+
+    if (index == linkedList->size)
+        return linkedListAppend(linkedList, value);
+
+    Node* prev = linkedList->head;
+
+    for (int i = 0; i < index - 1; i++)
+        prev = prev->next;
+
+    Node* node = createNode(value);
+    Node* next = prev->next;
+
+    prev->next = node;
+    node->prev = prev;
+
+    next->prev = node;
+    node->next = next;
+
+    linkedList->size++;
+}
+
 int linkedListGet(const LinkedList* linkedList, const int index)
 {
-    if (index < 0 || index >= linkedList->size)
+    if (indexOutOfBounds(index, linkedList->size))
         return -1;
 
     Node* node = linkedList->head;
@@ -163,4 +194,9 @@ static void deleteNode(Node* node)
         free(node);
         node = next;
     }
+}
+
+static bool indexOutOfBounds(const int index, const int size)
+{
+    return index < 0 || index > size;
 }

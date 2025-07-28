@@ -111,6 +111,47 @@ void Linked_List_Remove_Should_Remove_Value_And_Return_True()
     TEST_ASSERT_EQUAL_INT(9, linkedListGet(linkedList, 1));
 }
 
+void Linked_List_Insert_At_Should_Insert_New_Value_At_Index()
+{
+    linkedListAppend(linkedList, 4);
+    linkedListAppend(linkedList, 7);
+    linkedListAppend(linkedList, 9);
+
+    linkedListInsertAt(linkedList, 1, 10);
+
+    TEST_ASSERT_EQUAL_INT(4, linkedListGet(linkedList, 0));
+    TEST_ASSERT_EQUAL_INT(10, linkedListGet(linkedList, 1));
+    TEST_ASSERT_EQUAL_INT(7, linkedListGet(linkedList, 2));
+    TEST_ASSERT_EQUAL_INT(4, linkedListSize(linkedList));
+}
+
+void Linked_List_Insert_At_Should_Not_Insert_New_Value_If_Index_Is_Out_Of_Bounds()
+{
+    linkedListAppend(linkedList, 4);
+    linkedListAppend(linkedList, 7);
+    linkedListAppend(linkedList, 9);
+
+    linkedListInsertAt(linkedList, -1, 1);
+
+    TEST_ASSERT_EQUAL_INT(4, linkedListGet(linkedList, 0));
+    TEST_ASSERT_EQUAL_INT(7, linkedListGet(linkedList, 1));
+    TEST_ASSERT_EQUAL_INT(9, linkedListGet(linkedList, 2));
+    TEST_ASSERT_EQUAL_INT(3, linkedListSize(linkedList));
+}
+
+void Linked_List_Insert_At_Zero_Should_Append_New_Value()
+{
+    linkedListInsertAt(linkedList, 0, 4);
+
+    TEST_ASSERT_EQUAL_INT(4, linkedListGet(linkedList, 0));
+    TEST_ASSERT_EQUAL_INT(1, linkedListSize(linkedList));
+
+    linkedListInsertAt(linkedList, 0, 3);
+
+    TEST_ASSERT_EQUAL_INT(3, linkedListGet(linkedList, 0));
+    TEST_ASSERT_EQUAL_INT(2, linkedListSize(linkedList));
+}
+
 void runLinkedListTests(void)
 {
     RUN_TEST(Linked_List_Create_Should_Return_Newly_Created_Linked_List);
@@ -127,4 +168,8 @@ void runLinkedListTests(void)
         Linked_List_Remove_Should_Return_False_If_List_Does_Not_Contain_Specified_Value);
     RUN_TEST(Linked_List_Remove_On_Empty_List_Should_Return_False);
     RUN_TEST(Linked_List_Remove_Should_Remove_Value_And_Return_True);
+    RUN_TEST(Linked_List_Insert_At_Should_Insert_New_Value_At_Index);
+    RUN_TEST(
+        Linked_List_Insert_At_Should_Not_Insert_New_Value_If_Index_Is_Out_Of_Bounds);
+    RUN_TEST(Linked_List_Insert_At_Zero_Should_Append_New_Value);
 }
