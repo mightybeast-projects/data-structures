@@ -2,21 +2,24 @@
 #include "bubble-sort.tests.h"
 #include "insertion-sort.tests.h"
 #include "linear-search.tests.h"
+#include "linked-list.tests.h"
+#include "queue.tests.h"
 #include "quick-sort.tests.h"
 #include "stack.tests.h"
 #include "unity.h"
-#include "queue.tests.h"
 
 void setUp()
 {
     stackSetUp();
     queueSetUp();
+    linkedListSetUp();
 }
 
 void tearDown()
 {
     stackTearDown();
     queueTearDown();
+    linkedListTearDown();
 }
 
 int main()
@@ -31,6 +34,7 @@ int main()
 
     runStackTests();
     runQueueTests();
+    runLinkedListTests();
 
     return UNITY_END();
 }

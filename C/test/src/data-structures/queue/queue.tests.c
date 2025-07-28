@@ -1,14 +1,15 @@
+#include "queue.h"
 #include "queue.tests.h"
 #include "unity.h"
 
 Queue* queue;
 
-void queueSetUp()
+void queueSetUp(void)
 {
     queue = createQueue();
 }
 
-void queueTearDown()
+void queueTearDown(void)
 {
     deleteQueue(queue);
 }

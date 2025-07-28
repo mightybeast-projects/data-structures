@@ -1,9 +1,8 @@
 #include "stack.h"
 #include "stack.tests.h"
-#include "stdlib.h"
 #include "unity.h"
 
-static Stack* stack;
+Stack* stack;
 
 void stackSetUp()
 {

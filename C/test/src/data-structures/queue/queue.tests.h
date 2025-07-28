@@ -1,5 +1,3 @@
-#include "queue.h"
-
-void queueSetUp();
-void queueTearDown();
+void queueSetUp(void);
+void queueTearDown(void);
 void runQueueTests(void);
