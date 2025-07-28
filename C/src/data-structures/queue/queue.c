@@ -13,6 +13,7 @@ struct queue
 {
     int length;
     Node* first;
+    Node* last;
 };
 
 void deleteQueueNode(Node* node);
@@ -26,6 +27,7 @@ Queue* createQueue(void)
 
     queue->length = 0;
     queue->first = NULL;
+    queue->last = NULL;
 
     return queue;
 }
@@ -48,16 +50,16 @@ void queueEnqueue(Queue* queue, int value)
     node->next = NULL;
 
     if (!queue->first)
-        queue->first = node;
-    else
     {
-        Node* n = queue->first;
-
-        while (n->next)
-            n = n->next;
-
+        queue->first = node;
+        queue->last = node;
+    } else
+    {
+        Node* n = queue->last;
         n->next = node;
     }
+
+    queue->last = node;
 }
 
 int queueDequeue(Queue* queue)
@@ -71,6 +73,9 @@ int queueDequeue(Queue* queue)
     int value = node->value;
 
     queue->first = node->next;
+
+    if (!queue->first)
+        queue->last = NULL;
 
     free(node);
 
