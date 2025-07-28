@@ -67,7 +67,7 @@ void Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds
     linkedListAppend(linkedList, 1);
 
     TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, -1));
-    TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, 2));
+    TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, 1));
 }
 
 void After_One_Prepend_Linked_List_Should_Not_Be_Empty(void)
@@ -121,6 +121,7 @@ void Linked_List_Insert_At_Should_Not_Insert_New_Value_If_Index_Is_Out_Of_Bounds
     linkedListAppend(linkedList, 9);
 
     linkedListInsertAt(linkedList, -1, 1);
+    linkedListInsertAt(linkedList, 4, 1);
 
     TEST_ASSERT_EQUAL_INT(4, linkedListGet(linkedList, 0));
     TEST_ASSERT_EQUAL_INT(7, linkedListGet(linkedList, 1));
@@ -163,7 +164,7 @@ void Linked_List_Insert_At_Last_Index_Should_Append_New_Value(void)
 void Linked_List_Remove_At_Should_Return_False_If_Index_Is_Out_Of_Bounds()
 {
     TEST_ASSERT_FALSE(linkedListRemoveAt(linkedList, -1));
-    TEST_ASSERT_FALSE(linkedListRemoveAt(linkedList, 10));
+    TEST_ASSERT_FALSE(linkedListRemoveAt(linkedList, 0));
 }
 
 void Linked_List_Remove_At_Zero_Should_Remove_Head()
