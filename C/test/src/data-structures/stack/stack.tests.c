@@ -1,3 +1,4 @@
+#define STACK_ITEM_TYPE int
 #include "stack.h"
 #include "stack.tests.h"
 #include "unity.h"
@@ -100,14 +101,14 @@ void Stack_Should_Have_LIFO_Behaviour(void)
     TEST_ASSERT_EQUAL_INT(1, stackSize(stack));
 }
 
-void Stack_Pop_On_Empty_Stack_Should_Return_Minus_One()
+void Stack_Pop_On_Empty_Stack_Should_Return_Zero_Value()
 {
-    TEST_ASSERT_EQUAL_INT(-1, stackPop(stack));
+    TEST_ASSERT_EQUAL_INT(0, stackPop(stack));
 }
 
-void Stack_Peek_On_Empty_Stack_Should_Return_Minus_One()
+void Stack_Peek_On_Empty_Stack_Should_Return_Zero_Value()
 {
-    TEST_ASSERT_EQUAL_INT(-1, stackPeek(stack));
+    TEST_ASSERT_EQUAL_INT(0, stackPeek(stack));
 }
 
 void runStackTests(void)
@@ -119,7 +120,8 @@ void runStackTests(void)
     RUN_TEST(Stack_Should_Not_Be_Empty_After_Two_Pushed_And_One_Pop);
     RUN_TEST(Stack_Push_Should_Push_New_Value_On_Top);
     RUN_TEST(Stack_Should_Have_First_Value_After_Two_Pushes_And_One_Pop);
-    RUN_TEST(Stack_Pop_On_Empty_Stack_Should_Return_Minus_One);
+    RUN_TEST(Stack_Pop_On_Empty_Stack_Should_Return_Zero_Value);
+    RUN_TEST(Stack_Peek_On_Empty_Stack_Should_Return_Zero_Value);
     RUN_TEST(Stack_Size_Should_Return_Stack_Size);
     RUN_TEST(Stack_Should_Have_LIFO_Behaviour);
 }

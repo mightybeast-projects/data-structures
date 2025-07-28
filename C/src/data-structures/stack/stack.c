@@ -5,7 +5,7 @@ typedef struct node Node;
 
 struct node
 {
-    int value;
+    StackItem value;
     Node* prev;
 };
 
@@ -40,7 +40,7 @@ int stackSize(const Stack* stack)
     return stack->size;
 }
 
-void stackPush(Stack* stack, int value)
+void stackPush(Stack* stack, StackItem value)
 {
     Node* node = malloc(sizeof(struct node));
 
@@ -54,13 +54,13 @@ void stackPush(Stack* stack, int value)
     stack->size++;
 }
 
-int stackPop(Stack* stack)
+StackItem stackPop(Stack* stack)
 {
     if (!stack->top)
-        return -1;
+        return NULL;
 
     Node* top = stack->top;
-    int value = top->value;
+    StackItem value = top->value;
 
     stack->top = top->prev;
     stack->size--;
@@ -70,10 +70,10 @@ int stackPop(Stack* stack)
     return value;
 }
 
-int stackPeek(const Stack* stack)
+StackItem stackPeek(const Stack* stack)
 {
     if (!stack->top)
-        return -1;
+        return NULL;
 
     return stack->top->value;
 }
