@@ -1,3 +1,4 @@
+#define LINKED_LIST_ITEM_TYPE int
 #include "linked-list.tests.h"
 #include "linked-list.h"
 #include "unity.h"
@@ -61,13 +62,13 @@ void Linked_List_Append_Should_Append_New_Value(void)
     TEST_ASSERT_EQUAL_INT(3, linkedListGet(linkedList, 1));
 }
 
-void Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds(
+void Linked_List_Get_Should_Return_Zero_Value_If_Passed_Index_Is_Out_Of_Bounds(
     void)
 {
     linkedListAppend(linkedList, 1);
 
-    TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, -1));
-    TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, 1));
+    TEST_ASSERT_EQUAL_INT(0, linkedListGet(linkedList, -1));
+    TEST_ASSERT_EQUAL_INT(0, linkedListGet(linkedList, 1));
 }
 
 void After_One_Prepend_Linked_List_Should_Not_Be_Empty(void)
@@ -222,7 +223,7 @@ void runLinkedListTests(void)
     RUN_TEST(Linked_List_Prepend_Should_Prepend_New_Value);
 
     RUN_TEST(
-        Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds);
+        Linked_List_Get_Should_Return_Zero_Value_If_Passed_Index_Is_Out_Of_Bounds);
 
     RUN_TEST(
         Linked_List_Remove_Should_Return_False_If_List_Does_Not_Contain_Specified_Value);

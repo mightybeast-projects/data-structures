@@ -6,7 +6,7 @@ typedef struct node Node;
 
 struct node
 {
-    int value;
+    LinkedListItem value;
     Node* prev;
     Node* next;
 };
@@ -18,7 +18,7 @@ struct linkedList
     Node* tail;
 };
 
-static Node* createNode(const int value);
+static Node* createNode(const LinkedListItem value);
 static void deleteNode(Node* node);
 static Node* getAt(const LinkedList* linkedList, int index);
 static void removeNode(LinkedList* linkedList, Node* node);
@@ -48,7 +48,7 @@ int linkedListSize(const LinkedList* linkedList)
     return linkedList->size;
 }
 
-void linkedListAppend(LinkedList* linkedList, const int value)
+void linkedListAppend(LinkedList* linkedList, const LinkedListItem value)
 {
     Node* node = createNode(value);
 
@@ -69,7 +69,7 @@ void linkedListAppend(LinkedList* linkedList, const int value)
     linkedList->size++;
 }
 
-void linkedListPrepend(LinkedList* linkedList, const int value)
+void linkedListPrepend(LinkedList* linkedList, const LinkedListItem value)
 {
     Node* node = createNode(value);
 
@@ -90,7 +90,7 @@ void linkedListPrepend(LinkedList* linkedList, const int value)
     linkedList->size++;
 }
 
-bool linkedListRemove(LinkedList* linkedList, const int value)
+bool linkedListRemove(LinkedList* linkedList, const LinkedListItem value)
 {
     Node* node = linkedList->head;
 
@@ -113,7 +113,7 @@ bool linkedListRemove(LinkedList* linkedList, const int value)
 
 void linkedListInsertAt(LinkedList* linkedList,
     const int index,
-    const int value)
+    const LinkedListItem value)
 {
     if (indexOutOfBounds(index, linkedList->size + 1))
         return;
@@ -149,10 +149,10 @@ bool linkedListRemoveAt(LinkedList* linkedList, const int index)
     return true;
 }
 
-int linkedListGet(const LinkedList* linkedList, const int index)
+LinkedListItem linkedListGet(const LinkedList* linkedList, const int index)
 {
     if (indexOutOfBounds(index, linkedList->size))
-        return -1;
+        return NULL;
 
     Node* node = getAt(linkedList, index);
 
@@ -165,7 +165,7 @@ void deleteLinkedList(LinkedList* linkedList)
     free(linkedList);
 }
 
-static Node* createNode(const int value)
+static Node* createNode(const LinkedListItem value)
 {
     Node* node = malloc(sizeof(struct node));
 
