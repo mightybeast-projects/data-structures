@@ -44,7 +44,7 @@ int linkedListSize(const LinkedList* linkedList)
     return linkedList->size;
 }
 
-void linkedListAppend(LinkedList* linkedList, int value)
+void linkedListAppend(LinkedList* linkedList, const int value)
 {
     linkedList->size++;
 
@@ -66,6 +66,31 @@ void linkedListAppend(LinkedList* linkedList, int value)
         linkedList->tail->next = node;
         node->prev = linkedList->tail;
         linkedList->tail = node;
+    }
+}
+
+void linkedListPrepend(LinkedList* linkedList, const int value)
+{
+    linkedList->size++;
+
+    Node* node = malloc(sizeof(struct node));
+
+    if (!node)
+        return NULL;
+
+    node->value = value;
+    node->prev = NULL;
+    node->next = NULL;
+
+    if (!linkedList->head)
+    {
+        linkedList->head = node;
+        linkedList->tail = node;
+    } else
+    {
+        linkedList->head->prev = node;
+        node->next = linkedList->head;
+        linkedList->head = node;
     }
 }
 

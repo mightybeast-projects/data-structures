@@ -67,6 +67,21 @@ void Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds
     TEST_ASSERT_EQUAL_INT(-1, linkedListGet(linkedList, 2));
 }
 
+void After_One_Prepend_Linked_List_Should_Not_Be_Empty()
+{
+    linkedListPrepend(linkedList, 1);
+
+    TEST_ASSERT_FALSE(linkedListIsEmpty(linkedList));
+}
+
+void Linked_List_Prepend_Should_Prepend_New_Value()
+{
+    linkedListPrepend(linkedList, 4);
+    linkedListPrepend(linkedList, 6);
+
+    TEST_ASSERT_EQUAL_INT(6, linkedListGet(linkedList, 0));
+}
+
 void runLinkedListTests(void)
 {
     RUN_TEST(Linked_List_Create_Should_Return_Newly_Created_Linked_List);
@@ -77,4 +92,6 @@ void runLinkedListTests(void)
     RUN_TEST(Linked_List_Append_Should_Append_New_Value);
     RUN_TEST(
         Linked_List_Get_Should_Return_Negative_One_If_Passed_Index_Is_Out_Of_Bounds);
+    RUN_TEST(After_One_Prepend_Linked_List_Should_Not_Be_Empty);
+    RUN_TEST(Linked_List_Prepend_Should_Prepend_New_Value);
 }
