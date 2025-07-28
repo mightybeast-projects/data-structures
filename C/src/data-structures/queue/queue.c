@@ -20,6 +20,10 @@ void deleteQueueNode(Node* node);
 Queue* createQueue(void)
 {
     Queue* queue = malloc(sizeof(struct queue));
+
+    if (!queue)
+        return NULL;
+
     queue->length = 0;
     queue->first = NULL;
 
@@ -36,7 +40,12 @@ void queueEnqueue(Queue* queue, int value)
     queue->length++;
 
     Node* node = malloc(sizeof(struct node));
+
+    if (!node)
+        return;
+
     node->value = value;
+    node->next = NULL;
 
     if (!queue->first)
         queue->first = node;
