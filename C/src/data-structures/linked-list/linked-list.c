@@ -46,8 +46,6 @@ int linkedListSize(const LinkedList* linkedList)
 
 void linkedListAppend(LinkedList* linkedList, const int value)
 {
-    linkedList->size++;
-
     Node* node = malloc(sizeof(struct node));
 
     if (!node)
@@ -67,16 +65,16 @@ void linkedListAppend(LinkedList* linkedList, const int value)
         node->prev = linkedList->tail;
         linkedList->tail = node;
     }
+
+    linkedList->size++;
 }
 
 void linkedListPrepend(LinkedList* linkedList, const int value)
 {
-    linkedList->size++;
-
     Node* node = malloc(sizeof(struct node));
 
     if (!node)
-        return NULL;
+        return;
 
     node->value = value;
     node->prev = NULL;
@@ -92,6 +90,8 @@ void linkedListPrepend(LinkedList* linkedList, const int value)
         node->next = linkedList->head;
         linkedList->head = node;
     }
+
+    linkedList->size++;
 }
 
 void linkedListRemove(LinkedList* linkedList)
@@ -101,7 +101,7 @@ void linkedListRemove(LinkedList* linkedList)
 
 int linkedListGet(const LinkedList* linkedList, const int index)
 {
-    if (index < 0 || index > linkedList->size)
+    if (index < 0 || index >= linkedList->size)
         return -1;
 
     Node* node = linkedList->head;
@@ -120,11 +120,10 @@ void deleteLinkedList(LinkedList* linkedList)
 
 void deleteLinkedListNode(Node* node)
 {
-    if (!node)
-        return;
-
-    if (node->next)
-        deleteLinkedListNode(node->next);
-
-    free(node);
+    while (node)
+    {
+        Node* next = node->next;
+        free(node);
+        node = next;
+    }
 }

@@ -39,8 +39,6 @@ bool queueIsEmpty(const Queue* queue)
 
 void queueEnqueue(Queue* queue, int value)
 {
-    queue->length++;
-
     Node* node = malloc(sizeof(struct node));
 
     if (!node)
@@ -54,12 +52,11 @@ void queueEnqueue(Queue* queue, int value)
         queue->first = node;
         queue->last = node;
     } else
-    {
-        Node* n = queue->last;
-        n->next = node;
-    }
+        queue->last->next = node;
 
     queue->last = node;
+
+    queue->length++;
 }
 
 int queueDequeue(Queue* queue)
@@ -67,12 +64,11 @@ int queueDequeue(Queue* queue)
     if (queueIsEmpty(queue))
         return -1;
 
-    queue->length--;
-
     Node* node = queue->first;
     int value = node->value;
 
     queue->first = node->next;
+    queue->length--;
 
     if (!queue->first)
         queue->last = NULL;
@@ -103,9 +99,10 @@ void deleteQueue(Queue* queue)
 
 void deleteQueueNode(Node* node)
 {
-    if (!node)
-        return;
-
-    deleteQueueNode(node->next);
-    free(node);
+    while (node)
+    {
+        Node* next = node->next;
+        free(node);
+        node = next;
+    }
 }

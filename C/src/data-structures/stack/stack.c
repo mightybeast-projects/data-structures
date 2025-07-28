@@ -86,9 +86,10 @@ void deleteStack(Stack* stack)
 
 void deleteStackNode(Node* node)
 {
-    if (!node)
-        return;
-
-    deleteStackNode(node->prev);
-    free(node);
+    while (node)
+    {
+        Node* prev = node->prev;
+        free(node);
+        node = prev;
+    }
 }
