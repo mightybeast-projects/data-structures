@@ -16,7 +16,7 @@ struct queue
     Node* last;
 };
 
-void deleteQueueNode(Node* node);
+static void deleteNode(Node* node);
 
 Queue* createQueue(void)
 {
@@ -93,11 +93,11 @@ int queueLength(const Queue* queue)
 
 void deleteQueue(Queue* queue)
 {
-    deleteQueueNode(queue->first);
+    deleteNode(queue->first);
     free(queue);
 }
 
-void deleteQueueNode(Node* node)
+static void deleteNode(Node* node)
 {
     while (node)
     {

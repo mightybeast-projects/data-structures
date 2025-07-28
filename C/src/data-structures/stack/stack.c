@@ -15,7 +15,7 @@ struct stack
     Node* top;
 };
 
-void deleteStackNode(Node* node);
+static void deleteNode(Node* node);
 
 Stack* createStack(void)
 {
@@ -80,11 +80,11 @@ int stackPeek(const Stack* stack)
 
 void deleteStack(Stack* stack)
 {
-    deleteStackNode(stack->top);
+    deleteNode(stack->top);
     free(stack);
 }
 
-void deleteStackNode(Node* node)
+static void deleteNode(Node* node)
 {
     while (node)
     {
