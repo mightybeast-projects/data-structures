@@ -1,6 +1,8 @@
 #include "binary-tree.h"
 #include "stdlib.h"
 
+static int* prepareTraverse(const BinaryTreeNode* node,
+    void* func(const BinaryTreeNode* node, int* res, int* index));
 static void traversePre(const BinaryTreeNode* node, int* res, int* index);
 static void traverseIn(const BinaryTreeNode* node, int* res, int* index);
 static void traversePost(const BinaryTreeNode* node, int* res, int* index);
@@ -21,32 +23,17 @@ BinaryTreeNode* createBinaryTreeNode(int value)
 
 int* preOrderTraverse(const BinaryTreeNode* root)
 {
-    int* res = malloc(sizeof(int) * 10);
-    int index = 0;
-
-    traversePre(root, res, &index);
-
-    return res;
+    return prepareTraverse(root, traversePre);
 }
 
 int* inOrderTraverse(const BinaryTreeNode* root)
 {
-    int* res = malloc(sizeof(int) * 10);
-    int index = 0;
-
-    traverseIn(root, res, &index);
-
-    return res;
+    return prepareTraverse(root, traverseIn);
 }
 
 int* postOrderTraverse(const BinaryTreeNode* root)
 {
-    int* res = malloc(sizeof(int) * 10);
-    int index = 0;
-
-    traversePost(root, res, &index);
-
-    return res;
+    return prepareTraverse(root, traversePost);
 }
 
 void deleteBinaryTreeNode(BinaryTreeNode* node)
@@ -61,6 +48,17 @@ void deleteBinaryTreeNode(BinaryTreeNode* node)
         deleteBinaryTreeNode(node->right);
 
     free(node);
+}
+
+static int* prepareTraverse(const BinaryTreeNode* node,
+    void* func(const BinaryTreeNode* node, int* res, int* index))
+{
+    int* res = malloc(sizeof(int) * 10);
+    int index = 0;
+
+    func(node, res, &index);
+
+    return res;
 }
 
 static void traversePre(const BinaryTreeNode* node, int* res, int* index)
