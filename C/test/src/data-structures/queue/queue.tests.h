@@ -1,3 +1,3 @@
-void queueSetUp(void);
-void queueTearDown(void);
+void setUpQueue(void);
+void tearDownQueue(void);
 void runQueueTests(void);

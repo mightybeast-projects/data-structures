@@ -5,12 +5,12 @@
 
 Queue* queue;
 
-void queueSetUp(void)
+void setUpQueue(void)
 {
     queue = createQueue();
 }
 
-void queueTearDown(void)
+void tearDownQueue(void)
 {
     deleteQueue(queue);
 }

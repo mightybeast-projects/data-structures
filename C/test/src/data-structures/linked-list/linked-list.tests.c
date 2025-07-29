@@ -5,12 +5,12 @@
 
 LinkedList* linkedList;
 
-void linkedListSetUp(void)
+void setUpLinkedList(void)
 {
     linkedList = createLinkedList();
 }
 
-void linkedListTearDown(void)
+void tearDownLinkedList(void)
 {
     deleteLinkedList(linkedList);
 }

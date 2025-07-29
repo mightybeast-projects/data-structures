@@ -1,3 +1,3 @@
-void stackSetUp(void);
-void stackTearDown(void);
+void setUpStack(void);
+void tearDownStack(void);
 void runStackTests(void);

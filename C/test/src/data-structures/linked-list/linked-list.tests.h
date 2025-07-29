@@ -1,3 +1,3 @@
-void linkedListSetUp(void);
-void linkedListTearDown(void);
+void setUpLinkedList(void);
+void tearDownLinkedList(void);
 void runLinkedListTests(void);

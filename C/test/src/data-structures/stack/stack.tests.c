@@ -5,12 +5,12 @@
 
 Stack* stack;
 
-void stackSetUp()
+void setUpStack()
 {
     stack = createStack();
 }
 
-void stackTearDown()
+void tearDownStack()
 {
     deleteStack(stack);
 }
