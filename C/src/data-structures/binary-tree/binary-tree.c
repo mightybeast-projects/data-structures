@@ -1,7 +1,8 @@
 #include "binary-tree.h"
 #include "stdlib.h"
 
-static void traverse(const BinaryTreeNode* node, int* res, int* index);
+static void traversePre(const BinaryTreeNode* node, int* res, int* index);
+static void traverseIn(const BinaryTreeNode* node, int* res, int* index);
 
 BinaryTreeNode* createBinaryTreeNode(int value)
 {
@@ -22,20 +23,41 @@ int* preOrderTraverse(const BinaryTreeNode* root)
     int* res = malloc(sizeof(int) * 10);
     int index = 0;
 
-    traverse(root, res, &index);
+    traversePre(root, res, &index);
 
     return res;
 }
 
-static void traverse(const BinaryTreeNode* node, int* res, int* index)
+int* inOrderTraverse(const BinaryTreeNode* root)
+{
+    int* res = malloc(sizeof(int) * 10);
+    int index = 0;
+
+    traverseIn(root, res, &index);
+
+    return res;
+}
+
+static void traversePre(const BinaryTreeNode* node, int* res, int* index)
 {
     res[(*index)++] = node->value;
 
     if (node->left)
-        traverse(node->left, res, index);
+        traversePre(node->left, res, index);
 
     if (node->right)
-        traverse(node->right, res, index);
+        traversePre(node->right, res, index);
+}
+
+static void traverseIn(const BinaryTreeNode* node, int* res, int* index)
+{
+    if (node->left)
+        traverseIn(node->left, res, index);
+
+    res[(*index)++] = node->value;
+
+    if (node->right)
+        traverseIn(node->right, res, index);
 }
 
 void deleteBinaryTreeNode(BinaryTreeNode* node)

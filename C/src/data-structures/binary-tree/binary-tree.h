@@ -9,4 +9,5 @@ struct binaryTreeNode
 
 BinaryTreeNode* createBinaryTreeNode(int value);
 int* preOrderTraverse(const BinaryTreeNode* root);
+int* inOrderTraverse(const BinaryTreeNode* root);
 void deleteBinaryTreeNode(BinaryTreeNode* node);
