@@ -3,6 +3,7 @@
 
 static void traversePre(const BinaryTreeNode* node, int* res, int* index);
 static void traverseIn(const BinaryTreeNode* node, int* res, int* index);
+static void traversePost(const BinaryTreeNode* node, int* res, int* index);
 
 BinaryTreeNode* createBinaryTreeNode(int value)
 {
@@ -38,6 +39,30 @@ int* inOrderTraverse(const BinaryTreeNode* root)
     return res;
 }
 
+int* postOrderTraverse(const BinaryTreeNode* root)
+{
+    int* res = malloc(sizeof(int) * 10);
+    int index = 0;
+
+    traversePost(root, res, &index);
+
+    return res;
+}
+
+void deleteBinaryTreeNode(BinaryTreeNode* node)
+{
+    if (!node)
+        return;
+
+    if (node->left)
+        deleteBinaryTreeNode(node->left);
+
+    if (node->right)
+        deleteBinaryTreeNode(node->right);
+
+    free(node);
+}
+
 static void traversePre(const BinaryTreeNode* node, int* res, int* index)
 {
     res[(*index)++] = node->value;
@@ -60,16 +85,13 @@ static void traverseIn(const BinaryTreeNode* node, int* res, int* index)
         traverseIn(node->right, res, index);
 }
 
-void deleteBinaryTreeNode(BinaryTreeNode* node)
+static void traversePost(const BinaryTreeNode* node, int* res, int* index)
 {
-    if (!node)
-        return;
-
     if (node->left)
-        deleteBinaryTreeNode(node->left);
+        traversePost(node->left, res, index);
 
     if (node->right)
-        deleteBinaryTreeNode(node->right);
+        traversePost(node->right, res, index);
 
-    free(node);
+    res[(*index)++] = node->value;
 }
