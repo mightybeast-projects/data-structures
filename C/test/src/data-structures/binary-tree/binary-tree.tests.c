@@ -29,7 +29,16 @@ void Binary_Tree_Node_Create_Should_Return_Newly_Created_Node(void)
     TEST_ASSERT_NOT_NULL(root->right->left);
 }
 
+void Binary_Tree_Pre_Order_Traverse_Should_Start_With_Leftmost_Node()
+{
+    int* actual = preOrderTraverse(root);
+    int expected[6] = { 1, 2, 4, 5, 3, 6 };
+
+    TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, 6);
+}
+
 void runBinaryTreeTests(void)
 {
     RUN_TEST(Binary_Tree_Node_Create_Should_Return_Newly_Created_Node);
+    RUN_TEST(Binary_Tree_Pre_Order_Traverse_Should_Start_With_Leftmost_Node);
 }
