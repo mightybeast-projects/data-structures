@@ -1,5 +1,6 @@
 #include "binary-tree.tests.h"
 #include "binary-tree.h"
+#include "stdlib.h"
 #include "unity.h"
 
 BinaryTreeNode* root;
@@ -35,6 +36,8 @@ void Binary_Tree_Pre_Order_Traverse_Should_Start_With_Root_Node(void)
     int expected[6] = { 1, 2, 4, 5, 3, 6 };
 
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, 6);
+
+    free(actual);
 }
 
 void Binary_Tree_In_Order_Traverse_Should_Start_With_Leftmost_Node(void)
@@ -43,6 +46,8 @@ void Binary_Tree_In_Order_Traverse_Should_Start_With_Leftmost_Node(void)
     int expected[6] = { 4, 2, 5, 1, 6, 3 };
 
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, 6);
+
+    free(actual);
 }
 
 void Binary_Tree_Post_Order_Traverse_Should_Start_With_Children_Nodes(void)
@@ -51,6 +56,18 @@ void Binary_Tree_Post_Order_Traverse_Should_Start_With_Children_Nodes(void)
     int expected[6] = { 4, 5, 2, 6, 3, 1 };
 
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, 6);
+
+    free(actual);
+}
+
+void Binary_Tree_BFS_Should_Traverse_Layer_By_Layer(void)
+{
+    int* actual = bfs(root);
+    int expected[6] = { 1, 2, 3, 4, 5, 6 };
+
+    TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, 6);
+
+    free(actual);
 }
 
 void runBinaryTreeTests(void)
@@ -59,4 +76,5 @@ void runBinaryTreeTests(void)
     RUN_TEST(Binary_Tree_Pre_Order_Traverse_Should_Start_With_Root_Node);
     RUN_TEST(Binary_Tree_In_Order_Traverse_Should_Start_With_Leftmost_Node);
     RUN_TEST(Binary_Tree_Post_Order_Traverse_Should_Start_With_Children_Nodes);
+    RUN_TEST(Binary_Tree_BFS_Should_Traverse_Layer_By_Layer);
 }

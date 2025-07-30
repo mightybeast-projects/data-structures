@@ -37,7 +37,7 @@ bool queueIsEmpty(const Queue* queue)
     return queue->length == 0;
 }
 
-void queueEnqueue(Queue* queue, QueueItem value)
+void queueEnqueue(Queue* queue, const QueueItem value)
 {
     Node* node = malloc(sizeof(struct node));
 

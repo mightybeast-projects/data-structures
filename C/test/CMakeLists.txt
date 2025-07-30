@@ -4,7 +4,6 @@ add_subdirectory(lib/unity)
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
     src/*.tests.c
-    src/algorithms/*.tests.c
 ) 
  
 add_executable(c-tests ${SOURCE_FILES})
