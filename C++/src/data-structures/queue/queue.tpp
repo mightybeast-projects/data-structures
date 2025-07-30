@@ -2,7 +2,8 @@
 
 namespace queue
 {
-    template <typename T> void Queue<T>::enqueue(T value)
+    template <typename T>
+    void Queue<T>::enqueue(T value)
     {
         length++;
 
@@ -17,7 +18,8 @@ namespace queue
         tail = node;
     }
 
-    template <typename T> T Queue<T>::dequeue()
+    template <typename T>
+    T Queue<T>::dequeue()
     {
         if (head == nullptr)
             return T();
@@ -38,7 +40,8 @@ namespace queue
         return value;
     }
 
-    template <typename T> T Queue<T>::peek()
+    template <typename T>
+    T Queue<T>::peek()
     {
         if (head == nullptr)
             return T();

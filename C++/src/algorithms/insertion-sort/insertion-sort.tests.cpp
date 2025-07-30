@@ -2,9 +2,6 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace testingUtils;
-using namespace insertionSort;
-
 TEST(Insertion_Sort, Array_Is_Sorted)
 {
     int arr[] = { 5, 2, 4, 6, 1, 3 };
@@ -12,7 +9,7 @@ TEST(Insertion_Sort, Array_Is_Sorted)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    sort(arr, arrSize);
+    insertionSort::sort(arr, arrSize);
 
-    EXPECT_EQ_ARR(arr, expected, arrSize);
+    testingUtils::EXPECT_EQ_ARR(arr, expected, arrSize);
 }

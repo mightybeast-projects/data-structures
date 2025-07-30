@@ -2,15 +2,10 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace std;
-using namespace testing;
-using namespace testingUtils;
-using namespace binaryTree;
-
-class Binary_Tree : public Test
+class Binary_Tree : public testing::Test
 {
 public:
-    BinaryTree<int> tree;
+    binaryTree::BinaryTree<int> tree;
 
     void SetUp() override
     {
@@ -25,21 +20,21 @@ public:
     }
 
 private:
-    Node<int>* buildRoot()
+    binaryTree::Node<int>* buildRoot()
     {
-        auto n4 = new Node<int> { 4 };
-        auto n5 = new Node<int> { 5 };
+        auto n4 = new binaryTree::Node<int> { 4 };
+        auto n5 = new binaryTree::Node<int> { 5 };
 
-        auto n6 = new Node<int> { 6 };
-        auto n7 = new Node<int> { 7 };
+        auto n6 = new binaryTree::Node<int> { 6 };
+        auto n7 = new binaryTree::Node<int> { 7 };
 
-        auto n2 = new Node<int> { 2, n4, n5 };
-        auto n3 = new Node<int> { 3, n6, n7 };
+        auto n2 = new binaryTree::Node<int> { 2, n4, n5 };
+        auto n3 = new binaryTree::Node<int> { 3, n6, n7 };
 
-        return new Node<int> { 1, n2, n3 };
+        return new binaryTree::Node<int> { 1, n2, n3 };
     }
 
-    void deleteNode(Node<int>* node)
+    void deleteNode(binaryTree::Node<int>* node)
     {
         if (!node)
             return;
@@ -56,18 +51,18 @@ private:
 
 TEST_F(Binary_Tree, Tree_Is_Traversable_Pre_Order)
 {
-    EXPECT_EQ_VEC(
-        tree.btPreOrderTraversal(), vector<int> { 1, 2, 4, 5, 3, 6, 7 });
+    testingUtils::EXPECT_EQ_VEC(
+        tree.btPreOrderTraversal(), std::vector<int> { 1, 2, 4, 5, 3, 6, 7 });
 }
 
 TEST_F(Binary_Tree, Tree_Is_Traversable_In_Order)
 {
-    EXPECT_EQ_VEC(
-        tree.btInOrderTraversal(), vector<int> { 4, 2, 5, 1, 6, 3, 7 });
+    testingUtils::EXPECT_EQ_VEC(
+        tree.btInOrderTraversal(), std::vector<int> { 4, 2, 5, 1, 6, 3, 7 });
 }
 
 TEST_F(Binary_Tree, Tree_Is_Traversable_Post_Order)
 {
-    EXPECT_EQ_VEC(
-        tree.btPostOrderTraversal(), vector<int> { 4, 5, 2, 6, 7, 3, 1 });
+    testingUtils::EXPECT_EQ_VEC(
+        tree.btPostOrderTraversal(), std::vector<int> { 4, 5, 2, 6, 7, 3, 1 });
 }

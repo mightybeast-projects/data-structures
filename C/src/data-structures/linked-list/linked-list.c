@@ -59,7 +59,8 @@ void linkedListAppend(LinkedList* linkedList, const LinkedListItem value)
     {
         linkedList->head = node;
         linkedList->tail = node;
-    } else
+    }
+    else
     {
         linkedList->tail->next = node;
         node->prev = linkedList->tail;
@@ -80,7 +81,8 @@ void linkedListPrepend(LinkedList* linkedList, const LinkedListItem value)
     {
         linkedList->head = node;
         linkedList->tail = node;
-    } else
+    }
+    else
     {
         linkedList->head->prev = node;
         node->next = linkedList->head;

@@ -4,7 +4,8 @@
 
 namespace btDFS
 {
-    template <typename T> struct BTDFS
+    template <typename T>
+    struct BTDFS
     {
         bool btdfs(binaryTree::BinaryTree<T> tree, T value);
 

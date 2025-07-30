@@ -2,7 +2,8 @@
 
 namespace stack
 {
-    template <typename T> struct Node
+    template <typename T>
+    struct Node
     {
         T value;
         Node<T>* prev = nullptr;
@@ -10,7 +11,8 @@ namespace stack
         Node(T val) : value(val) { };
     };
 
-    template <typename T> struct Stack
+    template <typename T>
+    struct Stack
     {
         int length = 0;
         Node<T>* head = nullptr;

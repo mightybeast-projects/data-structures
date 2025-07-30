@@ -4,9 +4,8 @@
 
 namespace btBFS
 {
-    using namespace binaryTree;
-
-    template <typename T> bool btbfs(BinaryTree<T> tree, T value)
+    template <typename T>
+    bool btbfs(binaryTree::BinaryTree<T> tree, T value)
     {
         queue::Queue<binaryTree::Node<T>> q;
         q.enqueue(*tree.root);

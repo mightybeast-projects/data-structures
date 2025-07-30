@@ -2,14 +2,11 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace testingUtils;
-using namespace minHeap;
-
 TEST(Min_Heap, Min_Heap_Is_Correct)
 {
-    MinHeap heap;
+    minHeap::MinHeap heap;
 
-    EXPECT_NULL(heap.remove());
+    testingUtils::EXPECT_NULL(heap.remove());
 
     heap.insert(5);
 

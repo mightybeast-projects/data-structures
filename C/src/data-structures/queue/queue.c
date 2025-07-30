@@ -51,7 +51,8 @@ void queueEnqueue(Queue* queue, const QueueItem value)
     {
         queue->first = node;
         queue->last = node;
-    } else
+    }
+    else
         queue->last->next = node;
 
     queue->last = node;

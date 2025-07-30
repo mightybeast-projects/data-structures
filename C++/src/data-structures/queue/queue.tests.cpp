@@ -2,16 +2,13 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace testingUtils;
-using namespace queue;
-
 TEST(Queue, Queue_Is_Correct)
 {
-    Queue<int> queue;
+    queue::Queue<int> queue;
 
     EXPECT_EQ(queue.length, 0);
-    EXPECT_NULLPTR(queue.head);
-    EXPECT_NULLPTR(queue.tail);
+    testingUtils::EXPECT_NULLPTR(queue.head);
+    testingUtils::EXPECT_NULLPTR(queue.tail);
 
     queue.enqueue(3);
 
@@ -26,7 +23,7 @@ TEST(Queue, Queue_Is_Correct)
     EXPECT_EQ(queue.head->value, 3);
     EXPECT_EQ(queue.head->next->value, 5);
     EXPECT_EQ(queue.tail->value, 7);
-    EXPECT_NULLPTR(queue.tail->next);
+    testingUtils::EXPECT_NULLPTR(queue.tail->next);
     EXPECT_EQ(queue.peek(), 3);
 
     EXPECT_EQ(queue.dequeue(), 3);
@@ -37,6 +34,6 @@ TEST(Queue, Queue_Is_Correct)
     queue.dequeue();
 
     EXPECT_EQ(queue.length, 0);
-    EXPECT_NULLPTR(queue.head);
-    EXPECT_NULLPTR(queue.tail);
+    testingUtils::EXPECT_NULLPTR(queue.head);
+    testingUtils::EXPECT_NULLPTR(queue.tail);
 }

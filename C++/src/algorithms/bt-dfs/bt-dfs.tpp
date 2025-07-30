@@ -3,14 +3,14 @@
 
 namespace btDFS
 {
-    using namespace binaryTree;
-
-    template <typename T> bool BTDFS<T>::btdfs(BinaryTree<T> tree, T value)
+    template <typename T>
+    bool BTDFS<T>::btdfs(binaryTree::BinaryTree<T> tree, T value)
     {
         return btdfsRecurse(tree.root, value);
     }
 
-    template <typename T> bool BTDFS<T>::btdfsRecurse(Node<T>* node, T value)
+    template <typename T>
+    bool BTDFS<T>::btdfsRecurse(binaryTree::Node<T>* node, T value)
     {
         if (node == nullptr)
             return false;

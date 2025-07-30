@@ -3,8 +3,6 @@
 
 namespace minHeap
 {
-    using namespace std;
-
     void MinHeap::insert(int value)
     {
         arr.push_back(value);
@@ -54,6 +52,7 @@ namespace minHeap
             heapifyUp(parentIndex);
         }
     }
+
     void MinHeap::heapifyDown(int nodeIndex)
     {
         int leftChildIndex = 2 * nodeIndex + 1;
@@ -71,7 +70,8 @@ namespace minHeap
             arr[nodeIndex] = rightChild;
             arr[rihgtChildIndex] = node;
             heapifyDown(rihgtChildIndex);
-        } else if (rightChild > leftChild && node > leftChild)
+        }
+        else if (rightChild > leftChild && node > leftChild)
         {
             arr[nodeIndex] = leftChild;
             arr[leftChildIndex] = node;

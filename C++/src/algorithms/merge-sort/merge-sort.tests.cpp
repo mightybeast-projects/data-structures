@@ -2,9 +2,6 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace testingUtils;
-using namespace mergeSort;
-
 TEST(Merge_Sort, Array_Is_Sorted)
 {
     int arr[] = { 9, 3, 799, 4, 1 };
@@ -12,7 +9,7 @@ TEST(Merge_Sort, Array_Is_Sorted)
 
     int arrSize = sizeof(arr) / sizeof(int);
 
-    sort(arr, arrSize);
+    mergeSort::sort(arr, arrSize);
 
-    EXPECT_EQ_ARR(arr, expected, arrSize);
+    testingUtils::EXPECT_EQ_ARR(arr, expected, arrSize);
 }

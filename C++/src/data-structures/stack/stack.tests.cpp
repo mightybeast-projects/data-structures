@@ -2,15 +2,12 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace testingUtils;
-using namespace stack;
-
 TEST(Stack, Stack_Is_Correct)
 {
-    Stack<int> stack;
+    stack::Stack<int> stack;
 
     EXPECT_EQ(stack.length, 0);
-    EXPECT_NULLPTR(stack.head);
+    testingUtils::EXPECT_NULLPTR(stack.head);
 
     stack.push(5);
     stack.push(7);
@@ -30,5 +27,5 @@ TEST(Stack, Stack_Is_Correct)
     stack.pop();
 
     EXPECT_EQ(stack.length, 0);
-    EXPECT_NULLPTR(stack.head);
+    testingUtils::EXPECT_NULLPTR(stack.head);
 }

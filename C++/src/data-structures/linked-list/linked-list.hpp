@@ -2,7 +2,8 @@
 
 namespace linkedList
 {
-    template <typename T> struct Node
+    template <typename T>
+    struct Node
     {
         T value;
         Node<T>* next = nullptr;
@@ -11,7 +12,8 @@ namespace linkedList
         Node(T val) : value(val) { };
     };
 
-    template <typename T> struct LinkedList
+    template <typename T>
+    struct LinkedList
     {
         Node<T>* head = nullptr;
         Node<T>* tail = nullptr;

@@ -4,14 +4,16 @@
 
 namespace binaryTree
 {
-    template <typename T> struct Node
+    template <typename T>
+    struct Node
     {
         T value;
         Node<T>* left = nullptr;
         Node<T>* right = nullptr;
     };
 
-    template <typename T> struct BinaryTree
+    template <typename T>
+    struct BinaryTree
     {
         Node<T>* root = nullptr;
         std::vector<T> btPreOrderTraversal();

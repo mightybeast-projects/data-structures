@@ -2,15 +2,12 @@
 #include "testing-utils.hpp"
 #include <gtest/gtest.h>
 
-using namespace testingUtils;
-using namespace linkedList;
-
 TEST(Linked_List, Linked_List_Is_Correct)
 {
-    LinkedList<int> list;
+    linkedList::LinkedList<int> list;
 
-    EXPECT_NULLPTR(list.head);
-    EXPECT_NULLPTR(list.tail);
+    testingUtils::EXPECT_NULLPTR(list.head);
+    testingUtils::EXPECT_NULLPTR(list.tail);
     EXPECT_EQ(list.length, 0);
 
     list.append(3);
@@ -29,13 +26,13 @@ TEST(Linked_List, Linked_List_Is_Correct)
     EXPECT_EQ(list.tail->prev->value, 5);
     EXPECT_EQ(list.tail->value, 7);
 
-    EXPECT_NULL(list.get(-1));
-    EXPECT_NULL(list.get(3));
+    testingUtils::EXPECT_NULL(list.get(-1));
+    testingUtils::EXPECT_NULL(list.get(3));
     EXPECT_EQ(list.get(1), 5);
     EXPECT_EQ(list.get(2), 7);
 
-    EXPECT_NULL(list.removeAt(-1));
-    EXPECT_NULL(list.removeAt(3));
+    testingUtils::EXPECT_NULL(list.removeAt(-1));
+    testingUtils::EXPECT_NULL(list.removeAt(3));
 
     EXPECT_EQ(list.removeAt(1), 5);
     EXPECT_EQ(list.length, 2);

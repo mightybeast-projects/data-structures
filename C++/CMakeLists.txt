@@ -19,16 +19,17 @@ enable_testing()
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
     src/**/*.cpp
-    src/**/*.hpp
 )
 
 add_executable(tests ${SOURCE_FILES})
 
-target_include_directories(tests PRIVATE
-    src/utils
-    src/data-structures/binary-tree
-    src/data-structures/queue
-)
+file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true "${CMAKE_CURRENT_SOURCE_DIR}/src/*")
+
+foreach(dir ${INCLUDE_DIRS})
+    if(IS_DIRECTORY ${dir})
+        target_include_directories(tests PUBLIC ${dir})
+    endif()
+endforeach()
 
 target_link_libraries(tests PRIVATE GTest::gtest_main)
 
