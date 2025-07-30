@@ -113,7 +113,8 @@ bool linkedListRemove(LinkedList* linkedList, const LinkedListItem value)
     return false;
 }
 
-void linkedListInsertAt(LinkedList* linkedList,
+void linkedListInsertAt(
+    LinkedList* linkedList,
     const int index,
     const LinkedListItem value)
 {

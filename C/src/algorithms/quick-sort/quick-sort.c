@@ -1,6 +1,7 @@
 #include "quick-sort.h"
 
 void quickSortRecurse(int arr[], int l, int h);
+
 int partition(int arr[], int l, int h);
 
 void quickSort(int arr[], int size)

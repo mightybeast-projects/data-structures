@@ -3,10 +3,14 @@
 #include "../queue/queue.h"
 #include "stdlib.h"
 
-static int* prepareTraverse(const BinaryTreeNode* node,
+static int* prepareTraverse(
+    const BinaryTreeNode* node,
     void func(const BinaryTreeNode* node, int* res, int* index));
+
 static void traversePre(const BinaryTreeNode* node, int* res, int* index);
+
 static void traverseIn(const BinaryTreeNode* node, int* res, int* index);
+
 static void traversePost(const BinaryTreeNode* node, int* res, int* index);
 
 BinaryTreeNode* createBinaryTreeNode(int value)
@@ -78,7 +82,8 @@ void deleteBinaryTreeNode(BinaryTreeNode* node)
     free(node);
 }
 
-static int* prepareTraverse(const BinaryTreeNode* node,
+static int* prepareTraverse(
+    const BinaryTreeNode* node,
     void func(const BinaryTreeNode* node, int* res, int* index))
 {
     int* res = malloc(sizeof(int) * 10);
